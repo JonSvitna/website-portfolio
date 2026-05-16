@@ -14,37 +14,34 @@ export default function FinalCTA() {
   return (
     <section
       id="final-cta"
-      style={{
-        background: "#0d0b08",
-        position: "relative",
-        overflow: "hidden",
-      }}
+      style={{ background: "#F5F1EB", position: "relative", overflow: "hidden" }}
     >
-      {/* Background ambient */}
+      {/* Soft ambient light top-right */}
       <div
         style={{
           position: "absolute",
-          inset: 0,
-          background: `
-            radial-gradient(ellipse 70% 80% at 80% 50%, rgba(201,168,76,0.05) 0%, transparent 60%),
-            radial-gradient(ellipse 50% 60% at 20% 80%, rgba(201,168,76,0.03) 0%, transparent 60%)
-          `,
+          top: 0,
+          right: 0,
+          width: "55%",
+          height: "100%",
+          background:
+            "radial-gradient(ellipse 90% 80% at 100% 20%, rgba(200,155,79,0.09) 0%, transparent 65%)",
           pointerEvents: "none",
         }}
       />
 
-      {/* Large watermark */}
+      {/* Large LEGACY watermark */}
       <div
         style={{
           position: "absolute",
-          top: "50%",
+          bottom: "-2%",
           left: "50%",
-          transform: "translate(-50%, -50%)",
+          transform: "translateX(-50%)",
           fontFamily: "var(--font-display)",
-          fontSize: "clamp(120px, 20vw, 280px)",
-          color: "rgba(201,168,76,0.03)",
+          fontSize: "clamp(100px, 16vw, 240px)",
+          color: "rgba(200,155,79,0.06)",
           lineHeight: 1,
-          letterSpacing: "0.02em",
+          letterSpacing: "0.04em",
           textTransform: "uppercase",
           whiteSpace: "nowrap",
           userSelect: "none",
@@ -67,42 +64,56 @@ export default function FinalCTA() {
           alignItems: "center",
         }}
       >
-        {/* Left — Photo placeholder */}
+        {/* Left — Photo */}
         <motion.div
           initial={{ opacity: 0, scale: 0.96 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 1.0, ease: [0.25, 0.1, 0.1, 1] }}
+          transition={{ duration: 1.0, ease: [0.25, 0.1, 0.1, 1] as [number, number, number, number] }}
           style={{
             position: "relative",
             aspectRatio: "4/5",
-            background: `
-              radial-gradient(ellipse 55% 65% at 45% 25%, rgba(201,168,76,0.09) 0%, transparent 55%),
-              radial-gradient(ellipse 40% 50% at 70% 80%, rgba(160,100,20,0.11) 0%, transparent 50%),
-              linear-gradient(175deg, #1c1409 0%, #130e07 50%, #0d0b08 100%)
-            `,
             overflow: "hidden",
+            background: `
+              radial-gradient(ellipse 70% 50% at 50% 5%, rgba(255,240,185,0.65) 0%, transparent 52%),
+              radial-gradient(ellipse 55% 65% at 70% 85%, rgba(175,115,40,0.2) 0%, transparent 55%),
+              linear-gradient(165deg, #DEC880 0%, #C49060 32%, #906038 62%, #5A3818 100%)
+            `,
+            border: "1px solid #D9D3CB",
           }}
         >
-          {/* Vignette */}
+          {/* Sunlight flare */}
           <div
             style={{
               position: "absolute",
-              inset: 0,
-              boxShadow: "inset 0 0 120px rgba(0,0,0,0.6)",
+              top: "-8%",
+              left: "50%",
+              transform: "translateX(-50%)",
+              width: "130%",
+              height: "50%",
+              background:
+                "radial-gradient(ellipse 60% 80% at 50% 0%, rgba(255,248,200,0.4) 0%, transparent 65%)",
             }}
           />
 
-          {/* Scanlines */}
+          {/* Film grain */}
           <div
             style={{
               position: "absolute",
               inset: 0,
               backgroundImage: `repeating-linear-gradient(
-                0deg,
-                transparent, transparent 3px,
-                rgba(255,255,255,0.008) 3px, rgba(255,255,255,0.008) 4px
+                0deg, transparent, transparent 3px,
+                rgba(255,255,255,0.013) 3px, rgba(255,255,255,0.013) 4px
               )`,
+            }}
+          />
+
+          {/* Vignette */}
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              boxShadow: "inset 0 0 100px rgba(30,15,0,0.22)",
             }}
           />
 
@@ -110,11 +121,11 @@ export default function FinalCTA() {
           <div
             style={{
               position: "absolute",
-              bottom: "-5%",
-              right: "-5%",
+              bottom: "-6%",
+              right: "-4%",
               fontFamily: "var(--font-display)",
-              fontSize: "clamp(180px, 25vw, 300px)",
-              color: "rgba(201,168,76,0.04)",
+              fontSize: "clamp(180px, 24vw, 300px)",
+              color: "rgba(255,255,255,0.06)",
               lineHeight: 1,
               userSelect: "none",
             }}
@@ -122,35 +133,37 @@ export default function FinalCTA() {
             S
           </div>
 
-          {/* Overlay label */}
+          {/* Caption bar */}
           <div
             style={{
               position: "absolute",
-              bottom: 32,
-              left: 32,
-              right: 32,
-              borderTop: "1px solid rgba(201,168,76,0.2)",
-              paddingTop: 16,
+              bottom: 24,
+              left: 24,
+              right: 24,
+              borderTop: "1px solid rgba(255,248,220,0.3)",
+              paddingTop: 14,
               display: "flex",
               alignItems: "center",
-              gap: 12,
+              gap: 10,
+              zIndex: 2,
             }}
           >
             <div
               style={{
-                width: 6,
-                height: 6,
+                width: 5,
+                height: 5,
                 borderRadius: "50%",
-                background: "#C9A84C",
+                background: "#C89B4F",
+                flexShrink: 0,
               }}
             />
             <span
               style={{
                 fontFamily: "var(--font-body)",
-                fontSize: 11,
+                fontSize: 10,
                 letterSpacing: "0.3em",
                 textTransform: "uppercase",
-                color: "rgba(250,249,247,0.4)",
+                color: "rgba(255,248,220,0.65)",
               }}
             >
               Superset Shaw — Coaching
@@ -163,7 +176,7 @@ export default function FinalCTA() {
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.9, ease: [0.25, 0.1, 0.1, 1], delay: 0.1 }}
+          transition={{ duration: 0.9, ease: [0.25, 0.1, 0.1, 1] as [number, number, number, number], delay: 0.1 }}
         >
           <p className="eyebrow" style={{ marginBottom: 20 }}>
             Start today
@@ -173,58 +186,43 @@ export default function FinalCTA() {
             style={{
               fontFamily: "var(--font-display)",
               fontSize: "clamp(44px, 6vw, 76px)",
-              lineHeight: 0.92,
+              lineHeight: 0.93,
               letterSpacing: "0.02em",
               textTransform: "uppercase",
-              marginBottom: 40,
+              color: "#1D1D1D",
+              marginBottom: 36,
             }}
           >
-            <span style={{ color: "#FAF9F7" }}>Your</span>
+            Your
             <br />
-            <span style={{ color: "#FAF9F7" }}>Transformation</span>
+            Transformation
             <br />
-            <span style={{ color: "#FAF9F7" }}>Starts</span>{" "}
-            <span
-              style={{
-                color: "#C9A84C",
-                textShadow: "0 0 60px rgba(201,168,76,0.2)",
-              }}
-            >
-              Now.
-            </span>
+            Starts{" "}
+            <span style={{ color: "#C89B4F" }}>Now.</span>
           </h2>
 
           <p
             style={{
               fontFamily: "var(--font-body)",
               fontSize: "clamp(14px, 1.5vw, 17px)",
-              color: "rgba(250,249,247,0.6)",
-              lineHeight: 1.7,
+              color: "#6B5F52",
+              lineHeight: 1.75,
               marginBottom: 36,
               maxWidth: 360,
             }}
           >
-            Discipline changed my life. Now let&apos;s change yours. Apply today and
-            take the first step toward who you were meant to be.
+            Discipline changed my life. Now let&apos;s change yours. Apply today
+            and take the first step toward who you were meant to be.
           </p>
 
           {/* Checklist */}
           <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 14,
-              marginBottom: 44,
-            }}
+            style={{ display: "flex", flexDirection: "column", gap: 14, marginBottom: 44 }}
           >
             {checklist.map((item) => (
               <div
                 key={item}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 16,
-                }}
+                style={{ display: "flex", alignItems: "center", gap: 14 }}
               >
                 {/* Gold checkmark */}
                 <div
@@ -232,7 +230,7 @@ export default function FinalCTA() {
                     width: 20,
                     height: 20,
                     flexShrink: 0,
-                    background: "#C9A84C",
+                    background: "#C89B4F",
                     clipPath:
                       "polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%)",
                   }}
@@ -241,8 +239,7 @@ export default function FinalCTA() {
                   style={{
                     fontFamily: "var(--font-body)",
                     fontSize: "clamp(14px, 1.4vw, 16px)",
-                    color: "rgba(250,249,247,0.75)",
-                    letterSpacing: "0.02em",
+                    color: "#3A3530",
                   }}
                 >
                   {item}
@@ -251,7 +248,7 @@ export default function FinalCTA() {
             ))}
           </div>
 
-          {/* Main CTA */}
+          {/* CTA Button */}
           <a
             href="https://www.instagram.com/supersetshaw"
             target="_blank"
@@ -259,9 +256,21 @@ export default function FinalCTA() {
             className="btn-gold"
             style={{ fontSize: 16, padding: "20px 44px" }}
           >
-            Apply for Coaching Today
-            <span style={{ marginLeft: 4 }}>→</span>
+            Apply for Coaching Today <span style={{ marginLeft: 4 }}>→</span>
           </a>
+
+          {/* Sub-note */}
+          <p
+            style={{
+              fontFamily: "var(--font-body)",
+              fontSize: 12,
+              color: "#A8917B",
+              marginTop: 16,
+              letterSpacing: "0.05em",
+            }}
+          >
+            Limited spots available each month.
+          </p>
         </motion.div>
       </div>
     </section>

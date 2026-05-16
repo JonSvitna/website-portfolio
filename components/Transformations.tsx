@@ -9,52 +9,56 @@ const clients = [
     loss: "-42 LBS",
     weeks: "16 Weeks",
     quote: "I lost 42 lbs and regained confidence in myself. Superset changed everything.",
-    beforeBg: "linear-gradient(175deg, #1a1510 0%, #0f0d0a 100%)",
-    afterBg: "linear-gradient(175deg, #1c1609 0%, #130f07 100%)",
+    beforeBg: "linear-gradient(175deg, #C8B898 0%, #A89878 50%, #807058 100%)",
+    afterBg: "linear-gradient(165deg, #D9C080 0%, #C4955A 45%, #8B6030 100%)",
   },
   {
     name: "Kayla M.",
     loss: "-35 LBS",
     weeks: "14 Weeks",
-    quote: '"Superset changed my mindset and my body." I finally feel like myself again.',
-    beforeBg: "linear-gradient(175deg, #181412 0%, #0e0c0a 100%)",
-    afterBg: "linear-gradient(175deg, #1a1508 0%, #110e06 100%)",
+    quote: "Superset changed my mindset and my body. I finally feel like myself again.",
+    beforeBg: "linear-gradient(175deg, #C0B0A0 0%, #A09080 50%, #787060 100%)",
+    afterBg: "linear-gradient(165deg, #D4BC78 0%, #BC8E50 45%, #845A28 100%)",
   },
   {
     name: "Derrick T.",
     loss: "-28 LBS",
     weeks: "12 Weeks",
     quote: "I have more energy, more confidence, and a new outlook on life.",
-    beforeBg: "linear-gradient(175deg, #161412 0%, #0d0b09 100%)",
-    afterBg: "linear-gradient(175deg, #191408 0%, #100d05 100%)",
+    beforeBg: "linear-gradient(175deg, #BCAC9C 0%, #9C8C7C 50%, #74685C 100%)",
+    afterBg: "linear-gradient(165deg, #D0B870 0%, #B88A48 45%, #806020 100%)",
   },
   {
     name: "Marcus W.",
     loss: "-52 LBS",
     weeks: "20 Weeks",
     quote: "The faith-based approach made the difference. This wasn't just a body change.",
-    beforeBg: "linear-gradient(175deg, #171512 0%, #0e0c0a 100%)",
-    afterBg: "linear-gradient(175deg, #1b1608 0%, #120e06 100%)",
+    beforeBg: "linear-gradient(175deg, #C4B4A4 0%, #A49484 50%, #7C6C5C 100%)",
+    afterBg: "linear-gradient(165deg, #DCBC78 0%, #C09050 45%, #887038 100%)",
   },
 ];
+
+const CARD_W = 400;
+const GAP = 20;
 
 export default function Transformations() {
   const trackRef = useRef<HTMLDivElement>(null);
   const [current, setCurrent] = useState(0);
-  const cardWidth = 420;
-  const gap = 24;
 
-  const scrollTo = (index: number) => {
-    const clamped = Math.max(0, Math.min(clients.length - 1, index));
-    setCurrent(clamped);
+  const scrollTo = (idx: number) => {
+    const next = Math.max(0, Math.min(clients.length - 1, idx));
+    setCurrent(next);
     if (trackRef.current) {
-      trackRef.current.style.transform = `translateX(-${clamped * (cardWidth + gap)}px)`;
+      trackRef.current.style.transform = `translateX(-${next * (CARD_W + GAP)}px)`;
     }
   };
 
   return (
-    <section id="transformations" style={{ background: "#0d0b08", overflow: "hidden" }}>
-      <div className="container-wide" style={{ paddingTop: "clamp(80px, 10vw, 120px)", paddingBottom: "clamp(80px, 10vw, 120px)" }}>
+    <section id="transformations" style={{ background: "#F8F6F2", overflow: "hidden" }}>
+      <div
+        className="container-wide"
+        style={{ paddingTop: "clamp(80px, 10vw, 120px)", paddingBottom: "clamp(80px, 10vw, 120px)" }}
+      >
         {/* Header */}
         <div
           style={{
@@ -81,7 +85,7 @@ export default function Transformations() {
                 fontSize: "clamp(36px, 5vw, 56px)",
                 letterSpacing: "0.03em",
                 textTransform: "uppercase",
-                color: "#FAF9F7",
+                color: "#1D1D1D",
                 lineHeight: 1,
               }}
             >
@@ -89,156 +93,133 @@ export default function Transformations() {
             </h2>
           </motion.div>
 
-          <motion.a
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.2 }}
+          <a
             href="#community"
             style={{
               fontFamily: "var(--font-body)",
               fontSize: 12,
               letterSpacing: "0.2em",
               textTransform: "uppercase",
-              color: "#C9A84C",
+              color: "#C89B4F",
               textDecoration: "none",
               display: "flex",
               alignItems: "center",
               gap: 8,
+              fontWeight: 500,
             }}
           >
-            View More Results
-            <span style={{ fontSize: 16 }}>→</span>
-          </motion.a>
+            View More Results <span style={{ fontSize: 16 }}>→</span>
+          </a>
         </div>
 
         {/* Carousel */}
-        <div style={{ position: "relative", overflow: "hidden" }}>
+        <div style={{ overflow: "hidden" }}>
           <div
             ref={trackRef}
             style={{
               display: "flex",
-              gap: `${gap}px`,
+              gap: `${GAP}px`,
               transition: "transform 0.6s cubic-bezier(0.25, 0.1, 0.1, 1)",
             }}
           >
             {clients.map((client, i) => (
               <motion.div
                 key={client.name}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 32 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: i * 0.1 }}
+                transition={{ duration: 0.7, delay: i * 0.08 }}
                 style={{
-                  minWidth: `${cardWidth}px`,
-                  background: "#161614",
-                  border: "1px solid rgba(201,168,76,0.12)",
+                  minWidth: `${CARD_W}px`,
+                  background: "#FFFFFF",
+                  border: "1px solid #E8E2D8",
+                  boxShadow: "0 4px 24px rgba(0,0,0,0.06)",
                   flexShrink: 0,
                 }}
               >
-                {/* Before / After photos */}
+                {/* Before / After */}
                 <div
                   style={{
                     display: "grid",
                     gridTemplateColumns: "1fr 1fr",
                     gap: 2,
-                    background: "#0d0b08",
+                    background: "#D9D3CB",
                   }}
                 >
-                  {/* Before */}
-                  <div
-                    style={{
-                      aspectRatio: "3/4",
-                      background: client.beforeBg,
-                      position: "relative",
-                      overflow: "hidden",
-                    }}
-                  >
-                    {/* Desaturated feel */}
+                  {[
+                    { label: "Before", bg: client.beforeBg },
+                    { label: "After", bg: client.afterBg },
+                  ].map(({ label, bg }) => (
                     <div
+                      key={label}
                       style={{
-                        position: "absolute",
-                        inset: 0,
-                        background: "rgba(13,11,8,0.3)",
-                        backdropFilter: "grayscale(0.5)",
-                      }}
-                    />
-                    <div
-                      style={{
-                        position: "absolute",
-                        inset: 0,
-                        boxShadow: "inset 0 0 60px rgba(0,0,0,0.5)",
-                      }}
-                    />
-                    <span
-                      style={{
-                        position: "absolute",
-                        bottom: 10,
-                        left: 10,
-                        fontFamily: "var(--font-body)",
-                        fontSize: 9,
-                        letterSpacing: "0.25em",
-                        textTransform: "uppercase",
-                        background: "rgba(0,0,0,0.6)",
-                        color: "rgba(250,249,247,0.6)",
-                        padding: "4px 8px",
+                        aspectRatio: "3/4",
+                        background: bg,
+                        position: "relative",
+                        overflow: "hidden",
                       }}
                     >
-                      Before
-                    </span>
-                  </div>
-
-                  {/* After */}
-                  <div
-                    style={{
-                      aspectRatio: "3/4",
-                      background: client.afterBg,
-                      position: "relative",
-                      overflow: "hidden",
-                    }}
-                  >
-                    {/* Warmer, golden feel */}
-                    <div
-                      style={{
-                        position: "absolute",
-                        inset: 0,
-                        background: "radial-gradient(ellipse 60% 70% at 50% 30%, rgba(201,168,76,0.05) 0%, transparent 60%)",
-                      }}
-                    />
-                    <div
-                      style={{
-                        position: "absolute",
-                        inset: 0,
-                        boxShadow: "inset 0 0 60px rgba(0,0,0,0.4)",
-                      }}
-                    />
-                    <span
-                      style={{
-                        position: "absolute",
-                        bottom: 10,
-                        left: 10,
-                        fontFamily: "var(--font-body)",
-                        fontSize: 9,
-                        letterSpacing: "0.25em",
-                        textTransform: "uppercase",
-                        background: "rgba(0,0,0,0.6)",
-                        color: "rgba(250,249,247,0.6)",
-                        padding: "4px 8px",
-                      }}
-                    >
-                      After
-                    </span>
-                  </div>
+                      {/* Sunlight flare on After panel */}
+                      {label === "After" && (
+                        <div
+                          style={{
+                            position: "absolute",
+                            top: "-10%",
+                            left: "50%",
+                            transform: "translateX(-50%)",
+                            width: "130%",
+                            height: "50%",
+                            background:
+                              "radial-gradient(ellipse 60% 80% at 50% 0%, rgba(255,248,200,0.3) 0%, transparent 65%)",
+                          }}
+                        />
+                      )}
+                      {/* Film grain */}
+                      <div
+                        style={{
+                          position: "absolute",
+                          inset: 0,
+                          backgroundImage: `repeating-linear-gradient(
+                            0deg, transparent, transparent 3px,
+                            rgba(255,255,255,0.014) 3px, rgba(255,255,255,0.014) 4px
+                          )`,
+                        }}
+                      />
+                      <div
+                        style={{
+                          position: "absolute",
+                          inset: 0,
+                          boxShadow: "inset 0 0 40px rgba(0,0,0,0.18)",
+                        }}
+                      />
+                      <span
+                        style={{
+                          position: "absolute",
+                          bottom: 10,
+                          left: 10,
+                          fontFamily: "var(--font-body)",
+                          fontSize: 9,
+                          letterSpacing: "0.25em",
+                          textTransform: "uppercase",
+                          background: "rgba(255,255,255,0.85)",
+                          color: "#3A3530",
+                          padding: "3px 8px",
+                          fontWeight: 600,
+                        }}
+                      >
+                        {label}
+                      </span>
+                    </div>
+                  ))}
                 </div>
 
                 {/* Card info */}
-                <div style={{ padding: "28px 28px 32px" }}>
-                  {/* Loss badge */}
+                <div style={{ padding: "24px 26px 28px" }}>
                   <div
                     style={{
                       fontFamily: "var(--font-display)",
                       fontSize: 52,
-                      color: "#C9A84C",
+                      color: "#C89B4F",
                       lineHeight: 1,
                       letterSpacing: "0.02em",
                       marginBottom: 4,
@@ -250,33 +231,29 @@ export default function Transformations() {
                   <div
                     style={{
                       fontFamily: "var(--font-body)",
-                      fontSize: 11,
-                      letterSpacing: "0.2em",
+                      fontSize: 10,
+                      letterSpacing: "0.22em",
                       textTransform: "uppercase",
-                      color: "rgba(250,249,247,0.4)",
-                      marginBottom: 20,
+                      color: "#A8917B",
+                      marginBottom: 18,
+                      fontWeight: 500,
                     }}
                   >
                     {client.weeks}
                   </div>
 
                   <div
-                    style={{
-                      width: 40,
-                      height: 1,
-                      background: "rgba(201,168,76,0.3)",
-                      marginBottom: 20,
-                    }}
+                    style={{ width: 36, height: 1, background: "#D9D3CB", marginBottom: 18 }}
                   />
 
                   <p
                     style={{
                       fontFamily: "var(--font-body)",
                       fontSize: 14,
-                      color: "rgba(250,249,247,0.6)",
+                      color: "#6B5F52",
                       lineHeight: 1.7,
                       fontStyle: "italic",
-                      marginBottom: 16,
+                      marginBottom: 14,
                     }}
                   >
                     &ldquo;{client.quote}&rdquo;
@@ -285,10 +262,11 @@ export default function Transformations() {
                   <p
                     style={{
                       fontFamily: "var(--font-body)",
-                      fontSize: 12,
-                      letterSpacing: "0.2em",
+                      fontSize: 11,
+                      letterSpacing: "0.22em",
                       textTransform: "uppercase",
-                      color: "#C9A84C",
+                      color: "#C89B4F",
+                      fontWeight: 500,
                     }}
                   >
                     — {client.name}
@@ -305,10 +283,9 @@ export default function Transformations() {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            marginTop: 36,
+            marginTop: 32,
           }}
         >
-          {/* Dots */}
           <div style={{ display: "flex", gap: 8 }}>
             {clients.map((_, i) => (
               <button
@@ -318,77 +295,54 @@ export default function Transformations() {
                   width: i === current ? 32 : 8,
                   height: 8,
                   borderRadius: 4,
-                  background: i === current ? "#C9A84C" : "rgba(201,168,76,0.25)",
+                  background: i === current ? "#C89B4F" : "#D9D3CB",
                   border: "none",
                   cursor: "pointer",
                   transition: "width 0.4s ease, background 0.4s ease",
                   padding: 0,
                 }}
-                aria-label={`Go to slide ${i + 1}`}
+                aria-label={`Slide ${i + 1}`}
               />
             ))}
           </div>
 
-          {/* Prev / Next */}
-          <div style={{ display: "flex", gap: 12 }}>
-            <button
-              onClick={() => scrollTo(current - 1)}
-              disabled={current === 0}
-              style={{
-                width: 48,
-                height: 48,
-                border: "1px solid rgba(201,168,76,0.25)",
-                background: "transparent",
-                color: current === 0 ? "rgba(250,249,247,0.2)" : "#FAF9F7",
-                cursor: current === 0 ? "not-allowed" : "pointer",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: 20,
-                transition: "border-color 0.3s ease, color 0.3s ease",
-              }}
-              onMouseEnter={(e) => {
-                if (current !== 0) {
-                  (e.currentTarget as HTMLButtonElement).style.borderColor = "#C9A84C";
-                  (e.currentTarget as HTMLButtonElement).style.color = "#C9A84C";
-                }
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(201,168,76,0.25)";
-                (e.currentTarget as HTMLButtonElement).style.color = current === 0 ? "rgba(250,249,247,0.2)" : "#FAF9F7";
-              }}
-            >
-              ←
-            </button>
-            <button
-              onClick={() => scrollTo(current + 1)}
-              disabled={current === clients.length - 1}
-              style={{
-                width: 48,
-                height: 48,
-                border: "1px solid rgba(201,168,76,0.25)",
-                background: "transparent",
-                color: current === clients.length - 1 ? "rgba(250,249,247,0.2)" : "#FAF9F7",
-                cursor: current === clients.length - 1 ? "not-allowed" : "pointer",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: 20,
-                transition: "border-color 0.3s ease, color 0.3s ease",
-              }}
-              onMouseEnter={(e) => {
-                if (current !== clients.length - 1) {
-                  (e.currentTarget as HTMLButtonElement).style.borderColor = "#C9A84C";
-                  (e.currentTarget as HTMLButtonElement).style.color = "#C9A84C";
-                }
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(201,168,76,0.25)";
-                (e.currentTarget as HTMLButtonElement).style.color = current === clients.length - 1 ? "rgba(250,249,247,0.2)" : "#FAF9F7";
-              }}
-            >
-              →
-            </button>
+          <div style={{ display: "flex", gap: 10 }}>
+            {[
+              { dir: -1, label: "←", disabled: current === 0 },
+              { dir: 1, label: "→", disabled: current === clients.length - 1 },
+            ].map(({ dir, label, disabled }) => (
+              <button
+                key={label}
+                onClick={() => scrollTo(current + dir)}
+                disabled={disabled}
+                style={{
+                  width: 44,
+                  height: 44,
+                  border: "1.5px solid",
+                  borderColor: disabled ? "#E8E2D8" : "#D9D3CB",
+                  background: "#FFFFFF",
+                  color: disabled ? "#D9D3CB" : "#1D1D1D",
+                  cursor: disabled ? "not-allowed" : "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: 18,
+                  transition: "border-color 0.3s ease, color 0.3s ease",
+                }}
+                onMouseEnter={(e) => {
+                  if (!disabled) {
+                    (e.currentTarget as HTMLButtonElement).style.borderColor = "#C89B4F";
+                    (e.currentTarget as HTMLButtonElement).style.color = "#C89B4F";
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLButtonElement).style.borderColor = disabled ? "#E8E2D8" : "#D9D3CB";
+                  (e.currentTarget as HTMLButtonElement).style.color = disabled ? "#D9D3CB" : "#1D1D1D";
+                }}
+              >
+                {label}
+              </button>
+            ))}
           </div>
         </div>
       </div>

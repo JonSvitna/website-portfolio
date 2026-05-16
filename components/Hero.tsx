@@ -2,26 +2,20 @@
 
 import { motion } from "framer-motion";
 
-const stats = [
-  { icon: "🏀", number: "100+", label: "Lives\nChanged" },
-  { icon: "✝", number: "6'6\"", label: "Former College\nAthlete" },
-  { icon: "†", number: "", label: "Faith-Driven\nCoaching" },
-  { icon: "📍", number: "", label: "Online +\nIn-Person" },
-];
-
 const container = {
   hidden: {},
-  show: {
-    transition: { staggerChildren: 0.12, delayChildren: 0.3 },
-  },
+  show: { transition: { staggerChildren: 0.14, delayChildren: 0.25 } },
 };
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 28 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: [0.25, 0.1, 0.1, 1] as [number, number, number, number] },
+    transition: {
+      duration: 0.85,
+      ease: [0.25, 0.1, 0.1, 1] as [number, number, number, number],
+    },
   },
 };
 
@@ -30,235 +24,290 @@ export default function Hero() {
     <section
       id="hero"
       style={{
-        position: "relative",
         minHeight: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "flex-end",
+        background: "#F5F1EB",
+        display: "grid",
+        gridTemplateColumns: "1fr 1fr",
         overflow: "hidden",
+        position: "relative",
       }}
     >
-      {/* Cinematic warm background — simulates golden-hour outdoor athletic photography */}
+      {/* ── LEFT PANEL — Text ── */}
       <div
         style={{
-          position: "absolute",
-          inset: 0,
-          background: `
-            radial-gradient(ellipse 50% 80% at 68% 40%, rgba(201,168,76,0.10) 0%, transparent 55%),
-            radial-gradient(ellipse 40% 70% at 72% 85%, rgba(160,100,20,0.14) 0%, transparent 50%),
-            radial-gradient(ellipse 30% 40% at 30% 20%, rgba(13,11,8,0.5) 0%, transparent 70%),
-            linear-gradient(160deg, #0d0b08 0%, #120e09 30%, #1a1409 60%, #0d0b08 100%)
-          `,
-        }}
-      />
-
-      {/* Vertical light column — simulates rim light on athlete */}
-      <div
-        style={{
-          position: "absolute",
-          top: 0,
-          right: "30%",
-          width: "1px",
-          height: "100%",
-          background:
-            "linear-gradient(to bottom, transparent 0%, rgba(201,168,76,0.06) 30%, rgba(201,168,76,0.03) 70%, transparent 100%)",
-        }}
-      />
-
-      {/* Bottom gradient — grounds the content */}
-      <div
-        style={{
-          position: "absolute",
-          bottom: 0,
-          left: 0,
-          right: 0,
-          height: "60%",
-          background:
-            "linear-gradient(to top, rgba(13,11,8,1) 0%, rgba(13,11,8,0.7) 50%, transparent 100%)",
-        }}
-      />
-
-      {/* Large ambient "SS" watermark */}
-      <div
-        style={{
-          position: "absolute",
-          right: "5%",
-          top: "50%",
-          transform: "translateY(-50%)",
-          fontFamily: "var(--font-display)",
-          fontSize: "clamp(200px, 28vw, 420px)",
-          color: "rgba(201,168,76,0.04)",
-          lineHeight: 1,
-          userSelect: "none",
-          pointerEvents: "none",
-          letterSpacing: "-0.03em",
-        }}
-      >
-        SS
-      </div>
-
-      {/* Content */}
-      <motion.div
-        variants={container}
-        initial="hidden"
-        animate="show"
-        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          padding:
+            "clamp(120px, 14vw, 180px) clamp(24px, 5vw, 80px) clamp(60px, 8vw, 100px)",
           position: "relative",
-          zIndex: 10,
-          padding: "0 clamp(20px, 5vw, 80px) clamp(60px, 8vw, 100px)",
-          maxWidth: 1400,
-          margin: "0 auto",
-          width: "100%",
+          zIndex: 2,
         }}
       >
-        {/* Eyebrow */}
-        <motion.p variants={fadeUp} className="eyebrow" style={{ marginBottom: 28 }}>
-          Faith.&nbsp; Family.&nbsp; Fitness.
-        </motion.p>
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate="show"
+          style={{ maxWidth: 560 }}
+        >
+          {/* Eyebrow */}
+          <motion.p variants={fadeUp} className="eyebrow" style={{ marginBottom: 24 }}>
+            Faith.&nbsp; Family.&nbsp; Fitness.
+          </motion.p>
 
-        {/* Headline */}
-        <motion.div variants={fadeUp} style={{ marginBottom: 28 }}>
-          <h1
-            style={{
-              fontFamily: "var(--font-display)",
-              fontSize: "clamp(64px, 10vw, 130px)",
-              lineHeight: 0.9,
-              letterSpacing: "0.02em",
-              textTransform: "uppercase",
-              margin: 0,
-            }}
-          >
-            <span style={{ display: "block", color: "#FAF9F7" }}>Discipline</span>
-            <span style={{ display: "block", color: "#FAF9F7" }}>Builds</span>
-            <span
+          {/* Headline */}
+          <motion.div variants={fadeUp}>
+            <h1
               style={{
-                display: "block",
-                color: "#C9A84C",
-                textShadow: "0 0 80px rgba(201,168,76,0.2)",
+                fontFamily: "var(--font-display)",
+                fontSize: "clamp(68px, 9vw, 120px)",
+                lineHeight: 0.9,
+                letterSpacing: "0.01em",
+                textTransform: "uppercase",
+                color: "#1D1D1D",
+                margin: "0 0 28px",
               }}
             >
-              Legacy
-            </span>
-          </h1>
-        </motion.div>
-
-        {/* Subtext */}
-        <motion.p
-          variants={fadeUp}
-          style={{
-            fontFamily: "var(--font-body)",
-            fontSize: "clamp(15px, 1.8vw, 18px)",
-            color: "rgba(250,249,247,0.7)",
-            maxWidth: 420,
-            lineHeight: 1.7,
-            marginBottom: 40,
-          }}
-        >
-          I help everyday people transform their body, mindset, and life through
-          proven coaching and accountability.
-        </motion.p>
-
-        {/* CTAs */}
-        <motion.div
-          variants={fadeUp}
-          style={{ display: "flex", gap: 16, flexWrap: "wrap", marginBottom: 60 }}
-        >
-          <a href="#final-cta" className="btn-gold">
-            Start Your Transformation
-          </a>
-          <a href="#transformations" className="btn-outline">
-            View Client Wins
-          </a>
-        </motion.div>
-
-        {/* Stat badges */}
-        <motion.div
-          variants={fadeUp}
-          style={{
-            borderTop: "1px solid rgba(201,168,76,0.2)",
-            paddingTop: 28,
-            display: "flex",
-            gap: "clamp(24px, 4vw, 56px)",
-            flexWrap: "wrap",
-          }}
-        >
-          {[
-            { icon: "🏀", label: "Former\nCollege Athlete" },
-            { icon: "💯", label: "100+\nLives Changed" },
-            { icon: "✝", label: "Faith-Driven\nCoaching" },
-            { icon: "📍", label: "Online +\nIn-Person" },
-          ].map((stat) => (
-            <div
-              key={stat.label}
-              style={{ display: "flex", alignItems: "center", gap: 14 }}
-            >
-              <span style={{ fontSize: 22, opacity: 0.9, color: "#C9A84C" }}>
-                {stat.icon}
-              </span>
+              Discipline
+              <br />
+              Builds
+              <br />
               <span
                 style={{
-                  fontFamily: "var(--font-body)",
-                  fontSize: 11,
-                  letterSpacing: "0.18em",
-                  textTransform: "uppercase",
-                  color: "rgba(250,249,247,0.55)",
-                  lineHeight: 1.4,
-                  whiteSpace: "pre-line",
+                  color: "#C89B4F",
                 }}
               >
-                {stat.label}
+                Legacy
               </span>
-            </div>
-          ))}
-        </motion.div>
-      </motion.div>
+            </h1>
+          </motion.div>
 
-      {/* Signature overlay — top right */}
-      <div
-        style={{
-          position: "absolute",
-          top: "clamp(100px, 14vw, 180px)",
-          right: "clamp(20px, 5vw, 80px)",
-          textAlign: "right",
-          zIndex: 10,
-        }}
-      >
+          {/* Body */}
+          <motion.p
+            variants={fadeUp}
+            style={{
+              fontFamily: "var(--font-body)",
+              fontSize: "clamp(15px, 1.6vw, 18px)",
+              color: "#6B5F52",
+              lineHeight: 1.75,
+              marginBottom: 40,
+              maxWidth: 400,
+            }}
+          >
+            I help everyday people transform their body, mindset, and life
+            through proven coaching and accountability.
+          </motion.p>
+
+          {/* CTAs */}
+          <motion.div
+            variants={fadeUp}
+            style={{ display: "flex", gap: 14, flexWrap: "wrap", marginBottom: 56 }}
+          >
+            <a href="#final-cta" className="btn-gold">
+              Start Your Transformation
+            </a>
+            <a href="#transformations" className="btn-outline">
+              View Client Wins
+            </a>
+          </motion.div>
+
+          {/* Stat strip */}
+          <motion.div
+            variants={fadeUp}
+            style={{
+              borderTop: "1px solid #D9D3CB",
+              paddingTop: 28,
+              display: "flex",
+              gap: "clamp(20px, 4vw, 44px)",
+              flexWrap: "wrap",
+            }}
+          >
+            {[
+              { icon: "🏀", label: "Former\nCollege Athlete" },
+              { icon: "💯", label: "100+\nLives Changed" },
+              { icon: "✝", label: "Faith-Driven\nCoach" },
+              { icon: "📍", label: "Online &\nIn-Person" },
+            ].map((s) => (
+              <div
+                key={s.label}
+                style={{ display: "flex", alignItems: "center", gap: 10 }}
+              >
+                <span style={{ fontSize: 20 }}>{s.icon}</span>
+                <span
+                  style={{
+                    fontFamily: "var(--font-body)",
+                    fontSize: 10,
+                    letterSpacing: "0.15em",
+                    textTransform: "uppercase",
+                    color: "#A8917B",
+                    lineHeight: 1.45,
+                    whiteSpace: "pre-line",
+                    fontWeight: 500,
+                  }}
+                >
+                  {s.label}
+                </span>
+              </div>
+            ))}
+          </motion.div>
+        </motion.div>
+
+        {/* Decorative vertical text */}
         <div
           style={{
-            fontFamily: "Georgia, 'Times New Roman', serif",
-            fontStyle: "italic",
-            fontSize: "clamp(22px, 3.5vw, 42px)",
-            color: "rgba(250,249,247,0.85)",
-            letterSpacing: "0.02em",
-            marginBottom: 8,
-          }}
-        >
-          Superset Shaw
-        </div>
-        <div
-          style={{
+            position: "absolute",
+            right: 20,
+            top: "50%",
+            transform: "translateY(-50%) rotate(90deg)",
             fontFamily: "var(--font-body)",
-            fontSize: 11,
-            letterSpacing: "0.3em",
+            fontSize: 9,
+            letterSpacing: "0.5em",
             textTransform: "uppercase",
-            color: "#C9A84C",
+            color: "#D9D3CB",
+            whiteSpace: "nowrap",
+            userSelect: "none",
           }}
         >
-          6&apos;6&quot; &nbsp;|&nbsp; Former College Athlete
-        </div>
-        <div
-          style={{
-            fontFamily: "var(--font-body)",
-            fontSize: 11,
-            letterSpacing: "0.3em",
-            textTransform: "uppercase",
-            color: "rgba(250,249,247,0.4)",
-            marginTop: 4,
-          }}
-        >
-          Faith-Driven Coach
+          Superset Shaw — Transformational Fitness
         </div>
       </div>
+
+      {/* ── RIGHT PANEL — Cinematic photo simulation ── */}
+      <motion.div
+        initial={{ opacity: 0, scale: 1.04 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.4, ease: [0.25, 0.1, 0.1, 1] as [number, number, number, number] }}
+        style={{
+          position: "relative",
+          overflow: "hidden",
+          minHeight: "100vh",
+        }}
+      >
+        {/* Main warm sunrise background */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: `
+              radial-gradient(ellipse 80% 60% at 50% 5%, rgba(255, 243, 190, 0.7) 0%, transparent 50%),
+              radial-gradient(ellipse 60% 50% at 80% 60%, rgba(180, 120, 45, 0.25) 0%, transparent 55%),
+              radial-gradient(ellipse 50% 60% at 20% 80%, rgba(100, 60, 20, 0.2) 0%, transparent 55%),
+              linear-gradient(165deg, #E2C88A 0%, #C9965C 28%, #9A6630 58%, #6B4218 82%, #3E2408 100%)
+            `,
+          }}
+        />
+
+        {/* Sunlight flare — top center */}
+        <div
+          style={{
+            position: "absolute",
+            top: "-10%",
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: "140%",
+            height: "55%",
+            background:
+              "radial-gradient(ellipse 60% 90% at 50% 0%, rgba(255, 248, 220, 0.55) 0%, transparent 65%)",
+            pointerEvents: "none",
+          }}
+        />
+
+        {/* Film grain on the photo */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage: `repeating-linear-gradient(
+              0deg,
+              transparent,
+              transparent 3px,
+              rgba(255,255,255,0.014) 3px,
+              rgba(255,255,255,0.014) 4px
+            )`,
+            pointerEvents: "none",
+          }}
+        />
+
+        {/* Warm-to-page-background gradient at left edge — blends into panel */}
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "18%",
+            height: "100%",
+            background:
+              "linear-gradient(to right, #F5F1EB 0%, transparent 100%)",
+            pointerEvents: "none",
+            zIndex: 2,
+          }}
+        />
+
+        {/* Vignette */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            boxShadow: "inset 0 0 120px rgba(30, 15, 0, 0.25)",
+            pointerEvents: "none",
+          }}
+        />
+
+        {/* Signature overlay */}
+        <div
+          style={{
+            position: "absolute",
+            bottom: "clamp(32px, 5vw, 60px)",
+            right: "clamp(24px, 4vw, 48px)",
+            textAlign: "right",
+            zIndex: 3,
+          }}
+        >
+          <div
+            style={{
+              fontFamily: "Georgia, 'Times New Roman', serif",
+              fontStyle: "italic",
+              fontSize: "clamp(22px, 3vw, 36px)",
+              color: "rgba(255,248,230,0.9)",
+              letterSpacing: "0.02em",
+              marginBottom: 6,
+              textShadow: "0 2px 12px rgba(0,0,0,0.2)",
+            }}
+          >
+            Superset Shaw
+          </div>
+          <div
+            style={{
+              fontFamily: "var(--font-body)",
+              fontSize: 11,
+              letterSpacing: "0.3em",
+              textTransform: "uppercase",
+              color: "rgba(255,240,200,0.75)",
+            }}
+          >
+            6&apos;6&quot; &nbsp;|&nbsp; Faith-Driven Coach
+          </div>
+        </div>
+
+        {/* Large watermark SS */}
+        <div
+          style={{
+            position: "absolute",
+            bottom: "-5%",
+            right: "-5%",
+            fontFamily: "var(--font-display)",
+            fontSize: "clamp(160px, 22vw, 300px)",
+            color: "rgba(255,255,255,0.05)",
+            lineHeight: 1,
+            userSelect: "none",
+            pointerEvents: "none",
+            letterSpacing: "-0.02em",
+            zIndex: 1,
+          }}
+        >
+          SS
+        </div>
+      </motion.div>
     </section>
   );
 }
