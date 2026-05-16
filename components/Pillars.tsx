@@ -11,16 +11,16 @@ const pillars = [
     subtitle: "The Foundation",
     description:
       "Faith creates discipline when motivation disappears. Every rep, every sacrifice, every win starts from a place of purpose greater than yourself.",
-    bg: `
-      radial-gradient(ellipse 60% 70% at 40% 20%, rgba(100,130,180,0.10) 0%, transparent 55%),
-      radial-gradient(ellipse 50% 60% at 70% 80%, rgba(50,80,130,0.08) 0%, transparent 55%),
-      linear-gradient(170deg, #0d1117 0%, #111820 55%, #0a0e14 100%)
+    photoBg: `
+      radial-gradient(ellipse 75% 55% at 50% 8%, rgba(195, 220, 255, 0.55) 0%, transparent 52%),
+      radial-gradient(ellipse 55% 65% at 30% 85%, rgba(200, 155, 79, 0.18) 0%, transparent 55%),
+      linear-gradient(168deg, #B8CDE0 0%, #8BAAC8 32%, #547090 62%, #2A4A68 100%)
     `,
-    iconColor: "rgba(180, 200, 240, 0.8)",
+    accentColor: "rgba(170, 200, 235, 0.9)",
     icon: (
-      <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-        <line x1="18" y1="4" x2="18" y2="32" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
-        <line x1="8" y1="14" x2="28" y2="14" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <line x1="16" y1="3" x2="16" y2="29" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
+        <line x1="7" y1="12" x2="25" y2="12" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
       </svg>
     ),
   },
@@ -31,20 +31,20 @@ const pillars = [
     subtitle: "Your Why",
     description:
       "Your transformation should inspire the people around you. When you win, your family wins. Build a legacy they can inherit.",
-    bg: `
-      radial-gradient(ellipse 55% 65% at 45% 25%, rgba(201,168,76,0.10) 0%, transparent 55%),
-      radial-gradient(ellipse 40% 55% at 65% 85%, rgba(160,100,20,0.12) 0%, transparent 50%),
-      linear-gradient(170deg, #150f08 0%, #1c1208 55%, #100c06 100%)
+    photoBg: `
+      radial-gradient(ellipse 70% 50% at 50% 5%, rgba(255, 240, 185, 0.65) 0%, transparent 52%),
+      radial-gradient(ellipse 55% 65% at 70% 85%, rgba(180, 115, 40, 0.22) 0%, transparent 55%),
+      linear-gradient(165deg, #E0C88A 0%, #C4955A 33%, #906030 62%, #5A3A14 100%)
     `,
-    iconColor: "rgba(201, 168, 76, 0.8)",
+    accentColor: "rgba(240, 215, 150, 0.9)",
     icon: (
-      <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-        <circle cx="18" cy="10" r="5" stroke="currentColor" strokeWidth="2"/>
-        <circle cx="9" cy="14" r="3.5" stroke="currentColor" strokeWidth="2"/>
-        <circle cx="27" cy="14" r="3.5" stroke="currentColor" strokeWidth="2"/>
-        <path d="M2 30c0-5 3-8 7-8s7 3 7 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-        <path d="M20 26c0-1 3-4 7-4s7 3 7 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-        <path d="M9 30c0-7 4-10 9-10s9 3 9 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+        <circle cx="16" cy="9" r="4.5" />
+        <circle cx="8" cy="13" r="3" />
+        <circle cx="24" cy="13" r="3" />
+        <path d="M2 28c0-4.5 2.5-7.5 6-7.5s6.5 2.5 8 4.5" />
+        <path d="M18 25c1.5-2 4.5-4.5 8-4.5s6 3 6 7.5" />
+        <path d="M8 28c0-6 3.5-9 8-9s8 3 8 9" />
       </svg>
     ),
   },
@@ -55,19 +55,19 @@ const pillars = [
     subtitle: "The Vehicle",
     description:
       "Fitness is the vehicle that unlocks confidence, structure, and longevity. The body you build reflects the discipline you carry.",
-    bg: `
-      radial-gradient(ellipse 55% 65% at 50% 20%, rgba(80,160,100,0.07) 0%, transparent 55%),
-      radial-gradient(ellipse 40% 50% at 40% 80%, rgba(40,100,60,0.08) 0%, transparent 50%),
-      linear-gradient(170deg, #080e0a 0%, #0d150f 55%, #080b09 100%)
+    photoBg: `
+      radial-gradient(ellipse 65% 50% at 50% 8%, rgba(215, 235, 215, 0.55) 0%, transparent 52%),
+      radial-gradient(ellipse 50% 65% at 60% 85%, rgba(100, 160, 80, 0.15) 0%, transparent 55%),
+      linear-gradient(165deg, #C0D4B0 0%, #8DAE78 32%, #5A8040 62%, #2E5418 100%)
     `,
-    iconColor: "rgba(150, 200, 160, 0.8)",
+    accentColor: "rgba(190, 220, 170, 0.9)",
     icon: (
-      <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-        <rect x="1" y="15" width="6" height="6" rx="2" stroke="currentColor" strokeWidth="2"/>
-        <rect x="29" y="15" width="6" height="6" rx="2" stroke="currentColor" strokeWidth="2"/>
-        <rect x="7" y="12" width="5" height="12" rx="2" stroke="currentColor" strokeWidth="2"/>
-        <rect x="24" y="12" width="5" height="12" rx="2" stroke="currentColor" strokeWidth="2"/>
-        <line x1="12" y1="18" x2="24" y2="18" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <rect x="0.5" y="14" width="5.5" height="4" rx="1.5" stroke="currentColor" strokeWidth="1.8" />
+        <rect x="26" y="14" width="5.5" height="4" rx="1.5" stroke="currentColor" strokeWidth="1.8" />
+        <rect x="6" y="11" width="4.5" height="10" rx="1.5" stroke="currentColor" strokeWidth="1.8" />
+        <rect x="21.5" y="11" width="4.5" height="10" rx="1.5" stroke="currentColor" strokeWidth="1.8" />
+        <line x1="10.5" y1="16" x2="21.5" y2="16" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
       </svg>
     ),
   },
@@ -77,39 +77,57 @@ export default function Pillars() {
   const [hovered, setHovered] = useState<string | null>(null);
 
   return (
-    <section id="pillars" style={{ background: "#0d0b08" }}>
-      {/* Section header */}
+    <section id="pillars" style={{ background: "#F5F1EB" }}>
+      {/* Header */}
       <div
         style={{
           textAlign: "center",
-          padding: "clamp(60px, 8vw, 100px) clamp(20px, 5vw, 80px) clamp(40px, 5vw, 60px)",
+          padding:
+            "clamp(64px, 9vw, 112px) clamp(20px, 5vw, 80px) clamp(48px, 6vw, 72px)",
         }}
       >
         <motion.p
           className="eyebrow"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          style={{ marginBottom: 16 }}
+          style={{ marginBottom: 14 }}
         >
           Built on three pillars
         </motion.p>
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.1 }}
           style={{
             fontFamily: "var(--font-display)",
-            fontSize: "clamp(36px, 5vw, 56px)",
+            fontSize: "clamp(38px, 5.5vw, 60px)",
             letterSpacing: "0.04em",
             textTransform: "uppercase",
-            color: "#FAF9F7",
+            color: "#1D1D1D",
+            marginBottom: 16,
           }}
         >
           The 3 Pillars
         </motion.h2>
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          style={{
+            fontFamily: "var(--font-body)",
+            fontSize: "clamp(14px, 1.4vw, 16px)",
+            color: "#A8917B",
+            maxWidth: 420,
+            margin: "0 auto",
+            lineHeight: 1.7,
+          }}
+        >
+          Every transformation is rooted in these three non-negotiables.
+        </motion.p>
       </div>
 
       {/* Pillars grid */}
@@ -117,147 +135,155 @@ export default function Pillars() {
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(3, 1fr)",
+          gap: 2,
+          background: "#D9D3CB",
+          margin: "0 clamp(20px, 4vw, 60px)",
+          marginBottom: "clamp(64px, 9vw, 112px)",
         }}
-        className="grid-cols-1 md:grid-cols-3"
       >
         {pillars.map((pillar, i) => (
           <motion.article
             key={pillar.id}
-            initial={{ opacity: 0, y: 60 }}
+            initial={{ opacity: 0, y: 48 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 1.0, ease: [0.25, 0.1, 0.1, 1], delay: i * 0.15 }}
+            transition={{ duration: 0.9, ease: [0.25, 0.1, 0.1, 1] as [number, number, number, number], delay: i * 0.14 }}
             onMouseEnter={() => setHovered(pillar.id)}
             onMouseLeave={() => setHovered(null)}
             style={{
               position: "relative",
-              height: "clamp(420px, 55vw, 600px)",
+              height: "clamp(440px, 58vw, 620px)",
               overflow: "hidden",
               cursor: "pointer",
             }}
           >
-            {/* Background image simulation */}
+            {/* Photo simulation */}
             <div
               style={{
                 position: "absolute",
                 inset: 0,
-                background: pillar.bg,
+                background: pillar.photoBg,
                 transform: hovered === pillar.id ? "scale(1.04)" : "scale(1)",
                 transition: "transform 0.8s cubic-bezier(0.25, 0.1, 0.1, 1)",
               }}
             />
 
-            {/* Scanline texture */}
+            {/* Film grain */}
             <div
               style={{
                 position: "absolute",
                 inset: 0,
                 backgroundImage: `repeating-linear-gradient(
-                  0deg,
-                  transparent,
-                  transparent 3px,
-                  rgba(255,255,255,0.006) 3px,
-                  rgba(255,255,255,0.006) 4px
+                  0deg, transparent, transparent 3px,
+                  rgba(255,255,255,0.012) 3px, rgba(255,255,255,0.012) 4px
                 )`,
                 pointerEvents: "none",
               }}
             />
 
-            {/* Dark overlay from bottom */}
+            {/* Sunlight from top */}
             <div
               style={{
                 position: "absolute",
-                inset: 0,
+                top: "-5%",
+                left: "50%",
+                transform: "translateX(-50%)",
+                width: "120%",
+                height: "45%",
                 background:
-                  "linear-gradient(to top, rgba(13,11,8,0.97) 0%, rgba(13,11,8,0.6) 40%, rgba(13,11,8,0.15) 75%)",
-                transition: "opacity 0.5s ease",
-                opacity: hovered === pillar.id ? 0.88 : 1,
+                  "radial-gradient(ellipse 60% 80% at 50% 0%, rgba(255,248,220,0.35) 0%, transparent 65%)",
+                pointerEvents: "none",
               }}
             />
 
-            {/* Large number */}
-            <div
-              style={{
-                position: "absolute",
-                top: 20,
-                right: 20,
-                fontFamily: "var(--font-display)",
-                fontSize: 72,
-                lineHeight: 1,
-                color: "rgba(201,168,76,0.10)",
-                userSelect: "none",
-              }}
-            >
-              {pillar.number}
-            </div>
-
-            {/* Content — bottom */}
+            {/* Bottom white gradient — bleeds into page */}
             <div
               style={{
                 position: "absolute",
                 bottom: 0,
                 left: 0,
                 right: 0,
-                padding: "40px 36px",
+                height: "45%",
+                background:
+                  "linear-gradient(to top, rgba(245,241,235,0.95) 0%, rgba(245,241,235,0.6) 40%, transparent 100%)",
+                transition: "opacity 0.4s ease",
+              }}
+            />
+
+            {/* Number */}
+            <div
+              style={{
+                position: "absolute",
+                top: 20,
+                right: 20,
+                fontFamily: "var(--font-display)",
+                fontSize: 60,
+                lineHeight: 1,
+                color: "rgba(255,255,255,0.18)",
+                userSelect: "none",
+              }}
+            >
+              {pillar.number}
+            </div>
+
+            {/* Content */}
+            <div
+              style={{
+                position: "absolute",
+                bottom: 0,
+                left: 0,
+                right: 0,
+                padding: "32px 32px 36px",
                 zIndex: 2,
               }}
             >
               {/* Icon */}
-              <div
-                style={{
-                  color: pillar.iconColor,
-                  marginBottom: 20,
-                }}
-              >
+              <div style={{ color: pillar.accentColor, marginBottom: 14 }}>
                 {pillar.icon}
               </div>
 
-              {/* Title */}
               <h3
                 style={{
                   fontFamily: "var(--font-display)",
                   fontSize: "clamp(36px, 4.5vw, 52px)",
-                  letterSpacing: "0.05em",
+                  letterSpacing: "0.04em",
                   textTransform: "uppercase",
-                  color: "#FAF9F7",
+                  color: "#1D1D1D",
                   lineHeight: 1,
-                  marginBottom: 8,
+                  marginBottom: 6,
                 }}
               >
                 {pillar.title}
               </h3>
 
-              {/* Subtitle */}
               <p
                 style={{
                   fontFamily: "var(--font-body)",
-                  fontSize: 11,
+                  fontSize: 10,
                   letterSpacing: "0.3em",
                   textTransform: "uppercase",
-                  color: "#C9A84C",
-                  marginBottom: 16,
+                  color: "#C89B4F",
+                  marginBottom: 14,
+                  fontWeight: 500,
                 }}
               >
                 {pillar.subtitle}
               </p>
 
-              {/* Description */}
               <p
                 style={{
                   fontFamily: "var(--font-body)",
-                  fontSize: "clamp(13px, 1.4vw, 15px)",
-                  color: "rgba(250,249,247,0.65)",
+                  fontSize: "clamp(13px, 1.3vw, 15px)",
+                  color: "#3A3530",
                   lineHeight: 1.65,
-                  maxWidth: 320,
-                  opacity: hovered === pillar.id ? 1 : 0.85,
-                  transition: "opacity 0.4s ease",
+                  maxWidth: 300,
                 }}
               >
                 {pillar.description}
               </p>
             </div>
 
-            {/* Gold left border on hover */}
+            {/* Gold left accent on hover */}
             <div
               style={{
                 position: "absolute",
@@ -265,8 +291,8 @@ export default function Pillars() {
                 top: 0,
                 width: 3,
                 height: hovered === pillar.id ? "100%" : "0%",
-                background: "#C9A84C",
-                transition: "height 0.6s cubic-bezier(0.25, 0.1, 0.1, 1)",
+                background: "#C89B4F",
+                transition: "height 0.55s cubic-bezier(0.25, 0.1, 0.1, 1)",
               }}
             />
           </motion.article>

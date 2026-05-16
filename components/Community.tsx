@@ -6,38 +6,19 @@ export default function Community() {
   return (
     <section
       id="community"
-      style={{
-        background: "#111009",
-        position: "relative",
-        overflow: "hidden",
-      }}
+      style={{ background: "#F8F6F2", position: "relative", overflow: "hidden" }}
     >
-      {/* Ambient glow */}
+      {/* Decorative large number watermark */}
       <div
         style={{
           position: "absolute",
-          bottom: 0,
-          left: "50%",
-          transform: "translateX(-50%)",
-          width: "80%",
-          height: "50%",
-          background:
-            "radial-gradient(ellipse 100% 100% at 50% 100%, rgba(201,168,76,0.06) 0%, transparent 70%)",
-          pointerEvents: "none",
-        }}
-      />
-
-      {/* Large ambient number */}
-      <div
-        style={{
-          position: "absolute",
-          right: "-5%",
+          right: "-3%",
           top: "50%",
           transform: "translateY(-50%)",
           fontFamily: "var(--font-display)",
-          fontSize: "clamp(150px, 22vw, 320px)",
+          fontSize: "clamp(160px, 22vw, 340px)",
           lineHeight: 1,
-          color: "rgba(201,168,76,0.04)",
+          color: "rgba(200,155,79,0.06)",
           userSelect: "none",
           pointerEvents: "none",
           letterSpacing: "-0.02em",
@@ -45,6 +26,20 @@ export default function Community() {
       >
         500+
       </div>
+
+      {/* Warm ambient glow */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          height: "40%",
+          background:
+            "radial-gradient(ellipse 80% 100% at 30% 0%, rgba(200,155,79,0.07) 0%, transparent 65%)",
+          pointerEvents: "none",
+        }}
+      />
 
       <div
         className="container-wide"
@@ -64,10 +59,10 @@ export default function Community() {
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: [0.25, 0.1, 0.1, 1] }}
+          transition={{ duration: 0.85, ease: [0.25, 0.1, 0.1, 1] as [number, number, number, number] }}
         >
           <p className="eyebrow" style={{ marginBottom: 16 }}>
-            The brotherhood
+            The Brotherhood
           </p>
 
           <div className="gold-line" style={{ marginBottom: 32 }} />
@@ -79,7 +74,7 @@ export default function Community() {
               lineHeight: 0.95,
               letterSpacing: "0.02em",
               textTransform: "uppercase",
-              color: "#FAF9F7",
+              color: "#1D1D1D",
               marginBottom: 28,
             }}
           >
@@ -87,25 +82,30 @@ export default function Community() {
             <br />
             Doing This
             <br />
-            <span style={{ color: "#C9A84C" }}>Alone.</span>
+            <span style={{ color: "#C89B4F" }}>Alone.</span>
           </h2>
 
           <p
             style={{
               fontFamily: "var(--font-body)",
-              fontSize: "clamp(14px, 1.6vw, 17px)",
-              color: "rgba(250,249,247,0.6)",
-              lineHeight: 1.75,
+              fontSize: "clamp(14px, 1.5vw, 17px)",
+              color: "#6B5F52",
+              lineHeight: 1.8,
               maxWidth: 380,
               marginBottom: 40,
             }}
           >
-            Join a community of driven individuals who are committed to becoming
-            their best — mentally, physically, and spiritually. Accountability,
+            Join a community of driven individuals committed to becoming their
+            best — mentally, physically, and spiritually. Accountability,
             brotherhood, and faith in every step.
           </p>
 
-          <a href="https://www.instagram.com/supersetshaw" target="_blank" rel="noopener noreferrer" className="btn-gold">
+          <a
+            href="https://www.instagram.com/supersetshaw"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-gold"
+          >
             Join the Community
           </a>
         </motion.div>
@@ -115,19 +115,27 @@ export default function Community() {
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: [0.25, 0.1, 0.1, 1], delay: 0.15 }}
+          transition={{ duration: 0.85, ease: [0.25, 0.1, 0.1, 1] as [number, number, number, number], delay: 0.14 }}
           style={{
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
-            gap: 3,
+            gap: 8,
           }}
         >
           {[
-            "linear-gradient(145deg, #1c1409 0%, #130e07 100%)",
-            "linear-gradient(145deg, #0d1117 0%, #0f1420 100%)",
-            "linear-gradient(145deg, #0e1208 0%, #0b0f06 100%)",
-            "linear-gradient(145deg, #150f08 0%, #0f0b05 100%)",
-          ].map((bg, i) => (
+            {
+              bg: `radial-gradient(ellipse 70% 50% at 50% 5%, rgba(255,240,185,0.6) 0%, transparent 52%), linear-gradient(165deg, #D9C070 0%, #B88C48 40%, #7A5C20 80%, #4A3808 100%)`,
+            },
+            {
+              bg: `radial-gradient(ellipse 70% 45% at 50% 0%, rgba(195,215,250,0.5) 0%, transparent 50%), linear-gradient(168deg, #B8CCE0 0%, #8898C0 40%, #5060A0 80%, #283878 100%)`,
+            },
+            {
+              bg: `radial-gradient(ellipse 70% 45% at 50% 0%, rgba(215,235,210,0.55) 0%, transparent 50%), linear-gradient(165deg, #B8CCA0 0%, #88A870 40%, #587838 80%, #304818 100%)`,
+            },
+            {
+              bg: `radial-gradient(ellipse 70% 45% at 50% 0%, rgba(255,235,195,0.55) 0%, transparent 50%), linear-gradient(165deg, #D0B888 0%, #A88050 40%, #785028 80%, #483008 100%)`,
+            },
+          ].map(({ bg }, i) => (
             <div
               key={i}
               style={{
@@ -135,38 +143,50 @@ export default function Community() {
                 background: bg,
                 position: "relative",
                 overflow: "hidden",
+                border: "1px solid #E8E2D8",
               }}
             >
+              {/* Sunlight flare */}
               <div
                 style={{
                   position: "absolute",
-                  inset: 0,
-                  boxShadow: "inset 0 0 40px rgba(0,0,0,0.5)",
+                  top: "-10%",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  width: "130%",
+                  height: "50%",
+                  background:
+                    "radial-gradient(ellipse 60% 80% at 50% 0%, rgba(255,248,220,0.3) 0%, transparent 65%)",
                 }}
               />
-              {/* Subtle texture lines */}
+              {/* Film grain */}
               <div
                 style={{
                   position: "absolute",
                   inset: 0,
                   backgroundImage: `repeating-linear-gradient(
-                    0deg,
-                    transparent,
-                    transparent 3px,
-                    rgba(255,255,255,0.007) 3px,
-                    rgba(255,255,255,0.007) 4px
+                    0deg, transparent, transparent 3px,
+                    rgba(255,255,255,0.01) 3px, rgba(255,255,255,0.01) 4px
                   )`,
                 }}
               />
-              {/* Number label */}
+              {/* Vignette */}
               <div
                 style={{
                   position: "absolute",
-                  bottom: 10,
-                  right: 12,
+                  inset: 0,
+                  boxShadow: "inset 0 0 40px rgba(0,0,0,0.15)",
+                }}
+              />
+              {/* Number watermark */}
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: 8,
+                  right: 10,
                   fontFamily: "var(--font-display)",
-                  fontSize: 28,
-                  color: "rgba(201,168,76,0.15)",
+                  fontSize: 24,
+                  color: "rgba(255,255,255,0.2)",
                   lineHeight: 1,
                   userSelect: "none",
                 }}
@@ -181,12 +201,13 @@ export default function Community() {
       {/* Stats strip */}
       <div
         style={{
-          borderTop: "1px solid rgba(201,168,76,0.12)",
+          borderTop: "1px solid #D9D3CB",
           padding: "36px clamp(20px, 5vw, 80px)",
           display: "flex",
           justifyContent: "center",
           gap: "clamp(40px, 8vw, 120px)",
           flexWrap: "wrap",
+          background: "#FFFFFF",
         }}
       >
         {[
@@ -200,7 +221,7 @@ export default function Community() {
               style={{
                 fontFamily: "var(--font-display)",
                 fontSize: "clamp(32px, 4vw, 48px)",
-                color: "#C9A84C",
+                color: "#C89B4F",
                 lineHeight: 1,
                 letterSpacing: "0.02em",
                 marginBottom: 6,
@@ -214,7 +235,8 @@ export default function Community() {
                 fontSize: 11,
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
-                color: "rgba(250,249,247,0.4)",
+                color: "#A8917B",
+                fontWeight: 500,
               }}
             >
               {stat.label}
