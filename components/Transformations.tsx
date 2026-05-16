@@ -3,47 +3,17 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-const clients = [
-  {
-    name: "Jordan M.",
-    loss: "-28 LBS",
-    tag: "Gained Confidence",
-    weeks: "12 Weeks",
-    quote: "Shaw's coaching changed more than my body — it changed how I see myself every single day.",
-    beforeSrc: "/images/before-jordan.jpg",
-    afterSrc: "/images/after-jordan.jpg",
-    beforeBg: "linear-gradient(175deg, #C8B898 0%, #A89878 50%, #807058 100%)",
-    afterBg: "linear-gradient(165deg, #D9C080 0%, #C4955A 45%, #8B6030 100%)",
-  },
-  {
-    name: "Darius T.",
-    loss: "-32 LBS",
-    tag: "Built Strength",
-    weeks: "14 Weeks",
-    quote: "I finally have the discipline I always wanted. The faith-based approach made all the difference.",
-    beforeSrc: "/images/before-darius.jpg",
-    afterSrc: "/images/after-darius.jpg",
-    beforeBg: "linear-gradient(175deg, #C0B0A0 0%, #A09080 50%, #787060 100%)",
-    afterBg: "linear-gradient(165deg, #D4BC78 0%, #BC8E50 45%, #845A28 100%)",
-  },
-  {
-    name: "Trey H.",
-    loss: "-24 LBS",
-    tag: "Built Discipline",
-    weeks: "10 Weeks",
-    quote: "I have more energy, more confidence, and a new outlook on life. Superset is the real deal.",
-    beforeSrc: "/images/before-trey.jpg",
-    afterSrc: "/images/after-trey.jpg",
-    beforeBg: "linear-gradient(175deg, #BCAC9C 0%, #9C8C7C 50%, #74685C 100%)",
-    afterBg: "linear-gradient(165deg, #D0B870 0%, #B88A48 45%, #806020 100%)",
-  },
+const cards = [
+  { name: "Jordan M.",  src: "/images/jordan_card.png" },
+  { name: "Darius T.",  src: "/images/darius_card.png" },
+  { name: "Trey H.",    src: "/images/trey_card.png"   },
 ];
 
 const stats = [
   { number: "100+", label: "Lives Transformed" },
   { number: "10K+", label: "Training Sessions" },
-  { number: "7+", label: "Years of Experience" },
-  { number: "1", label: "Greater Purpose" },
+  { number: "7+",   label: "Years of Experience" },
+  { number: "1",    label: "Greater Purpose" },
 ];
 
 export default function Transformations() {
@@ -106,164 +76,48 @@ export default function Transformations() {
           </a>
         </div>
 
-        {/* Cards grid */}
-        <div className="layout-transformations">
-          {clients.map((client, i) => (
+        {/* Card stack */}
+        <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+          {cards.map((card, i) => (
             <motion.div
-              key={client.name}
-              initial={{ opacity: 0, y: 32 }}
+              key={card.name}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: i * 0.1 }}
               style={{
-                background: "#FFFFFF",
+                position: "relative",
+                width: "100%",
                 border: "1px solid #E8E2D8",
                 boxShadow: "0 4px 24px rgba(0,0,0,0.06)",
                 overflow: "hidden",
+                background: "#1A1410",
               }}
             >
-              {/* Before / After */}
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "1fr 1fr",
-                  gap: 2,
-                  background: "#D9D3CB",
-                }}
-              >
-                {[
-                  { label: "Before", src: client.beforeSrc, bg: client.beforeBg },
-                  { label: "After", src: client.afterSrc, bg: client.afterBg },
-                ].map(({ label, src, bg }) => (
-                  <div
-                    key={label}
-                    style={{
-                      aspectRatio: "3/4",
-                      background: bg,
-                      position: "relative",
-                      overflow: "hidden",
-                    }}
-                  >
-                    <Image
-                      src={src}
-                      alt={`${client.name} ${label}`}
-                      fill
-                      style={{ objectFit: "cover", objectPosition: "center top" }}
-                    />
-
-                    {/* After: subtle warm glow */}
-                    {label === "After" && (
-                      <div
-                        style={{
-                          position: "absolute",
-                          top: "-10%",
-                          left: "50%",
-                          transform: "translateX(-50%)",
-                          width: "130%",
-                          height: "50%",
-                          background:
-                            "radial-gradient(ellipse 60% 80% at 50% 0%, rgba(255,248,200,0.2) 0%, transparent 65%)",
-                          pointerEvents: "none",
-                        }}
-                      />
-                    )}
-
-                    <span
-                      style={{
-                        position: "absolute",
-                        bottom: 10,
-                        left: 10,
-                        fontFamily: "var(--font-body)",
-                        fontSize: 9,
-                        letterSpacing: "0.25em",
-                        textTransform: "uppercase",
-                        background: "rgba(255,255,255,0.88)",
-                        color: "#3A3530",
-                        padding: "3px 8px",
-                        fontWeight: 600,
-                        zIndex: 2,
-                      }}
-                    >
-                      {label}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Card info */}
-              <div style={{ padding: "24px 26px 28px" }}>
-                <div
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontSize: "clamp(44px, 5vw, 52px)",
-                    color: "#C89B4F",
-                    lineHeight: 1,
-                    letterSpacing: "0.02em",
-                    marginBottom: 4,
-                  }}
-                >
-                  {client.loss}
-                </div>
-
-                <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 18 }}>
-                  <div
-                    style={{
-                      fontFamily: "var(--font-body)",
-                      fontSize: 10,
-                      letterSpacing: "0.22em",
-                      textTransform: "uppercase",
-                      color: "#A8917B",
-                      fontWeight: 500,
-                    }}
-                  >
-                    {client.weeks}
-                  </div>
-                  <div style={{ width: 3, height: 3, borderRadius: "50%", background: "#D9D3CB" }} />
-                  <div
-                    style={{
-                      fontFamily: "var(--font-body)",
-                      fontSize: 10,
-                      letterSpacing: "0.18em",
-                      textTransform: "uppercase",
-                      color: "#C89B4F",
-                      fontWeight: 600,
-                    }}
-                  >
-                    {client.tag}
-                  </div>
-                </div>
-
-                <div style={{ width: 36, height: 1, background: "#D9D3CB", marginBottom: 18 }} />
-
-                <p
-                  style={{
-                    fontFamily: "var(--font-body)",
-                    fontSize: 14,
-                    color: "#6B5F52",
-                    lineHeight: 1.7,
-                    fontStyle: "italic",
-                    marginBottom: 14,
-                  }}
-                >
-                  &ldquo;{client.quote}&rdquo;
-                </p>
-
-                <p
-                  style={{
-                    fontFamily: "var(--font-body)",
-                    fontSize: 11,
-                    letterSpacing: "0.22em",
-                    textTransform: "uppercase",
-                    color: "#C89B4F",
-                    fontWeight: 500,
-                  }}
-                >
-                  — {client.name}
-                </p>
-              </div>
+              <Image
+                src={card.src}
+                alt={`${card.name} transformation`}
+                width={1500}
+                height={470}
+                style={{ width: "100%", height: "auto", display: "block" }}
+              />
             </motion.div>
           ))}
         </div>
+
+        <p
+          style={{
+            fontFamily: "var(--font-body)",
+            fontSize: 11,
+            color: "#A8917B",
+            textAlign: "center",
+            marginTop: 20,
+            letterSpacing: "0.08em",
+            fontStyle: "italic",
+          }}
+        >
+          *Results vary. Success requires consistency, effort, and belief.
+        </p>
       </div>
 
       {/* Stats strip */}

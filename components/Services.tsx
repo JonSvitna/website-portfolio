@@ -9,7 +9,7 @@ const services = [
     id: "1on1",
     num: "01",
     title: "1:1 Coaching",
-    imageSrc: "/images/service-1on1.jpg",
+    imageSrc: "/images/service-1on1.png",
     photoBg: "linear-gradient(165deg, #D9C490 0%, #C4955A 38%, #8B5E30 72%, #5C3518 100%)",
     checklist: [
       "Custom workout & nutrition plans",
@@ -28,7 +28,7 @@ const services = [
     id: "group",
     num: "02",
     title: "Group Coaching",
-    imageSrc: "/images/service-group.jpg",
+    imageSrc: "/images/service-group.png",
     photoBg: "linear-gradient(165deg, #BDD4C0 0%, #8DAE78 35%, #5A8040 65%, #2E5418 100%)",
     checklist: [
       "Small group training sessions",
@@ -50,7 +50,7 @@ const services = [
     id: "online",
     num: "03",
     title: "Online Coaching",
-    imageSrc: "/images/service-online.jpg",
+    imageSrc: "/images/service-online.png",
     photoBg: "linear-gradient(165deg, #B8CDE0 0%, #8BAAC8 33%, #547090 62%, #2A4A68 100%)",
     checklist: [
       "Custom training & nutrition plans",
@@ -69,7 +69,7 @@ const services = [
     id: "athlete",
     num: "04",
     title: "Athlete Development",
-    imageSrc: "/images/service-athlete.jpg",
+    imageSrc: "/images/service-athlete.png",
     photoBg: "linear-gradient(165deg, #D4C8A0 0%, #B8A070 35%, #8A7040 65%, #5A4818 100%)",
     checklist: [
       "Performance training",
@@ -160,7 +160,7 @@ export default function Services() {
                   src={s.imageSrc}
                   alt={s.title}
                   fill
-                  style={{ objectFit: "cover", objectPosition: "center top" }}
+                  style={{ objectFit: "cover", objectPosition: "center 20%" }}
                 />
 
                 {/* Icon badge */}
