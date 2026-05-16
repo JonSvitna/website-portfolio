@@ -136,7 +136,7 @@ export default function FeedSection() {
             gap: 4,
           }}
         >
-          {tiles.map((tile) => (
+          {(isMobile ? tiles.slice(0, 5) : tiles).map((tile) => (
             <div
               key={tile.id}
               onMouseEnter={() => setHovered(tile.id)}
