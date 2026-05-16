@@ -22,7 +22,7 @@ export default function Story() {
             src="/images/shaw-portrait.jpg"
             alt="Superset Shaw — transformational fitness coach"
             fill
-            style={{ objectFit: "cover", objectPosition: "center top" }}
+            style={{ objectFit: "cover", objectPosition: "left center" }}
           />
 
           {/* Right-edge blend to text panel — md+ only */}

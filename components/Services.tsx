@@ -12,10 +12,10 @@ const services = [
     imageSrc: "/images/service-1on1.jpg",
     photoBg: "linear-gradient(165deg, #D9C490 0%, #C4955A 38%, #8B5E30 72%, #5C3518 100%)",
     checklist: [
-      "Custom training program",
-      "Weekly 1-on-1 check-ins",
-      "Nutrition guidance",
-      "Direct messaging access",
+      "Custom workout & nutrition plans",
+      "Mindset & habit development",
+      "Weekly check-ins & adjustments",
+      "24/7 support & accountability",
     ],
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
@@ -31,10 +31,10 @@ const services = [
     imageSrc: "/images/service-group.jpg",
     photoBg: "linear-gradient(165deg, #BDD4C0 0%, #8DAE78 35%, #5A8040 65%, #2E5418 100%)",
     checklist: [
-      "Team accountability",
-      "Live group sessions",
-      "Community support",
-      "Shared progress tracking",
+      "Small group training sessions",
+      "Community & brotherhood",
+      "Shared accountability",
+      "Monthly challenges & events",
     ],
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
@@ -53,10 +53,10 @@ const services = [
     imageSrc: "/images/service-online.jpg",
     photoBg: "linear-gradient(165deg, #B8CDE0 0%, #8BAAC8 33%, #547090 62%, #2A4A68 100%)",
     checklist: [
-      "Custom programming",
-      "Video tutorials",
-      "App-based tracking",
-      "Monthly strategy calls",
+      "Custom training & nutrition plans",
+      "Video form feedback",
+      "App-based coaching",
+      "Flexible & convenient",
     ],
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
@@ -72,10 +72,10 @@ const services = [
     imageSrc: "/images/service-athlete.jpg",
     photoBg: "linear-gradient(165deg, #D4C8A0 0%, #B8A070 35%, #8A7040 65%, #5A4818 100%)",
     checklist: [
-      "Sport-specific training",
-      "Performance testing",
-      "Skill development",
-      "Competition prep",
+      "Performance training",
+      "Position-specific drills",
+      "Injury prevention",
+      "Game confidence & mindset",
     ],
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">

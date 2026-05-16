@@ -71,7 +71,7 @@ export default function Transformations() {
             transition={{ duration: 0.7 }}
           >
             <p className="eyebrow" style={{ marginBottom: 12 }}>
-              Real results, real people
+              Real people. Real transformations.
             </p>
             <h2
               style={{
@@ -83,7 +83,7 @@ export default function Transformations() {
                 lineHeight: 1,
               }}
             >
-              Client Transformations
+              Proof That Discipline Works
             </h2>
           </motion.div>
 
