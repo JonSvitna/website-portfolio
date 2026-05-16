@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 const checklist = [
@@ -71,38 +72,16 @@ export default function FinalCTA() {
             position: "relative",
             aspectRatio: "4/5",
             overflow: "hidden",
-            background: `
-              radial-gradient(ellipse 70% 50% at 50% 5%, rgba(255,240,185,0.65) 0%, transparent 52%),
-              radial-gradient(ellipse 55% 65% at 70% 85%, rgba(175,115,40,0.2) 0%, transparent 55%),
-              linear-gradient(165deg, #DEC880 0%, #C49060 32%, #906038 62%, #5A3818 100%)
-            `,
+            background: "#1A1410",
             border: "1px solid #D9D3CB",
           }}
         >
-          {/* Sunlight flare */}
-          <div
-            style={{
-              position: "absolute",
-              top: "-8%",
-              left: "50%",
-              transform: "translateX(-50%)",
-              width: "130%",
-              height: "50%",
-              background:
-                "radial-gradient(ellipse 60% 80% at 50% 0%, rgba(255,248,200,0.4) 0%, transparent 65%)",
-            }}
-          />
-
-          {/* Film grain */}
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              backgroundImage: `repeating-linear-gradient(
-                0deg, transparent, transparent 3px,
-                rgba(255,255,255,0.013) 3px, rgba(255,255,255,0.013) 4px
-              )`,
-            }}
+          {/* Real photo */}
+          <Image
+            src="/images/cta-bg.jpg"
+            alt="Superset Shaw overlooking the city at golden hour"
+            fill
+            style={{ objectFit: "cover", objectPosition: "center center" }}
           />
 
           {/* Vignette */}
@@ -110,25 +89,9 @@ export default function FinalCTA() {
             style={{
               position: "absolute",
               inset: 0,
-              boxShadow: "inset 0 0 100px rgba(30,15,0,0.22)",
+              boxShadow: "inset 0 0 100px rgba(30,15,0,0.28)",
             }}
           />
-
-          {/* Large S watermark */}
-          <div
-            style={{
-              position: "absolute",
-              bottom: "-6%",
-              right: "-4%",
-              fontFamily: "var(--font-display)",
-              fontSize: "clamp(180px, 24vw, 300px)",
-              color: "rgba(255,255,255,0.06)",
-              lineHeight: 1,
-              userSelect: "none",
-            }}
-          >
-            S
-          </div>
 
           {/* Caption bar */}
           <div
