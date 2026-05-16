@@ -10,7 +10,7 @@ const services = [
     title: "Athletic Conditioning",
     description:
       "Improve speed, power, explosiveness, and on-court performance. Train like an elite athlete — no matter your starting point.",
-    photoBg: `linear-gradient(165deg, #D9C490 0%, #C4955A 38%, #8B5E30 72%, #5C3518 100%)`,
+    photoImg: "/images/one_on_one.png",
     icon: (
       <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round">
         <circle cx="14" cy="5" r="3" />
@@ -24,7 +24,7 @@ const services = [
     title: "Fat Loss Coaching",
     description:
       "Sustainable fat loss without extreme diets or burnout. Real strategies that fit your real life — and actually last.",
-    photoBg: `linear-gradient(165deg, #BDD4C0 0%, #8DAE78 35%, #5A8040 65%, #2E5418 100%)`,
+    photoImg: "/images/elevated_in_30s.jpeg",
     icon: (
       <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round">
         <path d="M14 3C7.5 3 3 7.5 3 14s4.5 11 11 11 11-4.5 11-11S20.5 3 14 3z" />
@@ -38,7 +38,7 @@ const services = [
     title: "Mindset & Accountability",
     description:
       "Build daily discipline with structure, systems, and support. Your mind changes first — the body follows.",
-    photoBg: `linear-gradient(165deg, #B8CDE0 0%, #8BAAC8 33%, #547090 62%, #2A4A68 100%)`,
+    photoImg: "/images/faith_discipline.jpeg",
     icon: (
       <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round">
         <path d="M14 3a7 7 0 0 1 7 7c0 5.5-7 15-7 15S7 15.5 7 10a7 7 0 0 1 7-7z" />
@@ -52,7 +52,7 @@ const services = [
     title: "Lifestyle Transformation",
     description:
       "We don't just change bodies, we build better lives. Nutrition, sleep, faith, family — the complete picture.",
-    photoBg: `linear-gradient(165deg, #D4C8A0 0%, #B8A070 35%, #8A7040 65%, #5A4818 100%)`,
+    photoImg: "/images/lifestylye_transformatin.png",
     icon: (
       <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round">
         <path d="M3 26V15l5-7h12l5 7v11" />
@@ -158,26 +158,22 @@ export default function Services() {
                   width: 88,
                   height: 88,
                   minWidth: 88,
-                  background: s.photoBg,
                   position: "relative",
                   overflow: "hidden",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
                   flexShrink: 0,
                 }}
               >
-                {/* Sunlight flare */}
-                <div
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={s.photoImg}
+                  alt={s.title}
                   style={{
                     position: "absolute",
-                    top: "-15%",
-                    left: "50%",
-                    transform: "translateX(-50%)",
-                    width: "130%",
-                    height: "55%",
-                    background:
-                      "radial-gradient(ellipse 60% 80% at 50% 0%, rgba(255,248,200,0.35) 0%, transparent 65%)",
+                    inset: 0,
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    objectPosition: "center center",
                   }}
                 />
                 <div
@@ -187,9 +183,6 @@ export default function Services() {
                     boxShadow: "inset 0 0 30px rgba(0,0,0,0.2)",
                   }}
                 />
-                <div style={{ position: "relative", zIndex: 1, color: "rgba(255,248,220,0.9)" }}>
-                  {s.icon}
-                </div>
               </div>
 
               {/* Text */}

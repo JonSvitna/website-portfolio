@@ -87,7 +87,7 @@ export default function FinalCTA() {
               width: "100%",
               height: "100%",
               objectFit: "cover",
-              objectPosition: "center center",
+              objectPosition: "60% center",
             }}
           />
           {/* Sunlight flare */}

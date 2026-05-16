@@ -123,51 +123,31 @@ export default function Community() {
           }}
         >
           {[
-            {
-              bg: `radial-gradient(ellipse 70% 50% at 50% 5%, rgba(255,240,185,0.6) 0%, transparent 52%), linear-gradient(165deg, #D9C070 0%, #B88C48 40%, #7A5C20 80%, #4A3808 100%)`,
-            },
-            {
-              bg: `radial-gradient(ellipse 70% 45% at 50% 0%, rgba(195,215,250,0.5) 0%, transparent 50%), linear-gradient(168deg, #B8CCE0 0%, #8898C0 40%, #5060A0 80%, #283878 100%)`,
-            },
-            {
-              bg: `radial-gradient(ellipse 70% 45% at 50% 0%, rgba(215,235,210,0.55) 0%, transparent 50%), linear-gradient(165deg, #B8CCA0 0%, #88A870 40%, #587838 80%, #304818 100%)`,
-            },
-            {
-              bg: `radial-gradient(ellipse 70% 45% at 50% 0%, rgba(255,235,195,0.55) 0%, transparent 50%), linear-gradient(165deg, #D0B888 0%, #A88050 40%, #785028 80%, #483008 100%)`,
-            },
-          ].map(({ bg }, i) => (
+            "/images/group_training.jpeg",
+            "/images/group_prayer.jpeg",
+            "/images/group_bonding.jpeg",
+            "/images/coaching_squar_4.png",
+          ].map((src, i) => (
             <div
               key={i}
               style={{
                 aspectRatio: "1",
-                background: bg,
                 position: "relative",
                 overflow: "hidden",
                 border: "1px solid #E8E2D8",
               }}
             >
-              {/* Sunlight flare */}
-              <div
-                style={{
-                  position: "absolute",
-                  top: "-10%",
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                  width: "130%",
-                  height: "50%",
-                  background:
-                    "radial-gradient(ellipse 60% 80% at 50% 0%, rgba(255,248,220,0.3) 0%, transparent 65%)",
-                }}
-              />
-              {/* Film grain */}
-              <div
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={src}
+                alt={["Group training", "Group prayer", "Group bonding", "Coaching"][i]}
                 style={{
                   position: "absolute",
                   inset: 0,
-                  backgroundImage: `repeating-linear-gradient(
-                    0deg, transparent, transparent 3px,
-                    rgba(255,255,255,0.01) 3px, rgba(255,255,255,0.01) 4px
-                  )`,
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  objectPosition: "center center",
                 }}
               />
               {/* Vignette */}
@@ -178,21 +158,6 @@ export default function Community() {
                   boxShadow: "inset 0 0 40px rgba(0,0,0,0.15)",
                 }}
               />
-              {/* Number watermark */}
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: 8,
-                  right: 10,
-                  fontFamily: "var(--font-display)",
-                  fontSize: 24,
-                  color: "rgba(255,255,255,0.2)",
-                  lineHeight: 1,
-                  userSelect: "none",
-                }}
-              >
-                {["01", "02", "03", "04"][i]}
-              </div>
             </div>
           ))}
         </motion.div>

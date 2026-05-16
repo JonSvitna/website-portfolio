@@ -8,30 +8,21 @@ const tiles = [
     id: "feat",
     type: "VIDEO",
     title: "3 Mistakes Keeping You Overweight",
-    bg: `
-      radial-gradient(ellipse 70% 50% at 50% 5%, rgba(255,240,185,0.6) 0%, transparent 52%),
-      linear-gradient(165deg, #E0C880 0%, #C48840 38%, #8A5A18 72%, #5C3A08 100%)
-    `,
+    video: "/images/Speaking to camera 1.mp4",
     featured: true,
   },
   {
     id: "t1",
     type: "REEL",
     title: "Why Motivation Fails",
-    bg: `
-      radial-gradient(ellipse 70% 45% at 50% 0%, rgba(195,215,250,0.5) 0%, transparent 50%),
-      linear-gradient(168deg, #B8CCE0 0%, #8A9CB8 40%, #5A7090 70%, #304858 100%)
-    `,
+    video: "/images/eating_food_vid.mp4",
     featured: false,
   },
   {
     id: "t2",
     type: "VIDEO",
     title: "What College Sports Taught Me",
-    bg: `
-      radial-gradient(ellipse 70% 45% at 50% 0%, rgba(215,235,210,0.55) 0%, transparent 50%),
-      linear-gradient(165deg, #BCCEA0 0%, #8CAC70 38%, #587838 68%, #2E4A18 100%)
-    `,
+    video: "/images/talking_to_camera.mp4",
     featured: false,
   },
   {
@@ -151,7 +142,7 @@ export default function FeedSection() {
               style={{
                 gridColumn: tile.featured ? "span 2" : "span 1",
                 gridRow: tile.featured ? "span 2" : "span 1",
-                background: tile.bg,
+                background: (tile as { bg?: string }).bg ?? "#0F0C08",
                 position: "relative",
                 overflow: "hidden",
                 cursor: "pointer",
@@ -160,20 +151,40 @@ export default function FeedSection() {
                 transition: "border-color 0.3s ease",
               }}
             >
-              {/* Sunlight flare */}
-              <div
-                style={{
-                  position: "absolute",
-                  top: "-8%",
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                  width: "130%",
-                  height: "50%",
-                  background:
-                    "radial-gradient(ellipse 55% 75% at 50% 0%, rgba(255,248,220,0.35) 0%, transparent 65%)",
-                  pointerEvents: "none",
-                }}
-              />
+              {/* Background video */}
+              {"video" in tile && (
+                <video
+                  src={(tile as { video: string }).video}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                  }}
+                />
+              )}
+
+              {/* Sunlight flare (gradient tiles only) */}
+              {"bg" in tile && (
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "-8%",
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                    width: "130%",
+                    height: "50%",
+                    background:
+                      "radial-gradient(ellipse 55% 75% at 50% 0%, rgba(255,248,220,0.35) 0%, transparent 65%)",
+                    pointerEvents: "none",
+                  }}
+                />
+              )}
 
               {/* Film grain */}
               <div
