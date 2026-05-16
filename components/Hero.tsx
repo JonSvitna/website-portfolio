@@ -183,17 +183,18 @@ export default function Hero() {
           minHeight: "100vh",
         }}
       >
-        {/* Main warm sunrise background */}
-        <div
+        {/* Hero portrait */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/shaw-portrait.jpg"
+          alt="Superset Shaw"
           style={{
             position: "absolute",
             inset: 0,
-            background: `
-              radial-gradient(ellipse 80% 60% at 50% 5%, rgba(255, 243, 190, 0.7) 0%, transparent 50%),
-              radial-gradient(ellipse 60% 50% at 80% 60%, rgba(180, 120, 45, 0.25) 0%, transparent 55%),
-              radial-gradient(ellipse 50% 60% at 20% 80%, rgba(100, 60, 20, 0.2) 0%, transparent 55%),
-              linear-gradient(165deg, #E2C88A 0%, #C9965C 28%, #9A6630 58%, #6B4218 82%, #3E2408 100%)
-            `,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: "center top",
           }}
         />
 

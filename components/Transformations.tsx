@@ -10,31 +10,23 @@ const clients = [
     weeks: "16 Weeks",
     quote: "I lost 42 lbs and regained confidence in myself. Superset changed everything.",
     beforeBg: "linear-gradient(175deg, #C8B898 0%, #A89878 50%, #807058 100%)",
-    afterBg: "linear-gradient(165deg, #D9C080 0%, #C4955A 45%, #8B6030 100%)",
+    afterImg: "/images/jordan_card.png",
   },
   {
-    name: "Kayla M.",
+    name: "Darius M.",
     loss: "-35 LBS",
     weeks: "14 Weeks",
     quote: "Superset changed my mindset and my body. I finally feel like myself again.",
     beforeBg: "linear-gradient(175deg, #C0B0A0 0%, #A09080 50%, #787060 100%)",
-    afterBg: "linear-gradient(165deg, #D4BC78 0%, #BC8E50 45%, #845A28 100%)",
+    afterImg: "/images/darius_card.png",
   },
   {
-    name: "Derrick T.",
+    name: "Trey T.",
     loss: "-28 LBS",
     weeks: "12 Weeks",
     quote: "I have more energy, more confidence, and a new outlook on life.",
     beforeBg: "linear-gradient(175deg, #BCAC9C 0%, #9C8C7C 50%, #74685C 100%)",
-    afterBg: "linear-gradient(165deg, #D0B870 0%, #B88A48 45%, #806020 100%)",
-  },
-  {
-    name: "Marcus W.",
-    loss: "-52 LBS",
-    weeks: "20 Weeks",
-    quote: "The faith-based approach made the difference. This wasn't just a body change.",
-    beforeBg: "linear-gradient(175deg, #C4B4A4 0%, #A49484 50%, #7C6C5C 100%)",
-    afterBg: "linear-gradient(165deg, #DCBC78 0%, #C09050 45%, #887038 100%)",
+    afterImg: "/images/trey_card.png",
   },
 ];
 
@@ -147,9 +139,9 @@ export default function Transformations() {
                   }}
                 >
                   {[
-                    { label: "Before", bg: client.beforeBg },
-                    { label: "After", bg: client.afterBg },
-                  ].map(({ label, bg }) => (
+                    { label: "Before", bg: client.beforeBg, img: null },
+                    { label: "After", bg: undefined, img: client.afterImg },
+                  ].map(({ label, bg, img }) => (
                     <div
                       key={label}
                       style={{
@@ -159,6 +151,21 @@ export default function Transformations() {
                         overflow: "hidden",
                       }}
                     >
+                      {img && (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          src={img}
+                          alt={`${client.name} after`}
+                          style={{
+                            position: "absolute",
+                            inset: 0,
+                            width: "100%",
+                            height: "100%",
+                            objectFit: "cover",
+                            objectPosition: "center top",
+                          }}
+                        />
+                      )}
                       {/* Sunlight flare on After panel */}
                       {label === "After" && (
                         <div
