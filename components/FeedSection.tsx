@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { useIsMobile } from "../hooks/useIsMobile";
 
 const tiles = [
   {
@@ -59,6 +60,7 @@ const tiles = [
 
 export default function FeedSection() {
   const [hovered, setHovered] = useState<string | null>(null);
+  const isMobile = useIsMobile();
 
   return (
     <section id="feed" style={{ background: "#F5F1EB" }}>
@@ -129,8 +131,8 @@ export default function FeedSection() {
           transition={{ duration: 0.8 }}
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            gridTemplateRows: "repeat(2, 220px)",
+            gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
+            gridTemplateRows: isMobile ? undefined : "repeat(2, 220px)",
             gap: 4,
           }}
         >
@@ -140,8 +142,9 @@ export default function FeedSection() {
               onMouseEnter={() => setHovered(tile.id)}
               onMouseLeave={() => setHovered(null)}
               style={{
-                gridColumn: tile.featured ? "span 2" : "span 1",
-                gridRow: tile.featured ? "span 2" : "span 1",
+                gridColumn: (!isMobile && tile.featured) ? "span 2" : "span 1",
+                gridRow: (!isMobile && tile.featured) ? "span 2" : "span 1",
+                minHeight: isMobile ? 220 : undefined,
                 background: (tile as { bg?: string }).bg ?? "#0F0C08",
                 position: "relative",
                 overflow: "hidden",

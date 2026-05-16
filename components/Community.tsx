@@ -1,8 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useIsMobile } from "../hooks/useIsMobile";
 
 export default function Community() {
+  const isMobile = useIsMobile();
+
   return (
     <section
       id="community"
@@ -49,7 +52,7 @@ export default function Community() {
           paddingTop: "clamp(80px, 10vw, 120px)",
           paddingBottom: "clamp(80px, 10vw, 120px)",
           display: "grid",
-          gridTemplateColumns: "1fr 1fr",
+          gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
           gap: "clamp(40px, 6vw, 80px)",
           alignItems: "center",
         }}

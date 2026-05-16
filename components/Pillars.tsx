@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { useIsMobile } from "../hooks/useIsMobile";
 
 const pillars = [
   {
@@ -63,6 +64,7 @@ const pillars = [
 
 export default function Pillars() {
   const [hovered, setHovered] = useState<string | null>(null);
+  const isMobile = useIsMobile();
 
   return (
     <section id="pillars" style={{ background: "#F5F1EB" }}>
@@ -122,7 +124,7 @@ export default function Pillars() {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
+          gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
           gap: 2,
           background: "#D9D3CB",
           margin: "0 clamp(20px, 4vw, 60px)",

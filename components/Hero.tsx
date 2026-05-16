@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useIsMobile } from "../hooks/useIsMobile";
 
 const container = {
   hidden: {},
@@ -20,6 +21,8 @@ const fadeUp = {
 };
 
 export default function Hero() {
+  const isMobile = useIsMobile();
+
   return (
     <section
       id="hero"
@@ -27,7 +30,7 @@ export default function Hero() {
         minHeight: "100vh",
         background: "#F5F1EB",
         display: "grid",
-        gridTemplateColumns: "1fr 1fr",
+        gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
         overflow: "hidden",
         position: "relative",
       }}
@@ -172,7 +175,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* ── RIGHT PANEL — Cinematic photo simulation ── */}
+      {/* ── RIGHT PANEL — hidden on mobile ── */}
       <motion.div
         initial={{ opacity: 0, scale: 1.04 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -181,6 +184,7 @@ export default function Hero() {
           position: "relative",
           overflow: "hidden",
           minHeight: "100vh",
+          display: isMobile ? "none" : "block",
         }}
       >
         {/* Hero portrait */}

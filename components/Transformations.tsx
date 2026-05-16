@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useIsMobile } from "../hooks/useIsMobile";
 
 const clients = [
   {
@@ -29,6 +30,7 @@ const clients = [
 
 export default function Transformations() {
   const [lightbox, setLightbox] = useState<number | null>(null);
+  const isMobile = useIsMobile();
 
   return (
     <section id="transformations" style={{ background: "#F8F6F2", overflow: "hidden" }}>
@@ -93,7 +95,7 @@ export default function Transformations() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
+            gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
             gap: 20,
           }}
         >

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { useIsMobile } from "../hooks/useIsMobile";
 
 const services = [
   {
@@ -65,6 +66,7 @@ const services = [
 
 export default function Services() {
   const [hovered, setHovered] = useState<string | null>(null);
+  const isMobile = useIsMobile();
 
   return (
     <section id="services" style={{ background: "#FFFFFF" }}>
@@ -110,7 +112,7 @@ export default function Services() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(2, 1fr)",
+            gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)",
             gap: 16,
           }}
         >

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useIsMobile } from "../hooks/useIsMobile";
 
 const checklist = [
   "Personalized Coaching",
@@ -11,6 +12,8 @@ const checklist = [
 ];
 
 export default function FinalCTA() {
+  const isMobile = useIsMobile();
+
   return (
     <section
       id="final-cta"
@@ -59,13 +62,13 @@ export default function FinalCTA() {
           paddingTop: "clamp(80px, 12vw, 140px)",
           paddingBottom: "clamp(80px, 12vw, 140px)",
           display: "grid",
-          gridTemplateColumns: "1fr 1fr",
+          gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
           gap: "clamp(40px, 6vw, 80px)",
           alignItems: "center",
         }}
       >
         {/* Left — Photo */}
-        <motion.div
+        {!isMobile && <motion.div
           initial={{ opacity: 0, scale: 0.96 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
@@ -177,7 +180,7 @@ export default function FinalCTA() {
               Superset Shaw — Coaching
             </span>
           </div>
-        </motion.div>
+        </motion.div>}
 
         {/* Right — CTA content */}
         <motion.div

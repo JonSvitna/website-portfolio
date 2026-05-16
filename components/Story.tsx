@@ -1,15 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useIsMobile } from "../hooks/useIsMobile";
 
 export default function Story() {
+  const isMobile = useIsMobile();
+
   return (
     <section id="story" style={{ background: "#FFFFFF", overflow: "hidden" }}>
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          minHeight: "80vh",
+          gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
+          minHeight: isMobile ? "auto" : "80vh",
         }}
       >
         {/* Left — photo */}
@@ -20,7 +23,7 @@ export default function Story() {
           transition={{ duration: 1.0, ease: [0.25, 0.1, 0.1, 1] as [number, number, number, number] }}
           style={{
             position: "relative",
-            minHeight: "clamp(420px, 55vw, 720px)",
+            minHeight: isMobile ? 280 : "clamp(420px, 55vw, 720px)",
             overflow: "hidden",
           }}
         >
