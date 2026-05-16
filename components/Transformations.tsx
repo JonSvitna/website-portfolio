@@ -3,10 +3,34 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-const cards = [
-  { name: "Jordan M.",  src: "/images/jordan_card.png" },
-  { name: "Darius T.",  src: "/images/darius_card.png" },
-  { name: "Trey H.",    src: "/images/trey_card.png"   },
+const clients = [
+  {
+    name: "Jordan M.",
+    loss: "-28 LBS",
+    tag: "Gained Confidence",
+    weeks: "12 Weeks",
+    quote: "This journey changed more than my body. I've gained confidence, discipline, and a standard for my life.",
+    src: "/images/client-jordan.png",
+    position: "center top",
+  },
+  {
+    name: "Darius T.",
+    loss: "-32 LBS",
+    tag: "Built Strength",
+    weeks: "14 Weeks",
+    quote: "I used to quit on myself. Now I stay consistent and trust the process. Everything changed.",
+    src: "/images/client-darius.png",
+    position: "center top",
+  },
+  {
+    name: "Trey H.",
+    loss: "-24 LBS",
+    tag: "Built Discipline",
+    weeks: "10 Weeks",
+    quote: "Discipline became my lifestyle. I feel stronger, healthier, and more focused than ever.",
+    src: "/images/client-trey.png",
+    position: "center center",
+  },
 ];
 
 const stats = [
@@ -76,31 +100,123 @@ export default function Transformations() {
           </a>
         </div>
 
-        {/* Card stack */}
-        <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-          {cards.map((card, i) => (
+        {/* Cards */}
+        <div className="layout-transformations">
+          {clients.map((client, i) => (
             <motion.div
-              key={card.name}
-              initial={{ opacity: 0, y: 24 }}
+              key={client.name}
+              initial={{ opacity: 0, y: 32 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: i * 0.1 }}
               style={{
-                position: "relative",
-                width: "100%",
+                background: "#FFFFFF",
                 border: "1px solid #E8E2D8",
                 boxShadow: "0 4px 24px rgba(0,0,0,0.06)",
                 overflow: "hidden",
-                background: "#1A1410",
+                display: "flex",
+                flexDirection: "column",
               }}
             >
-              <Image
-                src={card.src}
-                alt={`${card.name} transformation`}
-                width={1500}
-                height={470}
-                style={{ width: "100%", height: "auto", display: "block" }}
-              />
+              {/* Photo */}
+              <div style={{ position: "relative", aspectRatio: "3/4", overflow: "hidden", background: "#1A1410" }}>
+                <Image
+                  src={client.src}
+                  alt={`${client.name} transformation`}
+                  fill
+                  style={{ objectFit: "cover", objectPosition: client.position }}
+                />
+
+                {/* Bottom gradient for name badge */}
+                <div
+                  style={{
+                    position: "absolute",
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    height: "45%",
+                    background: "linear-gradient(to top, rgba(20,12,4,0.75) 0%, transparent 100%)",
+                    pointerEvents: "none",
+                  }}
+                />
+
+                {/* Loss badge — top left */}
+                <div
+                  style={{
+                    position: "absolute",
+                    top: 14,
+                    left: 14,
+                    background: "#C89B4F",
+                    padding: "6px 12px",
+                    zIndex: 2,
+                  }}
+                >
+                  <span
+                    style={{
+                      fontFamily: "var(--font-display)",
+                      fontSize: 22,
+                      color: "#FFFFFF",
+                      lineHeight: 1,
+                      letterSpacing: "0.02em",
+                    }}
+                  >
+                    {client.loss}
+                  </span>
+                </div>
+
+                {/* Name + tag — bottom left */}
+                <div
+                  style={{
+                    position: "absolute",
+                    bottom: 16,
+                    left: 16,
+                    right: 16,
+                    zIndex: 2,
+                  }}
+                >
+                  <div
+                    style={{
+                      fontFamily: "var(--font-display)",
+                      fontSize: "clamp(20px, 2.5vw, 26px)",
+                      color: "#FFFFFF",
+                      letterSpacing: "0.04em",
+                      textTransform: "uppercase",
+                      lineHeight: 1,
+                      marginBottom: 4,
+                    }}
+                  >
+                    {client.name}
+                  </div>
+                  <div
+                    style={{
+                      fontFamily: "var(--font-body)",
+                      fontSize: 10,
+                      letterSpacing: "0.22em",
+                      textTransform: "uppercase",
+                      color: "#C89B4F",
+                      fontWeight: 600,
+                    }}
+                  >
+                    {client.tag} &nbsp;·&nbsp; {client.weeks}
+                  </div>
+                </div>
+              </div>
+
+              {/* Quote */}
+              <div style={{ padding: "20px 22px 24px" }}>
+                <div style={{ width: 32, height: 1, background: "#C89B4F", marginBottom: 16 }} />
+                <p
+                  style={{
+                    fontFamily: "var(--font-body)",
+                    fontSize: "clamp(13px, 1.3vw, 15px)",
+                    color: "#6B5F52",
+                    lineHeight: 1.75,
+                    fontStyle: "italic",
+                  }}
+                >
+                  &ldquo;{client.quote}&rdquo;
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>
