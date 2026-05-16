@@ -280,42 +280,49 @@ body::before {
   }
 }
 
-/* Carousel track */
-.transformation-track {
-  display: flex;
-  gap: 16px;
-  transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.1, 1);
-}
-
-/* Transformation card: full-width-ish on mobile */
-.transformation-card {
-  min-width: min(400px, calc(100vw - 48px));
-  flex-shrink: 0;
-}
-
-/* Services: 1-col mobile, 2-col md+ */
-.layout-services {
+/* Transformations: 1-col mobile, 3-col md+ */
+.layout-transformations {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 12px;
+  gap: 16px;
 }
 @media (min-width: 768px) {
-  .layout-services {
+  .layout-transformations {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+/* Services portrait: 1-col mobile, 2-col md, 4-col lg+ */
+.layout-services-portrait {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+@media (min-width: 640px) {
+  .layout-services-portrait {
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
   }
 }
-
-/* Service card inner: col on mobile, row on sm+ */
-.service-card-inner {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+@media (min-width: 1200px) {
+  .layout-services-portrait {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
 }
-@media (min-width: 480px) {
-  .service-card-inner {
-    flex-direction: row;
-    gap: 24px;
+
+/* Service portrait photo wrapper */
+.service-portrait-photo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+@media (min-width: 1200px) {
+  .service-portrait-photo {
+    aspect-ratio: 3/4;
   }
 }
 

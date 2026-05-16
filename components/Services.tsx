@@ -1,63 +1,86 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
 const services = [
   {
-    id: "athletic",
+    id: "1on1",
     num: "01",
-    title: "Athletic Conditioning",
-    description:
-      "Improve speed, power, explosiveness, and on-court performance. Train like an elite athlete — no matter your starting point.",
-    photoBg: `linear-gradient(165deg, #D9C490 0%, #C4955A 38%, #8B5E30 72%, #5C3518 100%)`,
+    title: "1:1 Coaching",
+    imageSrc: "/images/service-1on1.jpg",
+    photoBg: "linear-gradient(165deg, #D9C490 0%, #C4955A 38%, #8B5E30 72%, #5C3518 100%)",
+    checklist: [
+      "Custom training program",
+      "Weekly 1-on-1 check-ins",
+      "Nutrition guidance",
+      "Direct messaging access",
+    ],
     icon: (
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round">
-        <circle cx="14" cy="5" r="3" />
-        <path d="M14 8v8M8 22l6-6 6 6M2 26h24" />
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+        <circle cx="12" cy="8" r="4" />
+        <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
       </svg>
     ),
   },
   {
-    id: "fatloss",
+    id: "group",
     num: "02",
-    title: "Fat Loss Coaching",
-    description:
-      "Sustainable fat loss without extreme diets or burnout. Real strategies that fit your real life — and actually last.",
-    photoBg: `linear-gradient(165deg, #BDD4C0 0%, #8DAE78 35%, #5A8040 65%, #2E5418 100%)`,
+    title: "Group Coaching",
+    imageSrc: "/images/service-group.jpg",
+    photoBg: "linear-gradient(165deg, #BDD4C0 0%, #8DAE78 35%, #5A8040 65%, #2E5418 100%)",
+    checklist: [
+      "Team accountability",
+      "Live group sessions",
+      "Community support",
+      "Shared progress tracking",
+    ],
     icon: (
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round">
-        <path d="M14 3C7.5 3 3 7.5 3 14s4.5 11 11 11 11-4.5 11-11S20.5 3 14 3z" />
-        <path d="M10 14l3 3 5-6" />
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+        <circle cx="9" cy="7" r="3" />
+        <circle cx="15" cy="7" r="3" />
+        <path d="M3 20c0-3 2.7-5 6-5" />
+        <path d="M15 15c3.3 0 6 2 6 5" />
+        <path d="M9 15c3 0 6 1.5 6 5H3c0-3.5 3-5 6-5z" />
       </svg>
     ),
   },
   {
-    id: "mindset",
+    id: "online",
     num: "03",
-    title: "Mindset & Accountability",
-    description:
-      "Build daily discipline with structure, systems, and support. Your mind changes first — the body follows.",
-    photoBg: `linear-gradient(165deg, #B8CDE0 0%, #8BAAC8 33%, #547090 62%, #2A4A68 100%)`,
+    title: "Online Coaching",
+    imageSrc: "/images/service-online.jpg",
+    photoBg: "linear-gradient(165deg, #B8CDE0 0%, #8BAAC8 33%, #547090 62%, #2A4A68 100%)",
+    checklist: [
+      "Custom programming",
+      "Video tutorials",
+      "App-based tracking",
+      "Monthly strategy calls",
+    ],
     icon: (
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round">
-        <path d="M14 3a7 7 0 0 1 7 7c0 5.5-7 15-7 15S7 15.5 7 10a7 7 0 0 1 7-7z" />
-        <circle cx="14" cy="10.5" r="2.5" />
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+        <rect x="2" y="3" width="20" height="14" rx="2" />
+        <path d="M8 21h8M12 17v4" />
       </svg>
     ),
   },
   {
-    id: "lifestyle",
+    id: "athlete",
     num: "04",
-    title: "Lifestyle Transformation",
-    description:
-      "We don't just change bodies, we build better lives. Nutrition, sleep, faith, family — the complete picture.",
-    photoBg: `linear-gradient(165deg, #D4C8A0 0%, #B8A070 35%, #8A7040 65%, #5A4818 100%)`,
+    title: "Athlete Development",
+    imageSrc: "/images/service-athlete.jpg",
+    photoBg: "linear-gradient(165deg, #D4C8A0 0%, #B8A070 35%, #8A7040 65%, #5A4818 100%)",
+    checklist: [
+      "Sport-specific training",
+      "Performance testing",
+      "Skill development",
+      "Competition prep",
+    ],
     icon: (
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round">
-        <path d="M3 26V15l5-7h12l5 7v11" />
-        <path d="M10 26v-7h8v7" />
-        <path d="M3 18h22" />
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+        <path d="M12 2L4 7v10l8 5 8-5V7z" />
+        <path d="M12 7v10M4 7l8 5 8-5" />
       </svg>
     ),
   },
@@ -106,8 +129,8 @@ export default function Services() {
           </div>
         </motion.div>
 
-        {/* Services grid — responsive via CSS class */}
-        <div className="layout-services">
+        {/* Portrait cards grid */}
+        <div className="layout-services-portrait">
           {services.map((s, i) => (
             <motion.div
               key={s.id}
@@ -117,7 +140,6 @@ export default function Services() {
               transition={{ duration: 0.7, delay: i * 0.08 }}
               onMouseEnter={() => setHovered(s.id)}
               onMouseLeave={() => setHovered(null)}
-              className="service-card-inner"
               style={{
                 background: "#FFFFFF",
                 border: "1.5px solid",
@@ -125,107 +147,117 @@ export default function Services() {
                 boxShadow: hovered === s.id
                   ? "0 8px 40px rgba(200,155,79,0.12)"
                   : "0 2px 16px rgba(0,0,0,0.04)",
-                padding: "clamp(24px, 3.5vw, 44px)",
                 transition: "border-color 0.35s ease, box-shadow 0.35s ease",
                 cursor: "pointer",
-                position: "relative",
                 overflow: "hidden",
+                display: "flex",
+                flexDirection: "column",
               }}
             >
-              {/* Gold top border on hover */}
-              <div
-                style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  width: hovered === s.id ? "100%" : "0%",
-                  height: 3,
-                  background: "#C89B4F",
-                  transition: "width 0.5s cubic-bezier(0.25, 0.1, 0.1, 1)",
-                }}
-              />
+              {/* Photo */}
+              <div className="service-portrait-photo" style={{ background: s.photoBg }}>
+                <Image
+                  src={s.imageSrc}
+                  alt={s.title}
+                  fill
+                  style={{ objectFit: "cover", objectPosition: "center top" }}
+                />
 
-              {/* Photo thumb */}
-              <div
-                style={{
-                  width: 88,
-                  height: 88,
-                  minWidth: 88,
-                  background: s.photoBg,
-                  position: "relative",
-                  overflow: "hidden",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  flexShrink: 0,
-                }}
-              >
-                {/* Sunlight flare */}
+                {/* Icon badge */}
                 <div
                   style={{
                     position: "absolute",
-                    top: "-15%",
-                    left: "50%",
-                    transform: "translateX(-50%)",
-                    width: "130%",
-                    height: "55%",
-                    background:
-                      "radial-gradient(ellipse 60% 80% at 50% 0%, rgba(255,248,200,0.35) 0%, transparent 65%)",
+                    bottom: 14,
+                    left: 16,
+                    width: 36,
+                    height: 36,
+                    background: "#C89B4F",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: "#FFFFFF",
+                    zIndex: 2,
                   }}
-                />
-                <div
-                  style={{
-                    position: "absolute",
-                    inset: 0,
-                    boxShadow: "inset 0 0 30px rgba(0,0,0,0.2)",
-                  }}
-                />
-                <div style={{ position: "relative", zIndex: 1, color: "rgba(255,248,220,0.9)" }}>
+                >
                   {s.icon}
                 </div>
-              </div>
 
-              {/* Text */}
-              <div style={{ flex: 1 }}>
+                {/* Number badge */}
                 <div
                   style={{
-                    fontFamily: "var(--font-body)",
-                    fontSize: 10,
-                    letterSpacing: "0.3em",
+                    position: "absolute",
+                    top: 14,
+                    right: 14,
+                    fontFamily: "var(--font-display)",
+                    fontSize: 13,
+                    letterSpacing: "0.1em",
+                    background: "rgba(255,255,255,0.88)",
                     color: "#C89B4F",
-                    textTransform: "uppercase",
-                    marginBottom: 8,
-                    fontWeight: 500,
+                    padding: "3px 8px",
+                    fontWeight: 700,
+                    zIndex: 2,
                   }}
                 >
                   {s.num}
                 </div>
 
+                {/* Bottom gradient on photo */}
+                <div
+                  style={{
+                    position: "absolute",
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    height: "40%",
+                    background: "linear-gradient(to top, rgba(0,0,0,0.3) 0%, transparent 100%)",
+                    pointerEvents: "none",
+                  }}
+                />
+              </div>
+
+              {/* Text content */}
+              <div style={{ padding: "20px 20px 24px", flex: 1, display: "flex", flexDirection: "column" }}>
                 <h3
                   style={{
                     fontFamily: "var(--font-display)",
-                    fontSize: "clamp(22px, 2.5vw, 28px)",
+                    fontSize: "clamp(20px, 2vw, 24px)",
                     letterSpacing: "0.04em",
                     textTransform: "uppercase",
                     color: "#1D1D1D",
                     lineHeight: 1.1,
-                    marginBottom: 12,
+                    marginBottom: 16,
                   }}
                 >
                   {s.title}
                 </h3>
 
-                <p
-                  style={{
-                    fontFamily: "var(--font-body)",
-                    fontSize: "clamp(13px, 1.3vw, 15px)",
-                    color: "#6B5F52",
-                    lineHeight: 1.7,
-                    marginBottom: 18,
-                  }}
-                >
-                  {s.description}
-                </p>
+                {/* Checklist */}
+                <div style={{ display: "flex", flexDirection: "column", gap: 10, flex: 1 }}>
+                  {s.checklist.map((item) => (
+                    <div key={item} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
+                      <div
+                        style={{
+                          width: 16,
+                          height: 16,
+                          flexShrink: 0,
+                          marginTop: 1,
+                          background: "#C89B4F",
+                          clipPath: "polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%)",
+                        }}
+                      />
+                      <span
+                        style={{
+                          fontFamily: "var(--font-body)",
+                          fontSize: "clamp(12px, 1.2vw, 14px)",
+                          color: "#3A3530",
+                          lineHeight: 1.5,
+                        }}
+                      >
+                        {item}
+                      </span>
+                    </div>
+                  ))}
+                </div>
 
                 <a
                   href="#final-cta"
@@ -240,6 +272,7 @@ export default function Services() {
                     alignItems: "center",
                     gap: 8,
                     fontWeight: 500,
+                    marginTop: 18,
                   }}
                 >
                   Learn More <span style={{ fontSize: 14 }}>→</span>

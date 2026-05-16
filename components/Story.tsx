@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function Story() {
@@ -14,40 +15,14 @@ export default function Story() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 1.0, ease: [0.25, 0.1, 0.1, 1] as [number, number, number, number] }}
-          style={{
-            background: `
-              radial-gradient(ellipse 65% 55% at 45% 20%, rgba(255, 242, 195, 0.55) 0%, transparent 55%),
-              radial-gradient(ellipse 50% 65% at 65% 85%, rgba(175, 115, 45, 0.20) 0%, transparent 55%),
-              linear-gradient(165deg, #D9C490 0%, #C4955A 35%, #8B5E30 65%, #5C3518 100%)
-            `,
-          }}
+          style={{ background: "#C4955A" }}
         >
-          {/* Film grain */}
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              backgroundImage: `repeating-linear-gradient(
-                0deg, transparent, transparent 3px,
-                rgba(255,255,255,0.012) 3px, rgba(255,255,255,0.012) 4px
-              )`,
-              pointerEvents: "none",
-            }}
-          />
-
-          {/* Sunlight flare */}
-          <div
-            style={{
-              position: "absolute",
-              top: "-8%",
-              left: "50%",
-              transform: "translateX(-50%)",
-              width: "130%",
-              height: "50%",
-              background:
-                "radial-gradient(ellipse 60% 80% at 50% 0%, rgba(255,248,200,0.35) 0%, transparent 65%)",
-              pointerEvents: "none",
-            }}
+          {/* Real photo */}
+          <Image
+            src="/images/shaw-portrait.jpg"
+            alt="Superset Shaw — transformational fitness coach"
+            fill
+            style={{ objectFit: "cover", objectPosition: "center top" }}
           />
 
           {/* Right-edge blend to text panel — md+ only */}

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
@@ -11,6 +12,7 @@ const pillars = [
     subtitle: "The Foundation",
     description:
       "Faith creates discipline when motivation disappears. Every rep, every sacrifice, every win starts from a place of purpose greater than yourself.",
+    imageSrc: "/images/pillar-god.jpg",
     photoBg: `
       radial-gradient(ellipse 75% 55% at 50% 8%, rgba(195, 220, 255, 0.55) 0%, transparent 52%),
       radial-gradient(ellipse 55% 65% at 30% 85%, rgba(200, 155, 79, 0.18) 0%, transparent 55%),
@@ -31,6 +33,7 @@ const pillars = [
     subtitle: "Your Why",
     description:
       "Your transformation should inspire the people around you. When you win, your family wins. Build a legacy they can inherit.",
+    imageSrc: "/images/pillar-family.jpg",
     photoBg: `
       radial-gradient(ellipse 70% 50% at 50% 5%, rgba(255, 240, 185, 0.65) 0%, transparent 52%),
       radial-gradient(ellipse 55% 65% at 70% 85%, rgba(180, 115, 40, 0.22) 0%, transparent 55%),
@@ -55,6 +58,7 @@ const pillars = [
     subtitle: "The Vehicle",
     description:
       "Fitness is the vehicle that unlocks confidence, structure, and longevity. The body you build reflects the discipline you carry.",
+    imageSrc: "/images/pillar-fitness.jpg",
     photoBg: `
       radial-gradient(ellipse 65% 50% at 50% 8%, rgba(215, 235, 215, 0.55) 0%, transparent 52%),
       radial-gradient(ellipse 50% 65% at 60% 85%, rgba(100, 160, 80, 0.15) 0%, transparent 55%),
@@ -109,7 +113,7 @@ export default function Pillars() {
             marginBottom: 14,
           }}
         >
-          The 3 Pillars
+          Built on What Matters Most
         </motion.h2>
         <motion.p
           initial={{ opacity: 0 }}
@@ -151,11 +155,13 @@ export default function Pillars() {
             }}
           >
             {/* Photo bg */}
-            <div
+            <Image
+              src={pillar.imageSrc}
+              alt={pillar.title}
+              fill
               style={{
-                position: "absolute",
-                inset: 0,
-                background: pillar.photoBg,
+                objectFit: "cover",
+                objectPosition: "center",
                 transform: hovered === pillar.id ? "scale(1.04)" : "scale(1)",
                 transition: "transform 0.8s cubic-bezier(0.25, 0.1, 0.1, 1)",
               }}
