@@ -22,13 +22,21 @@ export default function Story() {
             position: "relative",
             minHeight: "clamp(420px, 55vw, 720px)",
             overflow: "hidden",
-            background: `
-              radial-gradient(ellipse 65% 55% at 45% 20%, rgba(255, 242, 195, 0.55) 0%, transparent 55%),
-              radial-gradient(ellipse 50% 65% at 65% 85%, rgba(175, 115, 45, 0.20) 0%, transparent 55%),
-              linear-gradient(165deg, #D9C490 0%, #C4955A 35%, #8B5E30 65%, #5C3518 100%)
-            `,
           }}
         >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/Athlete_to_purpose.png"
+            alt="Athlete to purpose"
+            style={{
+              position: "absolute",
+              inset: 0,
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              objectPosition: "center top",
+            }}
+          />
           {/* Film grain */}
           <div
             style={{

@@ -74,14 +74,22 @@ export default function FinalCTA() {
             position: "relative",
             aspectRatio: "4/5",
             overflow: "hidden",
-            background: `
-              radial-gradient(ellipse 70% 50% at 50% 5%, rgba(255,240,185,0.65) 0%, transparent 52%),
-              radial-gradient(ellipse 55% 65% at 70% 85%, rgba(175,115,40,0.2) 0%, transparent 55%),
-              linear-gradient(165deg, #DEC880 0%, #C49060 32%, #906038 62%, #5A3818 100%)
-            `,
             border: "1px solid #D9D3CB",
           }}
         >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/homepage_outro.png"
+            alt="Superset Shaw coaching"
+            style={{
+              position: "absolute",
+              inset: 0,
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              objectPosition: "center center",
+            }}
+          />
           {/* Sunlight flare */}
           <div
             style={{

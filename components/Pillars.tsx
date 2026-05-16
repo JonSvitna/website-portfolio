@@ -11,11 +11,7 @@ const pillars = [
     subtitle: "The Foundation",
     description:
       "Faith creates discipline when motivation disappears. Every rep, every sacrifice, every win starts from a place of purpose greater than yourself.",
-    photoBg: `
-      radial-gradient(ellipse 75% 55% at 50% 8%, rgba(195, 220, 255, 0.55) 0%, transparent 52%),
-      radial-gradient(ellipse 55% 65% at 30% 85%, rgba(200, 155, 79, 0.18) 0%, transparent 55%),
-      linear-gradient(168deg, #B8CDE0 0%, #8BAAC8 32%, #547090 62%, #2A4A68 100%)
-    `,
+    photoImg: "/images/god.png",
     accentColor: "rgba(170, 200, 235, 0.9)",
     icon: (
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -31,11 +27,7 @@ const pillars = [
     subtitle: "Your Why",
     description:
       "Your transformation should inspire the people around you. When you win, your family wins. Build a legacy they can inherit.",
-    photoBg: `
-      radial-gradient(ellipse 70% 50% at 50% 5%, rgba(255, 240, 185, 0.65) 0%, transparent 52%),
-      radial-gradient(ellipse 55% 65% at 70% 85%, rgba(180, 115, 40, 0.22) 0%, transparent 55%),
-      linear-gradient(165deg, #E0C88A 0%, #C4955A 33%, #906030 62%, #5A3A14 100%)
-    `,
+    photoImg: "/images/family.png",
     accentColor: "rgba(240, 215, 150, 0.9)",
     icon: (
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
@@ -55,11 +47,7 @@ const pillars = [
     subtitle: "The Vehicle",
     description:
       "Fitness is the vehicle that unlocks confidence, structure, and longevity. The body you build reflects the discipline you carry.",
-    photoBg: `
-      radial-gradient(ellipse 65% 50% at 50% 8%, rgba(215, 235, 215, 0.55) 0%, transparent 52%),
-      radial-gradient(ellipse 50% 65% at 60% 85%, rgba(100, 160, 80, 0.15) 0%, transparent 55%),
-      linear-gradient(165deg, #C0D4B0 0%, #8DAE78 32%, #5A8040 62%, #2E5418 100%)
-    `,
+    photoImg: "/images/fitness.png",
     accentColor: "rgba(190, 220, 170, 0.9)",
     icon: (
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -157,12 +145,18 @@ export default function Pillars() {
               cursor: "pointer",
             }}
           >
-            {/* Photo simulation */}
-            <div
+            {/* Pillar photo */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={pillar.photoImg}
+              alt={pillar.title}
               style={{
                 position: "absolute",
                 inset: 0,
-                background: pillar.photoBg,
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                objectPosition: "center top",
                 transform: hovered === pillar.id ? "scale(1.04)" : "scale(1)",
                 transition: "transform 0.8s cubic-bezier(0.25, 0.1, 0.1, 1)",
               }}

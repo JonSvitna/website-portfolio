@@ -186,7 +186,7 @@ export default function Hero() {
         {/* Hero portrait */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/images/shaw-portrait.jpg"
+          src="/images/Homepage_intro.png"
           alt="Superset Shaw"
           style={{
             position: "absolute",
