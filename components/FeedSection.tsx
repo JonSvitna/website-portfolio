@@ -136,25 +136,16 @@ export default function FeedSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            gridTemplateRows: "repeat(2, 220px)",
-            gap: 4,
-          }}
+          className="layout-feed"
         >
           {tiles.map((tile) => (
             <div
               key={tile.id}
               onMouseEnter={() => setHovered(tile.id)}
               onMouseLeave={() => setHovered(null)}
+              className={tile.featured ? "feed-featured" : "feed-tile"}
               style={{
-                gridColumn: tile.featured ? "span 2" : "span 1",
-                gridRow: tile.featured ? "span 2" : "span 1",
                 background: tile.bg,
-                position: "relative",
-                overflow: "hidden",
-                cursor: "pointer",
                 border: "1px solid",
                 borderColor: hovered === tile.id ? "rgba(200,155,79,0.4)" : "transparent",
                 transition: "border-color 0.3s ease",

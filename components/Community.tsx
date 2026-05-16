@@ -42,16 +42,12 @@ export default function Community() {
       />
 
       <div
-        className="container-wide"
+        className="container-wide layout-community"
         style={{
           position: "relative",
           zIndex: 2,
           paddingTop: "clamp(80px, 10vw, 120px)",
           paddingBottom: "clamp(80px, 10vw, 120px)",
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: "clamp(40px, 6vw, 80px)",
-          alignItems: "center",
         }}
       >
         {/* Left — text */}
@@ -116,11 +112,7 @@ export default function Community() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.85, ease: [0.25, 0.1, 0.1, 1] as [number, number, number, number], delay: 0.14 }}
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: 8,
-          }}
+          className="community-photo-grid"
         >
           {[
             {

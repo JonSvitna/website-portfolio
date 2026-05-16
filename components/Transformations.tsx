@@ -38,18 +38,25 @@ const clients = [
   },
 ];
 
-const CARD_W = 400;
-const GAP = 20;
+const GAP = 16;
 
 export default function Transformations() {
   const trackRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const [current, setCurrent] = useState(0);
+
+  const getCardWidth = () => {
+    // Read the actual rendered card width from the DOM for responsive offset calculation
+    const firstCard = trackRef.current?.firstElementChild as HTMLElement | null;
+    return firstCard ? firstCard.offsetWidth : 400;
+  };
 
   const scrollTo = (idx: number) => {
     const next = Math.max(0, Math.min(clients.length - 1, idx));
     setCurrent(next);
     if (trackRef.current) {
-      trackRef.current.style.transform = `translateX(-${next * (CARD_W + GAP)}px)`;
+      const cardW = getCardWidth();
+      trackRef.current.style.transform = `translateX(-${next * (cardW + GAP)}px)`;
     }
   };
 
@@ -113,24 +120,20 @@ export default function Transformations() {
         </div>
 
         {/* Carousel */}
-        <div style={{ overflow: "hidden" }}>
+        <div ref={containerRef} style={{ overflow: "hidden" }}>
           <div
             ref={trackRef}
-            style={{
-              display: "flex",
-              gap: `${GAP}px`,
-              transition: "transform 0.6s cubic-bezier(0.25, 0.1, 0.1, 1)",
-            }}
+            className="transformation-track"
           >
             {clients.map((client, i) => (
               <motion.div
                 key={client.name}
+                className="transformation-card"
                 initial={{ opacity: 0, y: 32 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: i * 0.08 }}
                 style={{
-                  minWidth: `${CARD_W}px`,
                   background: "#FFFFFF",
                   border: "1px solid #E8E2D8",
                   boxShadow: "0 4px 24px rgba(0,0,0,0.06)",

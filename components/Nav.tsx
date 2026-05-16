@@ -33,7 +33,7 @@ export default function Nav() {
         left: 0,
         right: 0,
         zIndex: 1000,
-        padding: scrolled ? "14px 40px" : "22px 40px",
+        padding: scrolled ? "14px clamp(16px, 4vw, 40px)" : "22px clamp(16px, 4vw, 40px)",
         background: scrolled
           ? "rgba(245, 241, 235, 0.96)"
           : "rgba(245, 241, 235, 0.85)",

@@ -18,7 +18,7 @@ const pillars = [
     `,
     accentColor: "rgba(170, 200, 235, 0.9)",
     icon: (
-      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+      <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
         <line x1="16" y1="3" x2="16" y2="29" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
         <line x1="7" y1="12" x2="25" y2="12" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
       </svg>
@@ -38,7 +38,7 @@ const pillars = [
     `,
     accentColor: "rgba(240, 215, 150, 0.9)",
     icon: (
-      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+      <svg width="28" height="28" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
         <circle cx="16" cy="9" r="4.5" />
         <circle cx="8" cy="13" r="3" />
         <circle cx="24" cy="13" r="3" />
@@ -62,7 +62,7 @@ const pillars = [
     `,
     accentColor: "rgba(190, 220, 170, 0.9)",
     icon: (
-      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+      <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
         <rect x="0.5" y="14" width="5.5" height="4" rx="1.5" stroke="currentColor" strokeWidth="1.8" />
         <rect x="26" y="14" width="5.5" height="4" rx="1.5" stroke="currentColor" strokeWidth="1.8" />
         <rect x="6" y="11" width="4.5" height="10" rx="1.5" stroke="currentColor" strokeWidth="1.8" />
@@ -82,8 +82,7 @@ export default function Pillars() {
       <div
         style={{
           textAlign: "center",
-          padding:
-            "clamp(64px, 9vw, 112px) clamp(20px, 5vw, 80px) clamp(48px, 6vw, 72px)",
+          padding: "clamp(56px, 8vw, 100px) clamp(20px, 5vw, 80px) clamp(40px, 5vw, 60px)",
         }}
       >
         <motion.p
@@ -103,11 +102,11 @@ export default function Pillars() {
           transition={{ duration: 0.7, delay: 0.1 }}
           style={{
             fontFamily: "var(--font-display)",
-            fontSize: "clamp(38px, 5.5vw, 60px)",
+            fontSize: "clamp(36px, 5.5vw, 60px)",
             letterSpacing: "0.04em",
             textTransform: "uppercase",
             color: "#1D1D1D",
-            marginBottom: 16,
+            marginBottom: 14,
           }}
         >
           The 3 Pillars
@@ -119,9 +118,9 @@ export default function Pillars() {
           transition={{ duration: 0.7, delay: 0.2 }}
           style={{
             fontFamily: "var(--font-body)",
-            fontSize: "clamp(14px, 1.4vw, 16px)",
+            fontSize: "clamp(13px, 1.4vw, 16px)",
             color: "#A8917B",
-            maxWidth: 420,
+            maxWidth: 400,
             margin: "0 auto",
             lineHeight: 1.7,
           }}
@@ -130,20 +129,15 @@ export default function Pillars() {
         </motion.p>
       </div>
 
-      {/* Pillars grid */}
+      {/* Pillars grid — responsive via CSS class */}
       <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
-          gap: 2,
-          background: "#D9D3CB",
-          margin: "0 clamp(20px, 4vw, 60px)",
-          marginBottom: "clamp(64px, 9vw, 112px)",
-        }}
+        className="layout-pillars"
+        style={{ margin: "0 clamp(16px, 4vw, 60px)", marginBottom: "clamp(56px, 8vw, 100px)" }}
       >
         {pillars.map((pillar, i) => (
           <motion.article
             key={pillar.id}
+            className="pillar-card-height"
             initial={{ opacity: 0, y: 48 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
@@ -152,12 +146,11 @@ export default function Pillars() {
             onMouseLeave={() => setHovered(null)}
             style={{
               position: "relative",
-              height: "clamp(440px, 58vw, 620px)",
               overflow: "hidden",
               cursor: "pointer",
             }}
           >
-            {/* Photo simulation */}
+            {/* Photo bg */}
             <div
               style={{
                 position: "absolute",
@@ -196,17 +189,16 @@ export default function Pillars() {
               }}
             />
 
-            {/* Bottom white gradient — bleeds into page */}
+            {/* Bottom cream gradient */}
             <div
               style={{
                 position: "absolute",
                 bottom: 0,
                 left: 0,
                 right: 0,
-                height: "45%",
+                height: "48%",
                 background:
-                  "linear-gradient(to top, rgba(245,241,235,0.95) 0%, rgba(245,241,235,0.6) 40%, transparent 100%)",
-                transition: "opacity 0.4s ease",
+                  "linear-gradient(to top, rgba(245,241,235,0.96) 0%, rgba(245,241,235,0.55) 45%, transparent 100%)",
               }}
             />
 
@@ -214,10 +206,10 @@ export default function Pillars() {
             <div
               style={{
                 position: "absolute",
-                top: 20,
-                right: 20,
+                top: 16,
+                right: 16,
                 fontFamily: "var(--font-display)",
-                fontSize: 60,
+                fontSize: "clamp(40px, 6vw, 60px)",
                 lineHeight: 1,
                 color: "rgba(255,255,255,0.18)",
                 userSelect: "none",
@@ -233,24 +225,23 @@ export default function Pillars() {
                 bottom: 0,
                 left: 0,
                 right: 0,
-                padding: "32px 32px 36px",
+                padding: "24px 28px 28px",
                 zIndex: 2,
               }}
             >
-              {/* Icon */}
-              <div style={{ color: pillar.accentColor, marginBottom: 14 }}>
+              <div style={{ color: pillar.accentColor, marginBottom: 12 }}>
                 {pillar.icon}
               </div>
 
               <h3
                 style={{
                   fontFamily: "var(--font-display)",
-                  fontSize: "clamp(36px, 4.5vw, 52px)",
+                  fontSize: "clamp(30px, 4vw, 52px)",
                   letterSpacing: "0.04em",
                   textTransform: "uppercase",
                   color: "#1D1D1D",
                   lineHeight: 1,
-                  marginBottom: 6,
+                  marginBottom: 5,
                 }}
               >
                 {pillar.title}
@@ -263,7 +254,7 @@ export default function Pillars() {
                   letterSpacing: "0.3em",
                   textTransform: "uppercase",
                   color: "#C89B4F",
-                  marginBottom: 14,
+                  marginBottom: 12,
                   fontWeight: 500,
                 }}
               >
@@ -273,9 +264,9 @@ export default function Pillars() {
               <p
                 style={{
                   fontFamily: "var(--font-body)",
-                  fontSize: "clamp(13px, 1.3vw, 15px)",
+                  fontSize: "clamp(12px, 1.3vw, 15px)",
                   color: "#3A3530",
-                  lineHeight: 1.65,
+                  lineHeight: 1.6,
                   maxWidth: 300,
                 }}
               >

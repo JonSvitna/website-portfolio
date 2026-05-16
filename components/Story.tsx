@@ -5,23 +5,16 @@ import { motion } from "framer-motion";
 export default function Story() {
   return (
     <section id="story" style={{ background: "#FFFFFF", overflow: "hidden" }}>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          minHeight: "80vh",
-        }}
-      >
+      <div className="layout-story">
+
         {/* Left — photo */}
         <motion.div
+          className="story-photo-panel"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 1.0, ease: [0.25, 0.1, 0.1, 1] as [number, number, number, number] }}
           style={{
-            position: "relative",
-            minHeight: "clamp(420px, 55vw, 720px)",
-            overflow: "hidden",
             background: `
               radial-gradient(ellipse 65% 55% at 45% 20%, rgba(255, 242, 195, 0.55) 0%, transparent 55%),
               radial-gradient(ellipse 50% 65% at 65% 85%, rgba(175, 115, 45, 0.20) 0%, transparent 55%),
@@ -42,8 +35,24 @@ export default function Story() {
             }}
           />
 
-          {/* Right-edge blend */}
+          {/* Sunlight flare */}
           <div
+            style={{
+              position: "absolute",
+              top: "-8%",
+              left: "50%",
+              transform: "translateX(-50%)",
+              width: "130%",
+              height: "50%",
+              background:
+                "radial-gradient(ellipse 60% 80% at 50% 0%, rgba(255,248,200,0.35) 0%, transparent 65%)",
+              pointerEvents: "none",
+            }}
+          />
+
+          {/* Right-edge blend to text panel — md+ only */}
+          <div
+            className="story-photo-blend"
             style={{
               position: "absolute",
               top: 0,
@@ -65,14 +74,14 @@ export default function Story() {
             }}
           />
 
-          {/* Large S watermark */}
+          {/* S watermark */}
           <div
             style={{
               position: "absolute",
               bottom: "-8%",
               left: "-4%",
               fontFamily: "var(--font-display)",
-              fontSize: "clamp(200px, 28vw, 360px)",
+              fontSize: "clamp(150px, 22vw, 360px)",
               color: "rgba(255,255,255,0.06)",
               lineHeight: 1,
               userSelect: "none",
@@ -82,16 +91,16 @@ export default function Story() {
             S
           </div>
 
-          {/* Caption bar */}
+          {/* Caption */}
           <div
             style={{
               position: "absolute",
-              bottom: 28,
-              left: 28,
-              right: 28,
+              bottom: 24,
+              left: 24,
+              right: 24,
               zIndex: 3,
               borderTop: "1px solid rgba(255,248,220,0.3)",
-              paddingTop: 14,
+              paddingTop: 12,
               display: "flex",
               alignItems: "center",
               gap: 10,
@@ -115,7 +124,7 @@ export default function Story() {
                 color: "rgba(255,248,220,0.6)",
               }}
             >
-              Superset Shaw — Personal Archive
+              Personal Archive
             </span>
           </div>
         </motion.div>
@@ -127,8 +136,7 @@ export default function Story() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 1.0, ease: [0.25, 0.1, 0.1, 1] as [number, number, number, number], delay: 0.12 }}
           style={{
-            padding:
-              "clamp(60px, 8vw, 100px) clamp(32px, 5vw, 80px) clamp(60px, 8vw, 100px) clamp(40px, 5vw, 72px)",
+            padding: "clamp(48px, 7vw, 100px) clamp(20px, 5vw, 80px) clamp(48px, 7vw, 100px) clamp(24px, 5vw, 72px)",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
@@ -139,17 +147,17 @@ export default function Story() {
             My Story
           </p>
 
-          <div className="gold-line" style={{ marginBottom: 32 }} />
+          <div className="gold-line" style={{ marginBottom: 28 }} />
 
           <h2
             style={{
               fontFamily: "var(--font-display)",
-              fontSize: "clamp(40px, 5vw, 60px)",
+              fontSize: "clamp(36px, 5vw, 60px)",
               lineHeight: 1.0,
               letterSpacing: "0.03em",
               textTransform: "uppercase",
               color: "#1D1D1D",
-              marginBottom: 28,
+              marginBottom: 24,
             }}
           >
             From Athlete
@@ -160,10 +168,10 @@ export default function Story() {
           <p
             style={{
               fontFamily: "var(--font-body)",
-              fontSize: "clamp(15px, 1.5vw, 17px)",
+              fontSize: "clamp(14px, 1.5vw, 17px)",
               color: "#6B5F52",
               lineHeight: 1.8,
-              marginBottom: 18,
+              marginBottom: 16,
             }}
           >
             I spent years chasing performance on the court — but real
@@ -174,10 +182,10 @@ export default function Story() {
           <p
             style={{
               fontFamily: "var(--font-body)",
-              fontSize: "clamp(15px, 1.5vw, 17px)",
+              fontSize: "clamp(14px, 1.5vw, 17px)",
               color: "#6B5F52",
               lineHeight: 1.8,
-              marginBottom: 40,
+              marginBottom: 36,
             }}
           >
             Through faith, discipline, and consistency, I found purpose bigger
@@ -189,16 +197,16 @@ export default function Story() {
           <div
             style={{
               borderLeft: "3px solid #C89B4F",
-              paddingLeft: 24,
-              marginBottom: 40,
+              paddingLeft: 20,
+              marginBottom: 36,
               background: "rgba(200,155,79,0.04)",
-              padding: "20px 20px 20px 24px",
+              padding: "18px 18px 18px 22px",
             }}
           >
             <p
               style={{
                 fontFamily: "var(--font-display)",
-                fontSize: "clamp(18px, 2.2vw, 26px)",
+                fontSize: "clamp(17px, 2.2vw, 26px)",
                 lineHeight: 1.3,
                 letterSpacing: "0.03em",
                 color: "#1D1D1D",
@@ -227,7 +235,7 @@ export default function Story() {
               style={{
                 fontFamily: "Georgia, 'Times New Roman', serif",
                 fontStyle: "italic",
-                fontSize: "clamp(26px, 3vw, 38px)",
+                fontSize: "clamp(24px, 3vw, 38px)",
                 color: "#1D1D1D",
                 letterSpacing: "0.02em",
                 marginBottom: 6,

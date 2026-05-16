@@ -106,14 +106,8 @@ export default function Services() {
           </div>
         </motion.div>
 
-        {/* Services grid */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(2, 1fr)",
-            gap: 16,
-          }}
-        >
+        {/* Services grid — responsive via CSS class */}
+        <div className="layout-services">
           {services.map((s, i) => (
             <motion.div
               key={s.id}
@@ -123,6 +117,7 @@ export default function Services() {
               transition={{ duration: 0.7, delay: i * 0.08 }}
               onMouseEnter={() => setHovered(s.id)}
               onMouseLeave={() => setHovered(null)}
+              className="service-card-inner"
               style={{
                 background: "#FFFFFF",
                 border: "1.5px solid",
@@ -130,9 +125,7 @@ export default function Services() {
                 boxShadow: hovered === s.id
                   ? "0 8px 40px rgba(200,155,79,0.12)"
                   : "0 2px 16px rgba(0,0,0,0.04)",
-                padding: "clamp(28px, 3.5vw, 44px)",
-                display: "flex",
-                gap: 24,
+                padding: "clamp(24px, 3.5vw, 44px)",
                 transition: "border-color 0.35s ease, box-shadow 0.35s ease",
                 cursor: "pointer",
                 position: "relative",

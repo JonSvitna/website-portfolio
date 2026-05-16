@@ -21,25 +21,15 @@ const fadeUp = {
 
 export default function Hero() {
   return (
-    <section
-      id="hero"
-      style={{
-        minHeight: "100vh",
-        background: "#F5F1EB",
-        display: "grid",
-        gridTemplateColumns: "1fr 1fr",
-        overflow: "hidden",
-        position: "relative",
-      }}
-    >
+    <section id="hero" className="layout-hero" style={{ background: "#F5F1EB" }}>
+
       {/* ── LEFT PANEL — Text ── */}
       <div
         style={{
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          padding:
-            "clamp(120px, 14vw, 180px) clamp(24px, 5vw, 80px) clamp(60px, 8vw, 100px)",
+          padding: "clamp(100px, 12vw, 160px) clamp(20px, 5vw, 80px) clamp(48px, 7vw, 80px)",
           position: "relative",
           zIndex: 2,
         }}
@@ -60,7 +50,7 @@ export default function Hero() {
             <h1
               style={{
                 fontFamily: "var(--font-display)",
-                fontSize: "clamp(68px, 9vw, 120px)",
+                fontSize: "clamp(60px, 9vw, 120px)",
                 lineHeight: 0.9,
                 letterSpacing: "0.01em",
                 textTransform: "uppercase",
@@ -72,13 +62,7 @@ export default function Hero() {
               <br />
               Builds
               <br />
-              <span
-                style={{
-                  color: "#C89B4F",
-                }}
-              >
-                Legacy
-              </span>
+              <span style={{ color: "#C89B4F" }}>Legacy</span>
             </h1>
           </motion.div>
 
@@ -87,10 +71,10 @@ export default function Hero() {
             variants={fadeUp}
             style={{
               fontFamily: "var(--font-body)",
-              fontSize: "clamp(15px, 1.6vw, 18px)",
+              fontSize: "clamp(14px, 1.6vw, 18px)",
               color: "#6B5F52",
               lineHeight: 1.75,
-              marginBottom: 40,
+              marginBottom: 36,
               maxWidth: 400,
             }}
           >
@@ -101,7 +85,7 @@ export default function Hero() {
           {/* CTAs */}
           <motion.div
             variants={fadeUp}
-            style={{ display: "flex", gap: 14, flexWrap: "wrap", marginBottom: 56 }}
+            style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 48 }}
           >
             <a href="#final-cta" className="btn-gold">
               Start Your Transformation
@@ -116,9 +100,9 @@ export default function Hero() {
             variants={fadeUp}
             style={{
               borderTop: "1px solid #D9D3CB",
-              paddingTop: 28,
+              paddingTop: 24,
               display: "flex",
-              gap: "clamp(20px, 4vw, 44px)",
+              gap: "clamp(16px, 3.5vw, 44px)",
               flexWrap: "wrap",
             }}
           >
@@ -130,17 +114,17 @@ export default function Hero() {
             ].map((s) => (
               <div
                 key={s.label}
-                style={{ display: "flex", alignItems: "center", gap: 10 }}
+                style={{ display: "flex", alignItems: "center", gap: 8 }}
               >
-                <span style={{ fontSize: 20 }}>{s.icon}</span>
+                <span style={{ fontSize: 18 }}>{s.icon}</span>
                 <span
                   style={{
                     fontFamily: "var(--font-body)",
                     fontSize: 10,
-                    letterSpacing: "0.15em",
+                    letterSpacing: "0.12em",
                     textTransform: "uppercase",
                     color: "#A8917B",
-                    lineHeight: 1.45,
+                    lineHeight: 1.4,
                     whiteSpace: "pre-line",
                     fontWeight: 500,
                   }}
@@ -152,8 +136,9 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Decorative vertical text */}
+        {/* Decorative vertical text — desktop only */}
         <div
+          className="hero-vert-label"
           style={{
             position: "absolute",
             right: 20,
@@ -174,16 +159,12 @@ export default function Hero() {
 
       {/* ── RIGHT PANEL — Cinematic photo simulation ── */}
       <motion.div
+        className="hero-photo-panel"
         initial={{ opacity: 0, scale: 1.04 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.4, ease: [0.25, 0.1, 0.1, 1] as [number, number, number, number] }}
-        style={{
-          position: "relative",
-          overflow: "hidden",
-          minHeight: "100vh",
-        }}
       >
-        {/* Main warm sunrise background */}
+        {/* Main warm sunrise */}
         <div
           style={{
             position: "absolute",
@@ -197,7 +178,7 @@ export default function Hero() {
           }}
         />
 
-        {/* Sunlight flare — top center */}
+        {/* Sunlight flare */}
         <div
           style={{
             position: "absolute",
@@ -212,23 +193,20 @@ export default function Hero() {
           }}
         />
 
-        {/* Film grain on the photo */}
+        {/* Film grain */}
         <div
           style={{
             position: "absolute",
             inset: 0,
             backgroundImage: `repeating-linear-gradient(
-              0deg,
-              transparent,
-              transparent 3px,
-              rgba(255,255,255,0.014) 3px,
-              rgba(255,255,255,0.014) 4px
+              0deg, transparent, transparent 3px,
+              rgba(255,255,255,0.014) 3px, rgba(255,255,255,0.014) 4px
             )`,
             pointerEvents: "none",
           }}
         />
 
-        {/* Warm-to-page-background gradient at left edge — blends into panel */}
+        {/* Left-edge blend into page — desktop only */}
         <div
           style={{
             position: "absolute",
@@ -236,8 +214,7 @@ export default function Hero() {
             left: 0,
             width: "18%",
             height: "100%",
-            background:
-              "linear-gradient(to right, #F5F1EB 0%, transparent 100%)",
+            background: "linear-gradient(to right, #F5F1EB 0%, transparent 100%)",
             pointerEvents: "none",
             zIndex: 2,
           }}
@@ -253,12 +230,12 @@ export default function Hero() {
           }}
         />
 
-        {/* Signature overlay */}
+        {/* Signature */}
         <div
           style={{
             position: "absolute",
-            bottom: "clamp(32px, 5vw, 60px)",
-            right: "clamp(24px, 4vw, 48px)",
+            bottom: "clamp(24px, 4vw, 60px)",
+            right: "clamp(20px, 4vw, 48px)",
             textAlign: "right",
             zIndex: 3,
           }}
@@ -267,10 +244,10 @@ export default function Hero() {
             style={{
               fontFamily: "Georgia, 'Times New Roman', serif",
               fontStyle: "italic",
-              fontSize: "clamp(22px, 3vw, 36px)",
+              fontSize: "clamp(18px, 2.5vw, 36px)",
               color: "rgba(255,248,230,0.9)",
               letterSpacing: "0.02em",
-              marginBottom: 6,
+              marginBottom: 5,
               textShadow: "0 2px 12px rgba(0,0,0,0.2)",
             }}
           >
@@ -279,8 +256,8 @@ export default function Hero() {
           <div
             style={{
               fontFamily: "var(--font-body)",
-              fontSize: 11,
-              letterSpacing: "0.3em",
+              fontSize: 10,
+              letterSpacing: "0.28em",
               textTransform: "uppercase",
               color: "rgba(255,240,200,0.75)",
             }}
@@ -289,14 +266,14 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Large watermark SS */}
+        {/* SS watermark */}
         <div
           style={{
             position: "absolute",
             bottom: "-5%",
             right: "-5%",
             fontFamily: "var(--font-display)",
-            fontSize: "clamp(160px, 22vw, 300px)",
+            fontSize: "clamp(100px, 18vw, 300px)",
             color: "rgba(255,255,255,0.05)",
             lineHeight: 1,
             userSelect: "none",

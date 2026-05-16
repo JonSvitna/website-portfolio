@@ -52,20 +52,17 @@ export default function FinalCTA() {
       </div>
 
       <div
-        className="container-wide"
+        className="container-wide layout-cta"
         style={{
           position: "relative",
           zIndex: 2,
           paddingTop: "clamp(80px, 12vw, 140px)",
           paddingBottom: "clamp(80px, 12vw, 140px)",
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: "clamp(40px, 6vw, 80px)",
-          alignItems: "center",
         }}
       >
-        {/* Left — Photo */}
+        {/* Left — Photo (hidden on mobile) */}
         <motion.div
+          className="cta-photo-panel"
           initial={{ opacity: 0, scale: 0.96 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}

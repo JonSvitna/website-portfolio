@@ -12,13 +12,10 @@ export default function Footer() {
     >
       {/* Main */}
       <div
-        className="container-wide"
+        className="container-wide layout-footer"
         style={{
-          paddingTop: 64,
-          paddingBottom: 48,
-          display: "grid",
-          gridTemplateColumns: "auto 1fr auto",
-          gap: "clamp(28px, 5vw, 60px)",
+          paddingTop: 56,
+          paddingBottom: 44,
           alignItems: "start",
         }}
       >
@@ -79,15 +76,7 @@ export default function Footer() {
 
         {/* Nav */}
         <nav style={{ paddingTop: 4 }}>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(2, 1fr)",
-              gap: "12px 40px",
-              maxWidth: 400,
-              margin: "0 auto",
-            }}
-          >
+          <div className="footer-nav-grid">
             {[
               { label: "Home", href: "#hero" },
               { label: "About", href: "#story" },
@@ -123,7 +112,7 @@ export default function Footer() {
         </nav>
 
         {/* CTA + socials */}
-        <div style={{ textAlign: "right" }}>
+        <div className="footer-cta-block">
           <a
             href="#final-cta"
             className="btn-gold"
@@ -132,7 +121,7 @@ export default function Footer() {
             Apply for Coaching
           </a>
 
-          <div style={{ display: "flex", gap: 10, justifyContent: "flex-end", marginTop: 12 }}>
+          <div className="footer-cta-socials">
             {/* Instagram */}
             <a
               href="https://www.instagram.com/supersetshaw"

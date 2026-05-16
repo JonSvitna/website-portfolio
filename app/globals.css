@@ -175,6 +175,297 @@ body::before {
   padding-bottom: clamp(80px, 10vw, 140px);
 }
 
+/* ─────────────────────────────────────────
+   RESPONSIVE LAYOUT CLASSES
+   All breakpoints: 640px (sm), 768px (md), 1024px (lg)
+───────────────────────────────────────── */
+
+/* Nav: responsive padding */
+.nav-inner {
+  padding-left: clamp(16px, 4vw, 40px);
+  padding-right: clamp(16px, 4vw, 40px);
+}
+
+/* Hero: stacked on mobile, 50/50 split on md+ */
+.layout-hero {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+@media (min-width: 768px) {
+  .layout-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    flex-direction: unset;
+  }
+}
+
+/* Hero photo panel: appears first on mobile, right column on desktop */
+.hero-photo-panel {
+  order: -1;
+  min-height: 48vh;
+  position: relative;
+  overflow: hidden;
+}
+@media (min-width: 768px) {
+  .hero-photo-panel {
+    order: unset;
+    min-height: 100vh;
+  }
+}
+
+/* Hero vertical decorative text: hidden on mobile */
+.hero-vert-label {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .hero-vert-label {
+    display: block;
+  }
+}
+
+/* Story: stacked on mobile, 50/50 on md+ */
+.layout-story {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .layout-story {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Story photo: compact on mobile */
+.story-photo-panel {
+  min-height: 280px;
+  position: relative;
+  overflow: hidden;
+}
+@media (min-width: 768px) {
+  .story-photo-panel {
+    min-height: clamp(420px, 55vw, 720px);
+  }
+}
+
+/* Right-edge blend on story photo: only on md+ (where it meets text panel) */
+.story-photo-blend {
+  display: none;
+}
+@media (min-width: 768px) {
+  .story-photo-blend {
+    display: block;
+  }
+}
+
+/* Pillars: 1-col mobile, 3-col sm+ */
+.layout-pillars {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2px;
+  background: #D9D3CB;
+}
+@media (min-width: 640px) {
+  .layout-pillars {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Pillar card height: shorter on mobile */
+.pillar-card-height {
+  height: 320px;
+}
+@media (min-width: 640px) {
+  .pillar-card-height {
+    height: clamp(440px, 58vw, 620px);
+  }
+}
+
+/* Carousel track */
+.transformation-track {
+  display: flex;
+  gap: 16px;
+  transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.1, 1);
+}
+
+/* Transformation card: full-width-ish on mobile */
+.transformation-card {
+  min-width: min(400px, calc(100vw - 48px));
+  flex-shrink: 0;
+}
+
+/* Services: 1-col mobile, 2-col md+ */
+.layout-services {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+@media (min-width: 768px) {
+  .layout-services {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+/* Service card inner: col on mobile, row on sm+ */
+.service-card-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+@media (min-width: 480px) {
+  .service-card-inner {
+    flex-direction: row;
+    gap: 24px;
+  }
+}
+
+/* Feed grid: 2-col on mobile, 3-col sm+ with proper row heights */
+.layout-feed {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  /* Let rows be auto-height on mobile */
+}
+@media (min-width: 640px) {
+  .layout-feed {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 200px);
+  }
+}
+
+/* Feed featured tile: just 1 col on mobile, 2-col span on desktop */
+.feed-featured {
+  grid-column: span 1;
+  grid-row: span 1;
+  aspect-ratio: 1;
+}
+@media (min-width: 640px) {
+  .feed-featured {
+    grid-column: span 2;
+    grid-row: span 2;
+    aspect-ratio: unset;
+  }
+}
+
+/* Feed regular tile */
+.feed-tile {
+  aspect-ratio: 1;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Community: 1-col mobile, 2-col md+ */
+.layout-community {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(32px, 5vw, 56px);
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .layout-community {
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(40px, 6vw, 80px);
+  }
+}
+
+/* Community photo grid: hidden on mobile */
+.community-photo-grid {
+  display: none;
+}
+@media (min-width: 768px) {
+  .community-photo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+}
+
+/* Final CTA: 1-col mobile, 2-col md+ */
+.layout-cta {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(32px, 5vw, 56px);
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .layout-cta {
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(40px, 6vw, 80px);
+  }
+}
+
+/* CTA photo: hidden on mobile */
+.cta-photo-panel {
+  display: none;
+}
+@media (min-width: 768px) {
+  .cta-photo-panel {
+    display: block;
+  }
+}
+
+/* Footer main grid: stacked on mobile, 3-col on lg+ */
+.layout-footer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+@media (min-width: 1024px) {
+  .layout-footer {
+    grid-template-columns: auto 1fr auto;
+    gap: clamp(28px, 5vw, 60px);
+  }
+}
+
+/* Footer nav grid */
+.footer-nav-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px 24px;
+}
+@media (min-width: 1024px) {
+  .footer-nav-grid {
+    gap: 12px 40px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+/* Footer CTA: left-aligned on mobile, right on desktop */
+.footer-cta-block {
+  text-align: left;
+}
+@media (min-width: 1024px) {
+  .footer-cta-block {
+    text-align: right;
+  }
+}
+.footer-cta-socials {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+  margin-top: 12px;
+}
+@media (min-width: 1024px) {
+  .footer-cta-socials {
+    justify-content: flex-end;
+  }
+}
+
+/* Stats strip */
+.stats-strip {
+  display: flex;
+  justify-content: center;
+  gap: clamp(20px, 5vw, 80px);
+  flex-wrap: wrap;
+  padding: 32px clamp(20px, 5vw, 80px);
+}
+
+/* ─────────────────────────────────────────
+   END RESPONSIVE LAYOUT CLASSES
+───────────────────────────────────────── */
+
 /* Photo placeholder — warm sunlight */
 .photo-sunrise {
   background:
