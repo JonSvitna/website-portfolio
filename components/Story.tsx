@@ -20,7 +20,7 @@ export default function Story() {
           {/* Real photo */}
           <Image
             src="/images/shaw-portrait.jpg"
-            alt="Superset Shaw — transformational fitness coach"
+            alt="Devin Williams — transformational fitness coach"
             fill
             style={{ objectFit: "cover", objectPosition: "left center" }}
           />
@@ -200,7 +200,7 @@ export default function Story() {
                 color: "#C89B4F",
               }}
             >
-              — Superset Shaw
+              — Devin Williams
             </p>
           </div>
 
@@ -216,7 +216,7 @@ export default function Story() {
                 marginBottom: 6,
               }}
             >
-              Superset Shaw
+              Devin Williams
             </div>
             <div
               style={{

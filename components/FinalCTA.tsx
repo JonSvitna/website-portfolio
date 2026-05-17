@@ -79,7 +79,7 @@ export default function FinalCTA() {
           {/* Real photo */}
           <Image
             src="/images/cta-bg.jpg"
-            alt="Superset Shaw overlooking the city at golden hour"
+            alt="Devin Williams overlooking the city at golden hour"
             fill
             style={{ objectFit: "cover", objectPosition: "center center" }}
           />
@@ -126,7 +126,7 @@ export default function FinalCTA() {
                 color: "rgba(255,248,220,0.65)",
               }}
             >
-              Superset Shaw — Coaching
+              Devin Williams — Coaching
             </span>
           </div>
         </motion.div>

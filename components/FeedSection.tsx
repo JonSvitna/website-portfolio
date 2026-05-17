@@ -281,7 +281,7 @@ export default function FeedSection() {
             textTransform: "uppercase",
           }}
         >
-          @supersetshaw
+          @devinwilliams
         </div>
       </div>
     </section>

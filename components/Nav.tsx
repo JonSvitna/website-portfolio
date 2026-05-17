@@ -79,7 +79,7 @@ export default function Nav() {
               flexShrink: 0,
             }}
           >
-            SS
+            DW
           </div>
           <span
             style={{
@@ -89,7 +89,7 @@ export default function Nav() {
               color: "#1D1D1D",
             }}
           >
-            SUPERSET SHAW
+            DEVIN WILLIAMS
           </span>
         </a>
 

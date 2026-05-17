@@ -33,7 +33,7 @@ export default function Hero() {
       {/* ── Full-bleed background photo ── */}
       <Image
         src="/images/hero-bg.jpg"
-        alt="Superset Shaw on the basketball court"
+        alt="Devin Williams on the basketball court"
         fill
         priority
         style={{ objectFit: "cover", objectPosition: "center top" }}
@@ -197,7 +197,7 @@ export default function Hero() {
               marginBottom: 6,
             }}
           >
-            Superset Shaw
+            Devin Williams
           </div>
           <div
             style={{

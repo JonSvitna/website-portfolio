@@ -54,7 +54,7 @@ export default function Footer() {
                 color: "#1D1D1D",
               }}
             >
-              SUPERSET SHAW
+              DEVIN WILLIAMS
             </div>
           </div>
           <p
@@ -209,7 +209,7 @@ export default function Footer() {
             color: "#A8917B",
           }}
         >
-          © {year} Superset Shaw. All rights reserved.
+          © {year} Devin Williams. All rights reserved.
         </p>
         <p
           style={{
