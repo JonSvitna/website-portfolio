@@ -218,8 +218,7 @@ export default function RyanApp() {
       router.push('/day');
       return;
     }
-    const el = document.querySelector('.transition-band');
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    router.push('/night');
   };
 
   return (

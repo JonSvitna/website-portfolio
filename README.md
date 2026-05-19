@@ -21,9 +21,11 @@ npm install
 Run a site from the root:
 
 ```bash
+npm run dev           # Ryan 2.0 on :3002 (default)
 npm run dev:shaw      # Superset Shaw on :3000
 npm run dev:roofing   # Roofing Company on :3001
 npm run dev:ryan      # Ryan 2.0 on :3002
+npm run dev:all       # All sites in parallel
 ```
 
 Or run from a site folder:

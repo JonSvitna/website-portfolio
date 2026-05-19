@@ -5,6 +5,8 @@
     "sites/*"
   ],
   "scripts": {
+    "dev": "npm run dev:ryan",
+    "dev:all": "npm run dev --workspaces --if-present --parallel",
     "dev:shaw": "npm run dev -w superset-shaw",
     "dev:roofing": "npm run dev -w roofing-company",
     "dev:ryan": "npm run dev -w ryan-2.0",
