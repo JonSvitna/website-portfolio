@@ -1,26 +1,176 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --stone: #f5f6f8;
+  --stone-deep: #e8ebf0;
+  --ink: #0f2137;
+  --ink-muted: #4a5f78;
+  --ink-soft: #1a3352;
+  --border: #d4dae3;
+  --navy: #0f2137;
+  --navy-deep: #0a1628;
+  --navy-mid: #1a3352;
+  --gold: #f5b800;
+  --gold-dark: #d9a000;
+  --gold-pale: #fff8e1;
+  --copper: var(--gold);
+  --copper-dark: var(--gold-dark);
+  --copper-pale: var(--gold-pale);
+  --asphalt: var(--navy);
+  --asphalt-muted: #94a3b8;
+  --asphalt-border: #243b5c;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-stone: var(--stone);
+  --color-stone-deep: var(--stone-deep);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-soft: var(--ink-soft);
+  --color-border: var(--border);
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+  --color-navy-mid: var(--navy-mid);
+  --color-gold: var(--gold);
+  --color-gold-dark: var(--gold-dark);
+  --color-gold-pale: var(--gold-pale);
+  --color-copper: var(--gold);
+  --color-copper-dark: var(--gold-dark);
+  --color-copper-pale: var(--gold-pale);
+  --color-asphalt: var(--navy);
+  --color-asphalt-muted: var(--asphalt-muted);
+  --color-asphalt-border: var(--asphalt-border);
+  --color-background: var(--stone);
+  --color-foreground: var(--ink);
+  --color-muted: var(--ink-muted);
+  --color-accent: var(--gold);
+  --color-accent-hover: var(--gold-dark);
+  --color-surface: #ffffff;
+  --font-sans: var(--font-body), system-ui, sans-serif;
+  --font-display: var(--font-display), system-ui, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--stone);
+  color: var(--ink);
+  font-family: var(--font-body), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--gold) 35%, transparent);
+  color: var(--navy);
+}
+
+.font-display {
+  font-family: var(--font-display), system-ui, sans-serif;
+}
+
+.font-body {
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+.font-mono {
+  font-family: var(--font-mono), ui-monospace, monospace;
+}
+
+.text-display {
+  font-family: var(--font-display), system-ui, sans-serif;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.text-body {
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+.section-pad {
+  padding-top: clamp(4rem, 9vw, 5.5rem);
+  padding-bottom: clamp(4rem, 9vw, 5.5rem);
+}
+
+.container-site {
+  width: 100%;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1rem, 4vw, 2rem);
+  padding-right: clamp(1rem, 4vw, 2rem);
+}
+
+.copper-rule,
+.gold-rule {
+  width: 3rem;
+  height: 3px;
+  background: var(--gold);
+}
+
+.band-navy,
+.band-asphalt {
+  background: var(--navy);
+  color: #f8fafc;
+}
+
+.band-navy .text-ink,
+.band-asphalt .text-ink {
+  color: #f8fafc;
+}
+
+.band-navy .text-ink-muted,
+.band-asphalt .text-ink-muted {
+  color: var(--asphalt-muted);
+}
+
+.band-light {
+  background: var(--stone-deep);
+}
+
+.band-gold {
+  background: var(--gold);
+  color: var(--navy);
+  position: relative;
+  overflow: hidden;
+}
+
+.band-gold::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.12;
+  background: repeating-linear-gradient(
+    -12deg,
+    transparent,
+    transparent 12px,
+    var(--navy) 12px,
+    var(--navy) 14px
+  );
+}
+
+.process-step-num {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(3.5rem, 8vw, 5.5rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: color-mix(in srgb, var(--gold) 35%, transparent);
+}
+
+.hero-headline-accent {
+  color: var(--gold);
 }

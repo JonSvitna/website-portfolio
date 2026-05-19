@@ -1,14 +1,26 @@
+import AboutSection from "@/components/columbia/AboutSection";
+import { ConstructionProgressProvider } from "@/components/columbia/ConstructionProgressProvider";
+import ContactSection from "@/components/columbia/ContactSection";
+import CredentialsBar from "@/components/columbia/CredentialsBar";
+import Footer from "@/components/columbia/Footer";
+import Hero from "@/components/columbia/Hero";
+import Nav from "@/components/columbia/Nav";
+import ProcessSection from "@/components/columbia/ProcessSection";
+import ServicesSection from "@/components/columbia/ServicesSection";
+
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-zinc-50 px-6 font-sans">
-      <main className="max-w-lg text-center">
-        <h1 className="text-4xl font-semibold tracking-tight text-zinc-900">
-          Roofing Company
-        </h1>
-        <p className="mt-4 text-lg leading-8 text-zinc-600">
-          Professional roofing services. This site is under construction.
-        </p>
+    <ConstructionProgressProvider>
+      <Nav />
+      <main>
+        <Hero />
+        <CredentialsBar />
+        <AboutSection />
+        <ServicesSection />
+        <ProcessSection />
+        <ContactSection />
       </main>
-    </div>
+      <Footer />
+    </ConstructionProgressProvider>
   );
 }

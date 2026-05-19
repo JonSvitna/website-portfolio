@@ -3,8 +3,6 @@
 
 import React, { useEffect, useState, useRef, useMemo, useCallback } from 'react';
 
-import { Scene } from './day-scenes';
-
 
 /* ================================================================
    ICONS — Phosphor-style line icons (inline SVG)
@@ -174,11 +172,9 @@ function Hero() {
     <section className="hero" data-screen-label="Hero — Arrive in Excellence">
       <div className="hero-canvas">
         <div className="hero-bg">
-          <Scene
-            kind="harbor"
-            tone="sky"
-            label="Inner Harbor · 09:14"
-            sublabel="Plate · A morning departure"
+          <img
+            src="/day-system/assets/editorial-waterfront.jpg"
+            alt="Baltimore Inner Harbor — morning arrival"
           />
         </div>
         <div className="hero-wash" />
@@ -304,11 +300,9 @@ function Daytime() {
   return (
     <section className="daytime" data-screen-label="Daytime Luxury">
       <div className="daytime-image">
-        <Scene
-          kind="hotel"
-          tone="cream"
-          label="Four Seasons · 11:00"
-          sublabel="Porte cochère · Curbside"
+        <img
+          src="/day-system/assets/editorial-water-club.jpg"
+          alt="Luxury hotel porte cochère — Four Seasons curbside arrival"
         />
       </div>
       <div className="daytime-text">
@@ -340,14 +334,46 @@ function Daytime() {
    MOMENTS — image grid
    ================================================================ */
 const MOMENTS = [
-  { label: 'Airport Transfers',    sub: 'BWI · IAD · DCA', kind: 'airport',   tone: 'sky' },
-  { label: 'Corporate Meetings',   sub: 'Inner Harbor',    kind: 'corporate', tone: 'bluehour' },
-  { label: 'Wedding Arrivals',     sub: 'Outdoor · Garden',kind: 'wedding',   tone: 'rose' },
-  { label: 'Brunch Circuits',      sub: 'Federal Hill',    kind: 'brunch',    tone: 'cream' },
-  { label: 'Family Celebrations',  sub: 'Estate · Day',    kind: 'garden',    tone: 'sage' },
-  { label: 'Personal Shopping',    sub: 'Harbor East',     kind: 'boutique',  tone: 'rose' },
-  { label: 'Hotel Concierge',      sub: 'Four Seasons',    kind: 'hotel',     tone: 'cream' },
-  { label: 'Promenade · Day Out',  sub: 'Pier · 14:00',    kind: 'pier',      tone: 'sky' }
+  {
+    label: 'Airport Transfers',
+    sub: 'BWI · IAD · DCA',
+    img: '/day-system/assets/editorial-airport.jpg',
+  },
+  {
+    label: 'Corporate Meetings',
+    sub: 'Inner Harbor',
+    img: 'https://images.pexels.com/photos/7433840/pexels-photo-7433840.jpeg?auto=compress&cs=tinysrgb&w=800&dpr=1',
+  },
+  {
+    label: 'Wedding Arrivals',
+    sub: 'Outdoor · Garden',
+    img: 'https://images.pexels.com/photos/14703685/pexels-photo-14703685.jpeg?auto=compress&cs=tinysrgb&w=800&dpr=1',
+  },
+  {
+    label: 'Brunch Circuits',
+    sub: 'Federal Hill',
+    img: 'https://images.pexels.com/photos/8922195/pexels-photo-8922195.jpeg?auto=compress&cs=tinysrgb&w=800&dpr=1',
+  },
+  {
+    label: 'Family Celebrations',
+    sub: 'Estate · Day',
+    img: 'https://images.pexels.com/photos/36708862/pexels-photo-36708862.jpeg?auto=compress&cs=tinysrgb&w=800&dpr=1',
+  },
+  {
+    label: 'Personal Shopping',
+    sub: 'Harbor East',
+    img: 'https://images.pexels.com/photos/5424937/pexels-photo-5424937.jpeg?auto=compress&cs=tinysrgb&w=800&dpr=1',
+  },
+  {
+    label: 'Hotel Concierge',
+    sub: 'Four Seasons',
+    img: 'https://images.pexels.com/photos/6474532/pexels-photo-6474532.jpeg?auto=compress&cs=tinysrgb&w=800&dpr=1',
+  },
+  {
+    label: 'Promenade · Day Out',
+    sub: 'Pier · 14:00',
+    img: 'https://images.pexels.com/photos/21724808/pexels-photo-21724808.jpeg?auto=compress&cs=tinysrgb&w=800&dpr=1',
+  },
 ];
 
 function Moments() {
@@ -364,7 +390,12 @@ function Moments() {
         <div className="moments-grid">
           {MOMENTS.map((m, i) => (
             <a className="moment" href="#" key={m.label + i} data-reveal data-delay={(i % 4) + 1}>
-              <Scene kind={m.kind} tone={m.tone} label={m.label} sublabel={m.sub} />
+              <img src={m.img} alt={m.label} loading="lazy" />
+              <div className="moment-overlay" />
+              <div className="scene-caption">
+                <span className="scene-label">{m.label}</span>
+                <span className="scene-sub">{m.sub}</span>
+              </div>
               <span className="moment-arrow">{I.arrow}</span>
             </a>
           ))}
@@ -411,10 +442,10 @@ function Fleet() {
 
       <div className="fleet-images">
         <div className="pane">
-          <Scene kind="bmwSide" tone="cream" label="Exterior · Alpine White" sublabel="2023 BMW 750i" />
+          <img src="/day-system/assets/bmw-exterior.png" alt="2023 BMW 750i exterior — Alpine White" />
         </div>
         <div className="pane">
-          <Scene kind="bmwCabin" tone="rose" label="Cabin · Cognac Red" sublabel="Leather · Daylight" />
+          <img src="/day-system/assets/cabin-rear.png" alt="2023 BMW 750i cabin — Cognac Red leather" />
         </div>
       </div>
     </section>
@@ -475,11 +506,9 @@ function FinalCTA() {
         </div>
       </div>
       <div className="final-cta-image">
-        <Scene
-          kind="goldenHour"
-          tone="gold"
-          label="Federal Hill · 16:42"
-          sublabel="Golden Hour"
+        <img
+          src="https://images.pexels.com/photos/30093493/pexels-photo-30093493.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          alt="Baltimore waterfront skyline at golden hour"
         />
       </div>
     </section>
