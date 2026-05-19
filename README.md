@@ -54,3 +54,5 @@ Create a separate Vercel project per site and set **Root Directory**:
 | Superset Shaw | `sites/superset-shaw` |
 | Roofing Company | `sites/roofing-company` |
 | Ryan 2.0 | `sites/ryan-2.0` |
+
+**Superset Shaw** (`supershaw-fit` on Vercel) uses `sites/superset-shaw/vercel.json` for monorepo install, build, and ignored-build-step settings. Deploys run only when `sites/superset-shaw`, `package.json`, or `package-lock.json` change.
