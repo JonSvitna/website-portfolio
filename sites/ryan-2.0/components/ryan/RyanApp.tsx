@@ -33,11 +33,20 @@ const ACCENT_OPTIONS = ['#c9a96a', '#d8b97b', '#b89668', '#a47a3e', '#e3cda1'];
 const DIVIDER_OPTIONS = ['glow', 'hairline', 'beam'];
 
 /* ========================================================
-   Top Navigation
+   Top Navigation — hidden over the hero (nav is in the image),
+   fades in once the user scrolls past the first viewport
 ======================================================== */
 function TopNav() {
+  const [visible, setVisible] = React.useState(false);
+
+  React.useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY > window.innerHeight * 0.85);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   return (
-    <header className="topnav">
+    <header className={'topnav' + (visible ? ' nav-visible' : '')}>
       <a href="#" className="brand">
         <div className="brand-mark">R</div>
         <div className="brand-text">

@@ -5,10 +5,12 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 /* ========================================================
-   Hero — "Choose Your Experience" with photo background
+   Hero — photo-only with interactive sliding divider
+   All text/nav/buttons are baked into the background image.
+   Only the divider, hover tints, and click zones are HTML.
 ======================================================== */
 
-function Hero({ onEnter, eyebrow }) {
+function Hero({ onEnter }) {
   const [hover, setHover] = React.useState(null); // 'day' | 'night' | null
   const heroRef = React.useRef(null);
 
@@ -32,68 +34,37 @@ function Hero({ onEnter, eyebrow }) {
       animate={{ opacity: 1 }}
       transition={{ duration: 1.2, delay: 1.6, ease: [0.22, 1, 0.36, 1] }}
     >
-      {/* Full-bleed photo */}
+      {/* Full-bleed photo — contains all visible text */}
       <div className="hero-photo" />
 
-      {/* Global soft overlay for text readability */}
+      {/* Subtle global overlay for depth */}
       <div className="hero-overlay" />
 
-      {/* Day hover zone */}
-      <div className="hero-half day">
+      {/* Day click + hover zone */}
+      <div
+        className="hero-half day"
+        onClick={() => onEnter && onEnter('day')}
+        role="button"
+        aria-label="Enter the day experience"
+        style={{ cursor: 'pointer' }}
+      >
         <div className="half-tint" />
       </div>
 
-      {/* Night hover zone */}
-      <div className="hero-half night">
+      {/* Night click + hover zone */}
+      <div
+        className="hero-half night"
+        onClick={() => onEnter && onEnter('night')}
+        role="button"
+        aria-label="Enter the night experience"
+        style={{ cursor: 'pointer' }}
+      >
         <div className="half-tint" />
       </div>
 
-      {/* Center divider */}
+      {/* Sliding divider — the only interactive HTML element */}
       <div className="divider" />
       <div className="divider-mid"><span>OR</span></div>
-
-      {/* Eyebrow */}
-      <div className="hero-eyebrow">{eyebrow || 'Choose Your Experience'}</div>
-
-      {/* DAY side */}
-      <div className="hero-side-text day">
-        <div className="label-big">Day</div>
-        <div className="label-small">Experience</div>
-        <div className="copy">
-          Executive travel. Airport pickups.<br />Weddings. Corporate luxury.
-        </div>
-        <button
-          className="hero-cta"
-          onClick={() => onEnter && onEnter('day')}
-          aria-label="Enter the day experience"
-        >
-          Enter Day Experience
-          <span className="arrow" />
-        </button>
-      </div>
-
-      {/* NIGHT side */}
-      <div className="hero-side-text night">
-        <div className="label-big">Night</div>
-        <div className="label-small">Experience</div>
-        <div className="copy">
-          Nightlife. Special events. Date nights.<br />VIP treatment.
-        </div>
-        <button
-          className="hero-cta"
-          onClick={() => onEnter && onEnter('night')}
-          aria-label="Enter the night experience"
-        >
-          Enter Night Experience
-          <span className="arrow" />
-        </button>
-      </div>
-
-      {/* Scroll cue */}
-      <div className="scroll-cue">
-        <span>Scroll to Explore</span>
-        <div className="line" />
-      </div>
     </motion.section>
   );
 }
