@@ -7,8 +7,10 @@
   "scripts": {
     "dev:shaw": "npm run dev -w superset-shaw",
     "dev:roofing": "npm run dev -w roofing-company",
+    "dev:ryan": "npm run dev -w ryan-2.0",
     "build:shaw": "npm run build -w superset-shaw",
     "build:roofing": "npm run build -w roofing-company",
+    "build:ryan": "npm run build -w ryan-2.0",
     "build": "npm run build --workspaces --if-present",
     "lint": "npm run lint --workspaces --if-present"
   }

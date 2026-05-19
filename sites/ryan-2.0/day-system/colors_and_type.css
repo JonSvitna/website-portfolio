@@ -1,0 +1,324 @@
+/* ================================================================
+   NIGHT SERIES — Design Tokens
+   Editorial luxury · BMW campaign tone · Champagne restraint
+   Dark (canonical) + Light (parchment) modes
+   ================================================================ */
+
+/* ── Webfonts (Google) ─────────────────────────────────────────── */
+/* Cormorant Garamond — display serif (the soul of the brand)
+   Geist — body sans (modern, technical, quiet)
+   DM Mono — micro-caps eyebrows, numerals, chapter marks
+   No font files shipped — system uses Google Fonts CDN.            */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Geist:wght@200;300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap");
+
+/* ================================================================
+   DARK — canonical mode (deep graphite, champagne, ivory)
+   ================================================================ */
+:root,
+:root[data-theme="dark"] {
+  /* ── Surfaces ── */
+  --bg:           #08090f;   /* canonical deep graphite      */
+  --bg-2:         #0b0d16;   /* card / secondary surface     */
+  --bg-3:         #0e1019;   /* tertiary inset               */
+  --bg-elev:      #11141e;   /* elevated panel               */
+
+  /* ── Text ── */
+  --fg-1:         #f0ede8;   /* ivory — primary text         */
+  --fg-2:         #8a9099;   /* slate-neutral — body         */
+  --fg-3:         #50586a;   /* muted — captions, legal      */
+  --fg-on-accent: #08090f;   /* text used on champagne fills */
+
+  /* ── Brand accent — Champagne ── */
+  --accent:        #c4a46b;  /* champagne — the only color   */
+  --accent-hi:     #d9be86;  /* hover / highlight            */
+  --accent-dim:    #8a7047;  /* pressed / dim                */
+  --accent-glow:   rgba(196, 164, 107, 0.07);
+  --accent-wash:   rgba(196, 164, 107, 0.18);
+
+  /* ── Optional warm signal — Red leather ── */
+  /* Used sparingly: cabin imagery, success/confirmation moments */
+  --rose:          #b03a3a;
+  --rose-deep:     #6a1e1e;
+
+  /* ── Hairlines & dividers ── */
+  --line:          rgba(196, 164, 107, 0.12);
+  --line-2:        rgba(196, 164, 107, 0.22);
+  --line-w:        rgba(255, 255, 255, 0.05);
+  --line-w-2:      rgba(255, 255, 255, 0.10);
+
+  /* ── Selection & focus ── */
+  --selection-bg:  rgba(196, 164, 107, 0.28);
+  --selection-fg:  var(--bg);
+  --focus-ring:    0 0 0 1px var(--accent), 0 0 0 4px var(--accent-glow);
+}
+
+/* ================================================================
+   LIGHT — parchment mode (warm ivory, ink graphite, deep champagne)
+   Same editorial DNA, inverted. Reads like a luxury magazine page.
+   ================================================================ */
+:root[data-theme="light"] {
+  --bg:           #f4f0e8;   /* parchment ivory              */
+  --bg-2:         #ece7db;   /* card / secondary surface     */
+  --bg-3:         #e3ddcd;   /* tertiary inset               */
+  --bg-elev:      #f9f6ee;   /* elevated panel (paper)       */
+
+  --fg-1:         #15171d;   /* graphite ink                 */
+  --fg-2:         #4b515e;   /* slate body                   */
+  --fg-3:         #7a8090;   /* muted                        */
+  --fg-on-accent: #15171d;
+
+  --accent:        #8a6f3c;  /* deeper champagne for contrast */
+  --accent-hi:     #a18550;
+  --accent-dim:    #6b5429;
+  --accent-glow:   rgba(138, 111, 60, 0.07);
+  --accent-wash:   rgba(138, 111, 60, 0.16);
+
+  --rose:          #9b2f2f;
+  --rose-deep:     #5e1717;
+
+  --line:          rgba(138, 111, 60, 0.18);
+  --line-2:        rgba(138, 111, 60, 0.32);
+  --line-w:        rgba(21, 23, 29, 0.06);
+  --line-w-2:      rgba(21, 23, 29, 0.12);
+
+  --selection-bg:  rgba(138, 111, 60, 0.24);
+  --selection-fg:  var(--bg);
+  --focus-ring:    0 0 0 1px var(--accent), 0 0 0 4px var(--accent-glow);
+}
+
+/* ================================================================
+   TYPE — Families
+   ================================================================ */
+:root {
+  --f-display:  "Cormorant Garamond", "Cormorant", Georgia, serif;
+  --f-body:     "Geist", "Geist Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono:     "DM Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  /* Weights — restraint is the rule */
+  --w-display-light: 300;
+  --w-display-reg:   400;
+  --w-display-med:   500;
+  --w-body-thin:     200;
+  --w-body-light:    300;
+  --w-body-reg:      400;
+  --w-body-med:      500;
+  --w-mono-light:    300;
+  --w-mono-reg:      400;
+
+  /* Tracking — eyebrows use heroic letter-spacing */
+  --tr-mono-eye:     0.34em;   /* 'BALTIMORE PRIVATE CHAUFFEUR'   */
+  --tr-mono-cap:     0.22em;   /* nav links, buttons               */
+  --tr-mono-num:     0.18em;   /* phone numbers in mono            */
+  --tr-display-tight:-0.015em; /* display headlines                */
+  --tr-display-flat: -0.01em;
+  --tr-body:          0.01em;
+
+  /* Type scale — display set in clamp() for fluidity */
+  --t-hero:     clamp(3.2rem, 8.5vw, 8rem);   /* hero headline   */
+  --t-h1:       clamp(2.8rem, 5.5vw, 5.8rem); /* section h1      */
+  --t-h2:       clamp(2.2rem, 4.8vw, 4.8rem); /* section h2      */
+  --t-h3:       clamp(1.6rem, 3vw, 2.4rem);   /* sub             */
+  --t-lede:     1rem;       /* 16px — section subhead body       */
+  --t-body:     0.9375rem;  /* 15px — canonical body             */
+  --t-small:    0.8125rem;  /* 13px                              */
+  --t-cap:      0.625rem;   /* 10px — micro-caps eyebrows        */
+  --t-cap-sm:   0.5625rem;  /* 9px                               */
+
+  /* Line heights — display is tight, body is generous */
+  --lh-display: 0.92;
+  --lh-h:       1.05;
+  --lh-body:    1.7;
+  --lh-mono:    1.4;
+}
+
+/* ================================================================
+   TYPE — Semantic classes
+   Use these directly, or copy the rule into your component CSS.
+   ================================================================ */
+
+/* Eyebrows / kickers — small mono-caps, champagne, heroic tracking */
+.eyebrow,
+.t-eyebrow {
+  font-family: var(--f-mono);
+  font-size: var(--t-cap);
+  letter-spacing: var(--tr-mono-eye);
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: var(--w-mono-reg);
+}
+
+/* Chapter numbers (01, 02 …) — same as eyebrow */
+.chapter-num,
+.t-chapter-num {
+  font-family: var(--f-mono);
+  font-size: var(--t-cap-sm);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* Display headlines — serif, light weight, tight tracking */
+.display,
+.t-display,
+h1 {
+  font-family: var(--f-display);
+  font-weight: var(--w-display-light);
+  letter-spacing: var(--tr-display-tight);
+  line-height: var(--lh-display);
+  color: var(--fg-1);
+}
+
+.t-hero      { font-size: var(--t-hero); line-height: 0.88; }
+.t-h1, h1    { font-size: var(--t-h1); }
+.t-h2, h2    {
+  font-family: var(--f-display);
+  font-weight: var(--w-display-light);
+  letter-spacing: var(--tr-display-flat);
+  line-height: var(--lh-h);
+  color: var(--fg-1);
+  font-size: var(--t-h2);
+}
+.t-h3, h3 {
+  font-family: var(--f-display);
+  font-weight: var(--w-display-reg);
+  letter-spacing: 0;
+  line-height: 1.15;
+  color: var(--fg-1);
+  font-size: var(--t-h3);
+}
+
+/* Italic display — used in pull-quotes ("They deserve an experience.") */
+.t-display-italic {
+  font-family: var(--f-display);
+  font-style: italic;
+  font-weight: var(--w-display-light);
+  color: var(--accent);
+}
+
+/* Lede — body+ size, slate color, sits below headlines */
+.lede,
+.t-lede {
+  font-family: var(--f-body);
+  font-weight: var(--w-body-light);
+  font-size: var(--t-lede);
+  line-height: var(--lh-body);
+  color: var(--fg-2);
+  letter-spacing: var(--tr-body);
+}
+
+/* Body — Geist light, generous line height */
+.body,
+.t-body,
+p {
+  font-family: var(--f-body);
+  font-weight: var(--w-body-light);
+  font-size: var(--t-body);
+  line-height: 1.75;
+  color: var(--fg-2);
+  letter-spacing: var(--tr-body);
+}
+
+/* Mono links / nav links — micro-caps */
+.t-link,
+.nav-link {
+  font-family: var(--f-mono);
+  font-size: var(--t-cap);
+  letter-spacing: var(--tr-mono-cap);
+  text-transform: uppercase;
+  color: var(--fg-2);
+}
+
+/* Phone numbers — display serif with mono dots */
+.t-phone {
+  font-family: var(--f-display);
+  font-weight: var(--w-display-light);
+  font-size: clamp(2.8rem, 6vw, 6rem);
+  letter-spacing: 0.05em;
+  color: var(--fg-1);
+  line-height: 1;
+}
+
+/* Legal / micro — mono, muted */
+.t-legal,
+small {
+  font-family: var(--f-mono);
+  font-size: var(--t-cap-sm);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+
+/* Code — DM Mono */
+code, kbd, samp, pre {
+  font-family: var(--f-mono);
+  font-size: 0.875em;
+  color: var(--fg-1);
+  background: var(--bg-2);
+  padding: 0.1em 0.4em;
+  border: 1px solid var(--line-w);
+}
+
+/* ================================================================
+   SPACING & GEOMETRY
+   The system is rhythmic and generous. Pages breathe.
+   ================================================================ */
+:root {
+  --s-1:  4px;
+  --s-2:  8px;
+  --s-3:  12px;
+  --s-4:  16px;
+  --s-5:  24px;
+  --s-6:  32px;
+  --s-7:  44px;
+  --s-8:  64px;
+  --s-9:  88px;
+  --s-10: 140px;   /* canonical section vertical padding */
+
+  --px:    64px;    /* page x-padding (desktop)          */
+  --py:    140px;   /* page y-padding (desktop)          */
+  --maxw:  1200px;  /* editorial measure                 */
+  --maxw-text: 56ch;/* text column max                   */
+
+  /* Corner radii — Night Series is almost square; radius is RARE */
+  --r-0:  0;        /* default — hairlines, panels       */
+  --r-1:  2px;      /* form inputs, tags                 */
+  --r-2:  4px;      /* tiny chips                        */
+  --r-pill: 999px;  /* avoid — only mobile CTA bars      */
+
+  /* Motion */
+  --ease:      cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-slow: cubic-bezier(0.16, 1, 0.3, 1);
+  --d-1: 0.3s;
+  --d-2: 0.6s;
+  --d-3: 1s;
+  --d-img: 9s;     /* slow ken-burns image scale         */
+
+  /* Shadows — used sparingly. Glow > drop on dark. */
+  --shadow-1:  0 1px 0 0 var(--line-w);
+  --shadow-2:  0 12px 40px -12px rgba(0,0,0,0.55);
+  --shadow-glow: 0 0 80px -20px var(--accent-wash);
+}
+
+/* ================================================================
+   GLOBAL RESET / BASE
+   ================================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  background: var(--bg);
+  color: var(--fg-1);
+  font-family: var(--f-body);
+  font-weight: var(--w-body-light);
+  font-size: var(--t-body);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; background: none; border: none; font: inherit; color: inherit; }
+img { display: block; max-width: 100%; }
+::selection { background: var(--selection-bg); color: var(--selection-fg); }
+:focus-visible { outline: none; box-shadow: var(--focus-ring); }
