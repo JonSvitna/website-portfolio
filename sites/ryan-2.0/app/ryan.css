@@ -147,7 +147,28 @@ img { display: block; max-width: 100%; }
   height: 100vh; min-height: 720px;
   width: 100%;
   overflow: hidden;
-  background: #000;
+}
+
+/* Full-bleed photo background */
+.hero-photo {
+  position: absolute; inset: 0;
+  background-image: url('/uploads/choose-experience-hero.png');
+  background-size: cover;
+  background-position: center center;
+  z-index: 0;
+}
+
+/* Global soft overlay — top and bottom gradients for text readability,
+   light in the middle to preserve the car */
+.hero-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background:
+    linear-gradient(180deg,
+      rgba(0,0,0,0.38) 0%,
+      rgba(0,0,0,0.10) 30%,
+      rgba(0,0,0,0.08) 60%,
+      rgba(0,0,0,0.50) 100%);
+  pointer-events: none;
 }
 
 /* Film grain — cinematic noise overlay */
@@ -171,243 +192,36 @@ img { display: block; max-width: 100%; }
   100% { transform: translate(0,0); }
 }
 
+/* Hero halves — hover tint zones over the photo */
 .hero-half {
   position: absolute; top: 0; bottom: 0;
-  overflow: hidden;
-  transition: clip-path 1s var(--ease-luxe), filter .8s var(--ease-luxe);
-  will-change: clip-path;
-}
-.hero-half.day {
-  left: 0; right: 0;
-  clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
-}
-.hero-half.night {
-  left: 0; right: 0;
-  clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
-}
-.hero[data-hover="day"] .hero-half.day {
-  clip-path: polygon(0 0, 62% 0, 62% 100%, 0 100%);
-}
-.hero[data-hover="day"] .hero-half.night {
-  clip-path: polygon(62% 0, 100% 0, 100% 100%, 62% 100%);
-  filter: brightness(0.7) saturate(0.85);
-}
-.hero[data-hover="night"] .hero-half.day {
-  clip-path: polygon(0 0, 38% 0, 38% 100%, 0 100%);
-  filter: brightness(0.78) saturate(0.85);
-}
-.hero[data-hover="night"] .hero-half.night {
-  clip-path: polygon(38% 0, 100% 0, 100% 100%, 38% 100%);
-}
-
-/* Backgrounds — environmental */
-.bg-layer {
-  position: absolute; inset: 0;
-  background-size: cover;
-  background-position: center;
-  transform: scale(1.04);
-  transition: transform 8s var(--ease-luxe), filter 1s var(--ease-luxe);
-}
-
-.hero-half.day .bg-layer {
-  background:
-    radial-gradient(ellipse at 30% 35%, rgba(255, 220, 160, 0.55), transparent 55%),
-    linear-gradient(180deg, #2b2415 0%, #4a3a1f 35%, #6b502a 65%, #2a1f10 100%);
-}
-.hero-half.night .bg-layer {
-  background:
-    radial-gradient(ellipse at 70% 60%, rgba(40, 70, 130, 0.45), transparent 60%),
-    radial-gradient(circle at 80% 30%, rgba(200, 140, 60, 0.18), transparent 40%),
-    linear-gradient(180deg, #04060c 0%, #0a1018 50%, #050810 100%);
-}
-
-/* Image slot styling for hero halves */
-.hero-half image-slot {
-  position: absolute;
-  inset: 0;
-  width: 100%; height: 100%;
-}
-.hero-half image-slot::part(empty) { display: none; }
-
-/* Atmosphere overlay for cinematic look */
-.atmosphere {
-  position: absolute; inset: 0;
-  pointer-events: none;
-  mix-blend-mode: overlay;
-}
-.day .atmosphere {
-  background:
-    radial-gradient(circle at 35% 25%, rgba(255, 230, 180, 0.45), transparent 60%),
-    linear-gradient(180deg, rgba(255, 220, 170, 0.1) 0%, transparent 50%, rgba(0, 0, 0, 0.3) 100%);
-}
-.night .atmosphere {
-  background:
-    radial-gradient(circle at 65% 70%, rgba(40, 80, 160, 0.4), transparent 65%),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, transparent 40%, rgba(0, 0, 10, 0.55) 100%);
-}
-
-/* Vignette */
-.vignette {
-  position: absolute; inset: 0; pointer-events: none;
-  background: radial-gradient(ellipse at center, transparent 35%, rgba(0,0,0,0.55) 100%);
-}
-
-/* Light/lens flare on day side */
-.sun-flare {
-  position: absolute;
-  width: 480px; height: 480px;
-  left: 8%; top: 14%;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 230, 180, 0.5) 0%, rgba(255, 200, 120, 0.15) 30%, transparent 60%);
-  filter: blur(40px);
-  animation: sunPulse 9s ease-in-out infinite;
-  pointer-events: none;
-}
-@keyframes sunPulse {
-  0%, 100% { opacity: 0.7; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.08); }
-}
-
-/* City glow on night side */
-.city-glow {
-  position: absolute;
-  bottom: 22%; left: 0; right: 0; height: 30%;
-  background: linear-gradient(0deg,
-    rgba(180, 120, 40, 0.18),
-    rgba(80, 100, 180, 0.12) 30%,
-    transparent 100%);
-  filter: blur(30px);
-  pointer-events: none;
-}
-.city-pin {
-  position: absolute;
-  width: 2px; height: 2px;
-  background: var(--champagne);
-  border-radius: 50%;
-  box-shadow: 0 0 6px var(--champagne);
-  animation: twinkle 4s ease-in-out infinite;
-}
-@keyframes twinkle {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 1; }
-}
-
-/* Wet street reflection */
-.wet-floor {
-  position: absolute;
-  bottom: 0; left: 0; right: 0; height: 35%;
-  background:
-    linear-gradient(0deg, rgba(10, 14, 22, 0.85), transparent),
-    repeating-linear-gradient(90deg, transparent 0 30px, rgba(200, 160, 90, 0.04) 30px 31px);
-  pointer-events: none;
-}
-
-/* Horizon — day side, suggests waterfront / rooftop edge */
-.horizon {
-  position: absolute;
-  left: 0; right: 0;
-  pointer-events: none;
-}
-.day-horizon {
-  bottom: 28%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 235, 195, 0.4) 30%, rgba(255, 235, 195, 0.6) 60%, transparent);
-  box-shadow: 0 0 18px rgba(255, 220, 160, 0.4);
-}
-.day-horizon::before {
-  /* Hazy band above the horizon — water glare */
-  content: "";
-  position: absolute;
-  left: 0; right: 0; top: -90px;
-  height: 90px;
-  background: linear-gradient(180deg, transparent, rgba(255, 220, 160, 0.18));
-  filter: blur(8px);
-}
-
-/* Skyline — night side, building silhouettes via stair gradient */
-.skyline {
-  position: absolute;
-  left: 0; right: 0;
-  bottom: 30%;
-  height: 220px;
-  background:
-    /* layered silhouettes from box-shadow stair */
-    radial-gradient(ellipse at 20% 100%, rgba(0,0,0,0.55) 0%, transparent 50%),
-    radial-gradient(ellipse at 78% 100%, rgba(0,0,0,0.6) 0%, transparent 50%);
-  pointer-events: none;
-}
-.skyline::before, .skyline::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  background:
-    repeating-linear-gradient(90deg,
-      rgba(2, 4, 10, 0.85) 0 22px,
-      transparent 22px 28px,
-      rgba(2, 4, 10, 0.85) 28px 40px,
-      transparent 40px 50px,
-      rgba(2, 4, 10, 0.85) 50px 76px,
-      transparent 76px 84px);
-  mask-image: linear-gradient(180deg, transparent 0%, #000 30%, #000 100%);
-}
-.skyline::before {
-  left: 0; right: 50%;
-  height: 140px;
-  filter: blur(0.5px);
-}
-.skyline::after {
-  left: 40%; right: 0;
-  height: 175px;
-  opacity: 0.85;
-  filter: blur(0.4px);
-}
-
-/* Warm bokeh particles — day */
-.bokeh {
-  position: absolute;
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 230, 180, 0.95), rgba(255, 200, 120, 0.5) 60%, transparent);
-  filter: blur(2px);
-  animation: bokehDrift 9s ease-in-out infinite;
-  pointer-events: none;
-  opacity: 0.7;
-}
-@keyframes bokehDrift {
-  0%, 100% { transform: translateY(0) scale(1); opacity: 0.5; }
-  50% { transform: translateY(-22px) scale(1.2); opacity: 1; }
-}
-
-/* ============ HERO — Car ============ */
-.car-stage {
-  position: absolute; left: 50%; bottom: 0;
-  transform: translateX(-50%);
-  width: min(70vw, 1100px);
-  height: 75vh;
-  z-index: 3;
-  pointer-events: none;
-  display: flex; align-items: flex-end; justify-content: center;
-}
-.car-frame {
-  position: relative;
-  width: 100%; height: 92%;
+  z-index: 2;
   pointer-events: auto;
 }
-.car-frame image-slot {
-  width: 100%; height: 100%;
-  display: block;
+.hero-half.day  { left: 0; width: 50%; }
+.hero-half.night { right: 0; width: 50%; }
+
+/* Tint overlay inside each half — transitions on hover */
+.half-tint {
+  position: absolute; inset: 0;
+  transition: background 0.8s var(--ease-luxe);
+  pointer-events: none;
 }
-.car-frame::after {
-  /* ground shadow */
-  content: "";
-  position: absolute;
-  left: 5%; right: 5%;
-  bottom: -2%;
-  height: 50px;
-  background: radial-gradient(ellipse at center, rgba(0,0,0,0.7) 0%, transparent 70%);
-  filter: blur(20px);
-  z-index: -1;
+
+/* Default: nearly invisible tints */
+.hero-half.day  .half-tint { background: rgba(255, 235, 180, 0.03); }
+.hero-half.night .half-tint { background: rgba(0, 5, 20, 0.06); }
+
+/* Hover DAY — brighten left by deepening right */
+.hero[data-hover="day"] .hero-half.night .half-tint {
+  background: rgba(0, 5, 20, 0.34);
 }
+
+/* Hover NIGHT — deepen right */
+.hero[data-hover="night"] .hero-half.day .half-tint {
+  background: rgba(0, 0, 0, 0.28);
+}
+
 
 /* Center divider */
 .divider {
@@ -1309,12 +1123,49 @@ img { display: block; max-width: 100%; }
 @media (max-width: 720px) {
   .topnav { padding: 18px 22px; }
   .nav-links { display: none; }
-  .hero { min-height: 600px; }
-  .car-stage { width: 110vw; }
-  .hero-side-text { width: auto; max-width: 220px; }
-  .hero-side-text.day { left: 5%; bottom: 22%; }
-  .hero-side-text.night { right: 5%; bottom: 22%; }
+  .hero { min-height: 100svh; }
+
+  /* Stack hero halves vertically on mobile */
+  .hero-half.day  { width: 100%; height: 50%; top: 0; bottom: auto; left: 0; right: 0; }
+  .hero-half.night { width: 100%; height: 50%; top: 50%; bottom: 0; left: 0; right: 0; }
+
+  /* Divider becomes horizontal */
+  .divider {
+    top: 50%; left: 0; right: 0; bottom: auto;
+    width: 100%; height: 1px;
+    transform: none;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 240, 200, 0.85) 20%,
+      rgba(255, 240, 200, 0.95) 50%,
+      rgba(255, 240, 200, 0.85) 80%,
+      transparent 100%);
+    box-shadow: 0 0 16px rgba(255, 220, 160, 0.5);
+  }
+  .divider-mid { top: 50%; }
+  .hero[data-hover="day"] .divider,
+  .hero[data-hover="night"] .divider { transform: none; }
+  .hero[data-hover="day"] .divider-mid,
+  .hero[data-hover="night"] .divider-mid { transform: translate(-50%, -50%) rotate(45deg); }
+
+  /* Side texts positioned in each half */
+  .hero-side-text { width: auto; max-width: 260px; }
+  .hero-side-text.day  {
+    left: 50%; bottom: auto; top: 12%;
+    transform: translateX(-50%);
+    text-align: center; align-items: center;
+  }
+  .hero-side-text.night {
+    right: auto; left: 50%; top: 60%; bottom: auto;
+    transform: translateX(-50%);
+    text-align: center; align-items: center;
+  }
   .hero-side-text .label-big { font-size: 56px; }
+  .hero-eyebrow { top: 4%; font-size: 13px; letter-spacing: 0.3em; }
+  .hero-eyebrow::before, .hero-eyebrow::after { width: 18px; margin: 0 12px; }
+  .scroll-cue { display: none; }
+
+  /* Rest of site */
   .section { padding: 80px 22px; }
   .fleet-grid { grid-template-columns: 1fr; }
   .experiences { grid-template-columns: 1fr; }

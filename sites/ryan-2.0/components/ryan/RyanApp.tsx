@@ -46,9 +46,10 @@ function TopNav() {
         </div>
       </a>
       <nav className="nav-links">
+        <a href="#services">Services</a>
         <a href="#fleet">Fleet</a>
         <a href="#experience">Experience</a>
-        <a href="#contact">Reserve</a>
+        <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
