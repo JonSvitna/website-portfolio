@@ -65,6 +65,11 @@ const I = {
       <circle cx="12" cy="10" r="2.5"/>
     </svg>
   ),
+  phone: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5">
+      <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/>
+    </svg>
+  ),
   arrow: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5">
       <path d="M5 12h14"/>
@@ -130,7 +135,7 @@ function Nav() {
   }, []);
 
   return (
-    <nav className={'nav' + (scrolled ? ' scrolled' : '')}>
+    <nav className={'nav day-nav' + (scrolled ? ' scrolled' : '')}>
       <a className="nav-brand" href="#">
         <Logo />
         <span className="nav-brand-text">
@@ -169,17 +174,17 @@ const HERO_SERVICES = [
 
 function Hero() {
   return (
-    <section className="hero" data-screen-label="Hero — Arrive in Excellence">
+    <section className="hero hero-composited" data-screen-label="Hero — Arrive in Excellence">
+      <h1 className="sr-only">Arrive in Excellence</h1>
       <div className="hero-canvas">
         <div className="hero-bg">
           <img
-            src="/day-system/assets/editorial-waterfront.jpg"
-            alt="Baltimore Inner Harbor — morning arrival"
+            src="/uploads/day-hero.png"
+            alt="Ryan Motivates — daytime executive chauffeur arrival"
+            className="hero-bg-photo"
           />
         </div>
         <div className="hero-wash" />
-        <div className="hero-wash-top" />
-        <div className="hero-wash-bottom" />
 
         <div className="hero-body">
           <div className="hero-content">
@@ -202,7 +207,7 @@ function Hero() {
         </div>
 
         <div className="hero-scroll-cue">
-          <span className="dot"></span>
+          <span className="dot" />
           <span>Scroll to Explore</span>
         </div>
 
@@ -217,13 +222,13 @@ function Hero() {
 
         <div className="hero-strip">
           {HERO_SERVICES.map((s) => (
-            <div className="item" key={s.name}>
+            <a className="hero-strip-item" href="#services" key={s.name}>
               <div className="item-icon">{s.icon}</div>
               <div>
                 <div className="item-name">{s.name}</div>
                 <div className="item-copy">{s.copy}</div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>
@@ -274,7 +279,7 @@ function Services() {
               <div className="icon">{s.icon}</div>
               <div className="name">{s.name}</div>
               <p className="copy">{s.copy}</p>
-              <a className="learn" href="#">
+              <a className="learn" href="#contact">
                 Learn More
                 <span className="arrow">{I.arrow}</span>
               </a>
@@ -301,8 +306,8 @@ function Daytime() {
     <section className="daytime" data-screen-label="Daytime Luxury">
       <div className="daytime-image">
         <img
-          src="/day-system/assets/editorial-water-club.jpg"
-          alt="Luxury hotel porte cochère — Four Seasons curbside arrival"
+          src="/uploads/daytime-luxury.png"
+          alt="White BMW 750i — daytime executive arrival"
         />
       </div>
       <div className="daytime-text">
@@ -335,12 +340,12 @@ function Daytime() {
    ================================================================ */
 const MOMENTS = [
   {
-    label: 'Airport Transfers',
+    label: 'Airport Pickups',
     sub: 'BWI · IAD · DCA',
-    img: '/day-system/assets/editorial-airport.jpg',
+    img: 'https://images.pexels.com/photos/3885519/pexels-photo-3885519.jpeg?auto=compress&cs=tinysrgb&w=800&dpr=1',
   },
   {
-    label: 'Corporate Meetings',
+    label: 'Business Meetings',
     sub: 'Inner Harbor',
     img: 'https://images.pexels.com/photos/7433840/pexels-photo-7433840.jpeg?auto=compress&cs=tinysrgb&w=800&dpr=1',
   },
@@ -350,7 +355,7 @@ const MOMENTS = [
     img: 'https://images.pexels.com/photos/14703685/pexels-photo-14703685.jpeg?auto=compress&cs=tinysrgb&w=800&dpr=1',
   },
   {
-    label: 'Brunch Circuits',
+    label: 'Brunch Dates',
     sub: 'Federal Hill',
     img: 'https://images.pexels.com/photos/8922195/pexels-photo-8922195.jpeg?auto=compress&cs=tinysrgb&w=800&dpr=1',
   },
@@ -360,18 +365,18 @@ const MOMENTS = [
     img: 'https://images.pexels.com/photos/36708862/pexels-photo-36708862.jpeg?auto=compress&cs=tinysrgb&w=800&dpr=1',
   },
   {
-    label: 'Personal Shopping',
+    label: 'VIP Errands',
     sub: 'Harbor East',
     img: 'https://images.pexels.com/photos/5424937/pexels-photo-5424937.jpeg?auto=compress&cs=tinysrgb&w=800&dpr=1',
   },
   {
-    label: 'Hotel Concierge',
+    label: 'Hotel Transfers',
     sub: 'Four Seasons',
     img: 'https://images.pexels.com/photos/6474532/pexels-photo-6474532.jpeg?auto=compress&cs=tinysrgb&w=800&dpr=1',
   },
   {
-    label: 'Promenade · Day Out',
-    sub: 'Pier · 14:00',
+    label: 'Corporate Guests',
+    sub: 'Harbor East',
     img: 'https://images.pexels.com/photos/21724808/pexels-photo-21724808.jpeg?auto=compress&cs=tinysrgb&w=800&dpr=1',
   },
 ];
@@ -389,12 +394,11 @@ function Moments() {
 
         <div className="moments-grid">
           {MOMENTS.map((m, i) => (
-            <a className="moment" href="#" key={m.label + i} data-reveal data-delay={(i % 4) + 1}>
+            <a className="moment" href="#contact" key={m.label + i} data-reveal data-delay={(i % 4) + 1}>
               <img src={m.img} alt={m.label} loading="lazy" />
-              <div className="moment-overlay" />
-              <div className="scene-caption">
-                <span className="scene-label">{m.label}</span>
-                <span className="scene-sub">{m.sub}</span>
+              <div className="moment-caption">
+                <span className="moment-label">{m.label}</span>
+                <span className="moment-sub">{m.sub}</span>
               </div>
               <span className="moment-arrow">{I.arrow}</span>
             </a>
@@ -442,10 +446,10 @@ function Fleet() {
 
       <div className="fleet-images">
         <div className="pane">
-          <img src="/day-system/assets/bmw-exterior.png" alt="2023 BMW 750i exterior — Alpine White" />
+          <img src="/uploads/fleet-bmw-exterior.png" alt="2023 BMW 750i exterior — Alpine White" />
         </div>
         <div className="pane">
-          <img src="/day-system/assets/cabin-rear.png" alt="2023 BMW 750i cabin — Cognac Red leather" />
+          <img src="/uploads/fleet-bmw-interior.png" alt="2023 BMW 750i cabin — Cognac Red leather" />
         </div>
       </div>
     </section>
@@ -496,18 +500,19 @@ function FinalCTA() {
           Ryan Motivates brings executive-level service to every ride.
         </p>
         <div className="final-cta-actions" data-reveal data-delay="2">
-          <a className="btn-fill" href="#">
+          <a className="btn-fill" href="#contact">
             Book Now
             <span className="arrow">{I.arrow}</span>
           </a>
           <a className="btn-outline" href="tel:+14439733356">
-            Call (443) 973&middot;3356
+            <span className="phone">{I.phone}</span>
+            Call (443) 973-3356
           </a>
         </div>
       </div>
       <div className="final-cta-image">
         <img
-          src="https://images.pexels.com/photos/30093493/pexels-photo-30093493.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          src="/uploads/day-cta.png"
           alt="Baltimore waterfront skyline at golden hour"
         />
       </div>
@@ -545,7 +550,7 @@ function Footer() {
         </div>
       </div>
       <div className="footer-bottom">
-        &copy; MMXXVI &mdash; Ryan Motivates Executive Chauffeur. All rights reserved.
+        &copy; 2024 Ryan Motivates Executive Chauffeur. All rights reserved.
       </div>
     </footer>
   );
@@ -579,9 +584,8 @@ function DayExperience() {
 
   return (
     <>
-      <div className="ribbon" />
       <Nav />
-      <main>
+      <main className="day-landing">
         <Hero />
         <Services />
         <Daytime />
