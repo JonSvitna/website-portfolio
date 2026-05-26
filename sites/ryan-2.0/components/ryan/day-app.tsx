@@ -1,7 +1,6 @@
-// @ts-nocheck
 'use client';
 
-import React, { useEffect, useState, useRef, useMemo, useCallback } from 'react';
+import React from 'react';
 
 
 /* ================================================================
@@ -128,14 +127,25 @@ function Logo({ size = 46 }) {
    ================================================================ */
 function Nav() {
   const [scrolled, setScrolled] = React.useState(false);
+  const [pastHero, setPastHero] = React.useState(false);
   React.useEffect(() => {
-    const on = () => setScrolled(window.scrollY > 60);
-    window.addEventListener('scroll', on, { passive: true });
-    return () => window.removeEventListener('scroll', on);
+    const onScroll = () => {
+      const hero = document.querySelector('.hero-canvas');
+      const heroHeight = hero instanceof HTMLElement ? hero.offsetHeight : window.innerHeight;
+      setPastHero(window.scrollY > heroHeight - 96);
+      setScrolled(window.scrollY > 60);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    };
   }, []);
 
   return (
-    <nav className={'nav day-nav' + (scrolled ? ' scrolled' : '')}>
+    <nav className={'nav day-nav' + (scrolled ? ' scrolled' : '') + (pastHero ? ' past-hero' : '')}>
       <a className="nav-brand" href="#">
         <Logo />
         <span className="nav-brand-text">
@@ -165,70 +175,46 @@ function Nav() {
 /* ================================================================
    HERO
    ================================================================ */
-const HERO_SERVICES = [
-  { icon: I.airplane,  name: 'Airport Transfers',   copy: 'On-time arrivals. Stress-free travel.' },
-  { icon: I.briefcase, name: 'Corporate Travel',    copy: 'Professional service for business leaders.' },
-  { icon: I.ring,      name: 'Weddings & Events',   copy: 'Luxury transportation for your special day.' },
-  { icon: I.clock,     name: 'Hourly Chauffeur',    copy: 'Book by the hour. Your time, your way.' },
+const HERO_HOTSPOTS = [
+  { className: 'hero-hotspot-services-nav', href: '#services', label: 'Services' },
+  { className: 'hero-hotspot-fleet-nav', href: '#fleet', label: 'Fleet' },
+  { className: 'hero-hotspot-experience-nav', href: '#experience', label: 'Experience' },
+  { className: 'hero-hotspot-about-nav', href: '#about', label: 'About' },
+  { className: 'hero-hotspot-contact-nav', href: '#contact', label: 'Contact' },
+  { className: 'hero-hotspot-book', href: '#contact', label: 'Book Now' },
+  { className: 'hero-hotspot-services-cta', href: '#services', label: 'Our Services' },
+  { className: 'hero-hotspot-airport', href: '#services', label: 'Airport Transfers' },
+  { className: 'hero-hotspot-corporate', href: '#services', label: 'Corporate Travel' },
+  { className: 'hero-hotspot-weddings', href: '#services', label: 'Weddings and Events' },
+  { className: 'hero-hotspot-hourly', href: '#services', label: 'Hourly Chauffeur' },
+  { className: 'hero-hotspot-scroll', href: '#services', label: 'Scroll to explore services' },
 ];
 
 function Hero() {
   return (
-    <section className="hero hero-composited" data-screen-label="Hero — Arrive in Excellence">
+    <section className="hero hero-composited hero-video" data-screen-label="Hero — Daytime Video">
       <h1 className="sr-only">Arrive in Excellence</h1>
       <div className="hero-canvas">
         <div className="hero-bg">
-          <img
-            src="/uploads/day-hero.png"
-            alt="Ryan Motivates — daytime executive chauffeur arrival"
-            className="hero-bg-photo"
+          <video
+            className="hero-bg-video"
+            src="/uploads/day_hero_animated.mp4"
+            autoPlay
+            muted
+            playsInline
+            loop
+            preload="auto"
           />
         </div>
-        <div className="hero-wash" />
 
-        <div className="hero-body">
-          <div className="hero-content">
-            <div className="hero-eyebrow">Executive Travel. Elevated.</div>
-            <h1 className="hero-hl">
-              <span className="line">Arrive in</span>
-              <span className="line">Excellence.</span>
-            </h1>
-            <p className="hero-sub">
-              Professional chauffeur service in Baltimore and beyond.
-              Experience luxury, comfort, and punctuality &mdash; every time.
-            </p>
-            <div className="hero-cta-row">
-              <a className="btn-fill" href="#services">
-                Our Services
-                <span className="arrow">{I.arrow}</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div className="hero-scroll-cue">
-          <span className="dot" />
-          <span>Scroll to Explore</span>
-        </div>
-
-        <div className="hero-pagination">
-          <button className="pg" aria-label="Previous">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
-          </button>
-          <button className="pg active" aria-label="Next">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-        </div>
-
-        <div className="hero-strip">
-          {HERO_SERVICES.map((s) => (
-            <a className="hero-strip-item" href="#services" key={s.name}>
-              <div className="item-icon">{s.icon}</div>
-              <div>
-                <div className="item-name">{s.name}</div>
-                <div className="item-copy">{s.copy}</div>
-              </div>
-            </a>
+        <div className="hero-hotspots">
+          {HERO_HOTSPOTS.map((spot) => (
+            <a
+              key={spot.className}
+              className={'hero-hotspot ' + spot.className}
+              href={spot.href}
+              aria-label={spot.label}
+            />
           ))}
         </div>
       </div>
@@ -285,6 +271,12 @@ function Services() {
               </a>
             </article>
           ))}
+        </div>
+
+        <div className="journey-marker" data-reveal data-delay="3">
+          <span className="journey-dot" />
+          <span className="journey-label">Choose the ride purpose</span>
+          <span className="journey-line" />
         </div>
       </div>
     </section>
@@ -442,6 +434,10 @@ function Fleet() {
             <span className="arrow">{I.arrow}</span>
           </a>
         </div>
+        <div className="fleet-journey-note" data-reveal data-delay="4">
+          <span className="journey-dot" />
+          <span>Vehicle confirmed for a first-class arrival.</span>
+        </div>
       </div>
 
       <div className="fleet-images">
@@ -508,6 +504,9 @@ function FinalCTA() {
             <span className="phone">{I.phone}</span>
             Call (443) 973-3356
           </a>
+          <span className="final-journey-note">
+            Request. Confirm. Arrive.
+          </span>
         </div>
       </div>
       <div className="final-cta-image">

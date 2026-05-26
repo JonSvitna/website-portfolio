@@ -1,0 +1,189 @@
+<style>
+  .cinema-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+  }
+  .cinema-card {
+    border: 1px solid rgba(201, 169, 106, 0.34);
+    border-radius: 18px;
+    overflow: hidden;
+    background: #fbf8f0;
+    cursor: pointer;
+    transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+  }
+  .cinema-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 22px 60px rgba(21, 23, 29, 0.14);
+    border-color: rgba(201, 169, 106, 0.72);
+  }
+  .cinema-preview {
+    min-height: 250px;
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 72% 24%, rgba(216, 185, 123, 0.38), transparent 22%),
+      linear-gradient(135deg, #fffaf0 0%, #eee3cb 48%, #d5bd86 100%);
+  }
+  .mini-nav {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    right: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font: 700 8px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace;
+    letter-spacing: .28em;
+    text-transform: uppercase;
+    color: #15171d;
+    z-index: 4;
+  }
+  .mini-button {
+    border: 1px solid rgba(21, 23, 29, .24);
+    padding: 8px 12px;
+    background: rgba(255,255,255,.32);
+  }
+  .mini-title {
+    position: absolute;
+    left: 24px;
+    top: 92px;
+    z-index: 4;
+    max-width: 175px;
+    font: 400 38px/.9 Georgia, serif;
+    color: #15171d;
+  }
+  .mini-title em { color: #b98f47; }
+  .mini-car {
+    position: absolute;
+    right: -16px;
+    bottom: 38px;
+    width: 58%;
+    height: 84px;
+    border-radius: 999px 20px 18px 999px;
+    background: linear-gradient(180deg, #fff 0%, #e6e0d6 100%);
+    border: 1px solid rgba(21,23,29,.12);
+    box-shadow: 0 24px 42px rgba(21,23,29,.18);
+  }
+  .mini-car::before,
+  .mini-car::after {
+    content: "";
+    position: absolute;
+    bottom: -13px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #17191f;
+    box-shadow: inset 0 0 0 7px #777;
+  }
+  .mini-car::before { left: 42px; }
+  .mini-car::after { right: 42px; }
+  .mini-strip {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: rgba(255,255,255,.7);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255,255,255,.85);
+  }
+  .mini-strip span {
+    min-height: 42px;
+    border-right: 1px solid rgba(201,169,106,.28);
+  }
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(201,169,106,.54);
+    background: rgba(255,255,255,.22);
+  }
+  .orb.one { width: 92px; height: 92px; right: 28px; top: 70px; }
+  .orb.two { width: 190px; height: 190px; right: -54px; bottom: -54px; }
+  .story-rail {
+    position: absolute;
+    left: 24px;
+    right: 24px;
+    bottom: 22px;
+    display: grid;
+    grid-template-columns: 1.1fr .9fr .8fr;
+    gap: 10px;
+  }
+  .story-rail span {
+    height: 62px;
+    background: rgba(255,255,255,.58);
+    border: 1px solid rgba(201,169,106,.28);
+  }
+  .phone-stack {
+    position: absolute;
+    right: 32px;
+    top: 58px;
+    display: grid;
+    gap: 10px;
+    width: 120px;
+  }
+  .phone-stack span {
+    height: 42px;
+    background: rgba(255,255,255,.72);
+    border: 1px solid rgba(201,169,106,.34);
+    box-shadow: 0 12px 28px rgba(21,23,29,.08);
+  }
+  .cinema-body {
+    padding: 18px 18px 20px;
+  }
+  .cinema-body h3 {
+    margin: 0 0 8px;
+  }
+  .cinema-body p {
+    margin: 0;
+  }
+  @media (max-width: 900px) {
+    .cinema-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<h2>Pick the cinematic direction for the day site</h2>
+<p class="subtitle">All three assume we rebuild the hero as live layers so links, text, cards, and imagery can animate cleanly.</p>
+
+<div class="cinema-grid">
+  <div class="cinema-card" data-choice="live-hero" onclick="toggleSelect(this)">
+    <div class="cinema-preview">
+      <div class="mini-nav"><span>Ryan Motivates</span><span class="mini-button">Book Now</span></div>
+      <div class="mini-title">Arrive in <em>Excellence.</em></div>
+      <div class="mini-car"></div>
+      <div class="mini-strip"><span></span><span></span><span></span><span></span></div>
+    </div>
+    <div class="cinema-body">
+      <h3>A. Live Cinematic Hero</h3>
+      <p>Rebuild the top screen with layered nav, headline, BMW/photo, and service strip. Biggest visual payoff and best clickability.</p>
+    </div>
+  </div>
+
+  <div class="cinema-card" data-choice="section-depth" onclick="toggleSelect(this)">
+    <div class="cinema-preview">
+      <div class="mini-nav"><span>Services</span><span class="mini-button">Explore</span></div>
+      <div class="orb one"></div>
+      <div class="orb two"></div>
+      <div class="mini-title">Every ride feels <em>first class.</em></div>
+      <div class="story-rail"><span></span><span></span><span></span></div>
+    </div>
+    <div class="cinema-body">
+      <h3>B. Section Depth System</h3>
+      <p>Keep hero calmer, then add cinematic reveals, parallax cards, layered photo grids, and stronger hover states through the page.</p>
+    </div>
+  </div>
+
+  <div class="cinema-card" data-choice="booking-journey" onclick="toggleSelect(this)">
+    <div class="cinema-preview">
+      <div class="mini-nav"><span>Book the Ride</span><span class="mini-button">Call</span></div>
+      <div class="mini-title">From request to <em>arrival.</em></div>
+      <div class="phone-stack"><span></span><span></span><span></span></div>
+      <div class="story-rail"><span></span><span></span><span></span></div>
+    </div>
+    <div class="cinema-body">
+      <h3>C. Cinematic Booking Journey</h3>
+      <p>Use motion to guide users toward booking: sticky CTAs, animated service choices, contact prompts, and route-like transitions.</p>
+    </div>
+  </div>
+</div>

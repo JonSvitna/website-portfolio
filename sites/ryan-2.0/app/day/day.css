@@ -76,7 +76,15 @@ ul  { list-style: none; }
   background: transparent;
 }
 .day-nav {
-  display: none;
+  display: grid;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-12px);
+}
+.day-nav.past-hero {
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
 }
 .nav.scrolled {
   background: rgba(255, 255, 255, 0.92);
@@ -266,26 +274,155 @@ ul  { list-style: none; }
   object-position: center 25%;
   animation: heroKenBurns 24s var(--ease-slow) infinite alternate;
 }
-.hero-composited .hero-canvas {
+.hero-composited.hero-video .hero-canvas {
   height: auto;
   min-height: 0;
 }
-.hero-composited .hero-bg {
+
+.hero-composited.hero-video .hero-bg {
   position: relative;
   inset: auto;
+  z-index: 1;
 }
-.hero-composited .hero-bg img.hero-bg-photo {
+
+.hero-composited.hero-video .hero-bg-video {
+  width: 100%;
   height: auto;
-  object-fit: contain;
-  object-position: center;
-  animation: none;
+  display: block;
+  vertical-align: top;
 }
+
+/* hero-sub-mask removed — BMW composition has crisp rendered text, no blur needed */
+
+/* Smooth fade from video bottom into the white page canvas */
+.hero-composited.hero-video .hero-canvas::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 220px;
+  background: linear-gradient(to bottom, transparent 0%, rgba(250,248,244,0.55) 45%, #faf8f4 100%);
+  z-index: 6;
+  pointer-events: none;
+}
+
+.hero-hotspots {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+}
+
+.hero-hotspot {
+  position: absolute;
+  display: block;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  text-indent: -9999px;
+  overflow: hidden;
+}
+
+.hero-hotspot:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Hotspot positions for BMW composition (1920×1080, no service strip, nav at top 96px).
+   Service tile hotspots removed — those links are handled by the HTML Services section below. */
+.hero-hotspot-services-nav  { left: 37.1%; top: 2%;    width: 4.2%;  height: 7%; }
+.hero-hotspot-fleet-nav     { left: 43.6%; top: 2%;    width: 2.7%;  height: 7%; }
+.hero-hotspot-experience-nav{ left: 48.6%; top: 2%;    width: 5.1%;  height: 7%; }
+.hero-hotspot-about-nav     { left: 56%;   top: 2%;    width: 2.9%;  height: 7%; }
+.hero-hotspot-contact-nav   { left: 61.1%; top: 2%;    width: 3.6%;  height: 7%; }
+.hero-hotspot-book          { left: 85.5%; top: 2.5%;  width: 10.5%; height: 5.5%; }
+.hero-hotspot-services-cta  { left: 4.2%;  top: 68%;   width: 12%;   height: 5.5%; }
+.hero-hotspot-airport       { display: none; }
+.hero-hotspot-corporate     { display: none; }
+.hero-hotspot-weddings      { display: none; }
+.hero-hotspot-hourly        { display: none; }
+.hero-hotspot-scroll        { left: 4%;    top: 93%;   width: 14%;   height: 5%; }
+
 .hero-composited .hero-wash,
 .hero-composited .hero-body,
 .hero-composited .hero-scroll-cue,
 .hero-composited .hero-pagination,
-.hero-composited .hero-strip {
+.hero-composited .hero-strip,
+.hero-composited .hero-booking-card {
   display: none;
+}
+
+.booking-card-kicker {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.booking-card-title {
+  font-family: var(--f-display);
+  font-size: 30px;
+  line-height: 1;
+  color: var(--fg-1);
+  margin-bottom: 20px;
+}
+
+.booking-steps {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.booking-steps span {
+  position: relative;
+  padding-left: 22px;
+  font-family: var(--f-body);
+  font-size: 13px;
+  color: var(--fg-2);
+}
+
+.booking-steps span::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px rgba(201, 169, 106, 0.12);
+}
+
+.booking-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--fg-1);
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 8px;
+}
+
+.booking-card-link .arrow {
+  transition: transform 0.4s var(--ease);
+}
+
+.booking-card-link:hover .arrow {
+  transform: translateX(5px);
+}
+
+@keyframes cinematicEnter {
+  from {
+    opacity: 0;
+    transform: translateY(26px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 @keyframes heroKenBurns {
   from { transform: scale(1.0); }
@@ -919,6 +1056,79 @@ ul  { list-style: none; }
 .fleet-images .pane .scene-art svg { transition: transform 12s var(--ease-slow); }
 .fleet-images .pane:hover .scene-art svg { transform: scale(1.04); }
 
+.journey-marker {
+  margin: 42px auto 0;
+  max-width: 720px;
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: center;
+  gap: 14px;
+  color: var(--fg-2);
+}
+
+.journey-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 7px rgba(201, 169, 106, 0.12);
+  flex: 0 0 auto;
+}
+
+.journey-label {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--fg-2);
+}
+
+.journey-line {
+  height: 1px;
+  background: linear-gradient(90deg, var(--line-2), transparent);
+}
+
+.service-card,
+.moment,
+.fleet-images .pane,
+.final-cta-image {
+  will-change: transform;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 34px 84px -36px rgba(21, 23, 29, 0.28);
+}
+
+.moment:hover {
+  transform: translateY(-7px) scale(1.01);
+  box-shadow: 0 32px 72px -34px rgba(21, 23, 29, 0.36);
+}
+
+.fleet-images .pane {
+  border: 1px solid rgba(201, 169, 106, 0.24);
+  box-shadow: 0 24px 70px -42px rgba(21, 23, 29, 0.32);
+}
+
+.fleet-journey-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 10px;
+  font-family: var(--f-body);
+  font-size: 13px;
+  color: var(--fg-2);
+}
+
+.final-journey-note {
+  align-self: center;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--fg-2);
+}
+
 /* ================================================================
    TRUST STRIP — 5 features in a row
    ================================================================ */
@@ -1137,10 +1347,10 @@ ul  { list-style: none; }
 @media (max-width: 900px) {
   :root { --px: 24px; }
   .nav { grid-template-columns: 1fr auto; }
-  .day-nav { display: none; }
+  .day-nav { display: grid; }
   .nav-links { display: none; }
-  .hero-canvas { min-height: 720px; }
-  .hero-composited .hero-canvas { min-height: 0; }
+  .hero-canvas { min-height: 0; }
+  .hero-hotspot-book { left: 79.9%; width: 21.3%; }
   .hero-strip { grid-template-columns: repeat(2, 1fr); }
   .hero-strip .item:nth-child(2) { border-right: 0; }
   .hero-strip .item:nth-child(1), .hero-strip .item:nth-child(2) { border-bottom: 1px solid var(--line); }
@@ -1153,4 +1363,53 @@ ul  { list-style: none; }
   .section { padding: 80px var(--px); }
   .footer-inner { grid-template-columns: 1fr; text-align: center; }
   .footer-brand, .footer-social { justify-content: center; }
+  .journey-marker {
+    grid-template-columns: auto 1fr;
+    text-align: left;
+  }
+  .journey-line {
+    grid-column: 1 / -1;
+  }
+  .final-journey-note {
+    width: 100%;
+  }
+}
+
+@media (max-width: 620px) {
+  .hero-hotspot-services-nav { left: 22.3%; width: 10.7%; }
+  .hero-hotspot-fleet-nav { left: 32.9%; width: 7.5%; }
+  .hero-hotspot-experience-nav { left: 40.4%; width: 11.7%; }
+  .hero-hotspot-about-nav { left: 53.2%; width: 8.5%; }
+  .hero-hotspot-contact-nav { left: 61.8%; width: 9.6%; }
+  .hero-hotspot-book { left: 75.6%; width: 25.6%; }
+  .hero-hotspot-services-cta { left: 1%; width: 23.5%; top: 59%; }
+  .hero-hotspot-scroll { width: 21.3%; }
+
+  .journey-label,
+  .final-journey-note {
+    letter-spacing: 0.22em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  [data-reveal].pre-reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .hero-video .hero-bg-video,
+  .moment:hover img,
+  .fleet-images .pane:hover img,
+  .final-cta:hover .final-cta-image img {
+    transform: none;
+  }
 }

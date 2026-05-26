@@ -1,0 +1,138 @@
+<style>
+  .selected-layout {
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap: 24px;
+    align-items: stretch;
+  }
+  .journey-preview {
+    min-height: 440px;
+    border: 1px solid rgba(201, 169, 106, .38);
+    border-radius: 22px;
+    overflow: hidden;
+    position: relative;
+    background:
+      radial-gradient(circle at 80% 18%, rgba(216,185,123,.42), transparent 20%),
+      linear-gradient(135deg, #fffaf0 0%, #eee4cd 52%, #d2b67a 100%);
+    box-shadow: 0 28px 80px rgba(21,23,29,.12);
+  }
+  .journey-nav {
+    position: absolute;
+    top: 22px;
+    left: 24px;
+    right: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font: 700 9px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace;
+    letter-spacing: .34em;
+    text-transform: uppercase;
+    color: #15171d;
+    z-index: 4;
+  }
+  .journey-pill {
+    border: 1px solid rgba(21,23,29,.26);
+    background: rgba(255,255,255,.46);
+    padding: 10px 14px;
+  }
+  .journey-title {
+    position: absolute;
+    left: 32px;
+    top: 118px;
+    max-width: 265px;
+    font: 400 54px/.9 Georgia, serif;
+    color: #15171d;
+    z-index: 4;
+  }
+  .journey-title em { color: #aa8040; }
+  .journey-card {
+    position: absolute;
+    right: 34px;
+    top: 118px;
+    width: 190px;
+    display: grid;
+    gap: 10px;
+    z-index: 4;
+  }
+  .journey-card span {
+    height: 54px;
+    border: 1px solid rgba(201,169,106,.38);
+    background: rgba(255,255,255,.74);
+    box-shadow: 0 18px 42px rgba(21,23,29,.08);
+  }
+  .journey-route {
+    position: absolute;
+    left: 36px;
+    right: 36px;
+    bottom: 54px;
+    height: 92px;
+    border-top: 1px solid rgba(21,23,29,.14);
+    border-bottom: 1px solid rgba(21,23,29,.08);
+    z-index: 3;
+  }
+  .journey-route::before,
+  .journey-route::after {
+    content: "";
+    position: absolute;
+    top: -6px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: #c9a96a;
+  }
+  .journey-route::before { left: 0; }
+  .journey-route::after { right: 0; }
+  .journey-car {
+    position: absolute;
+    right: 74px;
+    bottom: 28px;
+    width: 210px;
+    height: 70px;
+    border-radius: 999px 18px 16px 999px;
+    background: linear-gradient(180deg, #fff, #e6dfd1);
+    border: 1px solid rgba(21,23,29,.12);
+    box-shadow: 0 24px 48px rgba(21,23,29,.18);
+    z-index: 5;
+  }
+  .journey-notes {
+    border: 1px solid rgba(201,169,106,.28);
+    border-radius: 22px;
+    padding: 28px;
+    background: #fffbf4;
+  }
+  .journey-notes h3 { margin-top: 0; }
+  .journey-notes li { margin-bottom: 12px; }
+  @media (max-width: 900px) {
+    .selected-layout { grid-template-columns: 1fr; }
+  }
+</style>
+
+<h2>Selected Direction: Cinematic Booking Journey</h2>
+<p class="subtitle">This direction uses motion to guide visitors from first impression to booking while rebuilding the hero as live, clickable layers.</p>
+
+<div class="selected-layout">
+  <div class="journey-preview">
+    <div class="journey-nav">
+      <span>Ryan Motivates</span>
+      <span class="journey-pill">Book Now</span>
+    </div>
+    <div class="journey-title">From request to <em>arrival.</em></div>
+    <div class="journey-card">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="journey-route"></div>
+    <div class="journey-car"></div>
+  </div>
+
+  <div class="journey-notes">
+    <h3>Design Intent</h3>
+    <ul>
+      <li>Rebuild the hero so nav, headline, service cards, and booking actions are real clickable UI.</li>
+      <li>Add bold but polished motion: staged hero entrance, route-like transitions, card depth, and scroll-driven reveals.</li>
+      <li>Make the page feel like a guided booking experience, not only a brochure.</li>
+      <li>Keep the luxury champagne/parchment brand, BMW emphasis, and realistic people imagery.</li>
+    </ul>
+  </div>
+</div>
