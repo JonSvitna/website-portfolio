@@ -1,5 +1,5 @@
 {
   "installCommand": "cd ../.. && npm ci",
   "buildCommand": "npm run build",
-  "ignoreCommand": "git diff HEAD^ HEAD --quiet -- sites/superset-shaw package.json package-lock.json"
+  "ignoreCommand": "git diff HEAD^ HEAD --quiet -- . ../../package.json ../../package-lock.json"
 }
