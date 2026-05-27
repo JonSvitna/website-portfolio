@@ -47,7 +47,7 @@ export default function Footer() {
                 letterSpacing: "0.05em",
               }}
             >
-              SS
+              DT
             </div>
             <div
               style={{
@@ -57,7 +57,7 @@ export default function Footer() {
                 color: "#1D1D1D",
               }}
             >
-              SUPERSET SHAW
+              DAVION THOMAS
             </div>
           </div>
           <p
@@ -135,7 +135,7 @@ export default function Footer() {
           <div style={{ display: "flex", gap: 10, justifyContent: "flex-end", marginTop: 12 }}>
             {/* Instagram */}
             <a
-              href="https://www.instagram.com/supersetshaw"
+              href="https://www.instagram.com/davionthomas"
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -220,7 +220,7 @@ export default function Footer() {
             color: "#A8917B",
           }}
         >
-          © {year} Superset Shaw. All rights reserved.
+          © {year} Davion Thomas. All rights reserved.
         </p>
         <p
           style={{

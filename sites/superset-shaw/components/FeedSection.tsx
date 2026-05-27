@@ -103,7 +103,7 @@ export default function FeedSection() {
           </motion.div>
 
           <a
-            href="https://www.instagram.com/supersetshaw"
+            href="https://www.instagram.com/davionthomas"
             target="_blank"
             rel="noopener noreferrer"
             style={{
@@ -304,7 +304,7 @@ export default function FeedSection() {
             textTransform: "uppercase",
           }}
         >
-          @supersetshaw
+          @davionthomas
         </div>
       </div>
     </section>

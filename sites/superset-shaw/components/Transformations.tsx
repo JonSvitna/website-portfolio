@@ -9,14 +9,14 @@ const clients = [
     name: "Jordan R.",
     loss: "-42 LBS",
     weeks: "16 Weeks",
-    quote: "I lost 42 lbs and regained confidence in myself. Superset changed everything.",
+    quote: "I lost 42 lbs and regained confidence in myself. Coaching changed everything.",
     img: "/images/Jordan_tranformation.jpeg",
   },
   {
     name: "Darius M.",
     loss: "-35 LBS",
     weeks: "14 Weeks",
-    quote: "Superset changed my mindset and my body. I finally feel like myself again.",
+    quote: "Coaching changed my mindset and my body. I finally feel like myself again.",
     img: "/images/darius_transformation.jpeg",
   },
   {
