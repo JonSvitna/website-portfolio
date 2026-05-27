@@ -103,14 +103,12 @@ export default function Community() {
             brotherhood, and faith in every step.
           </p>
 
-          <a
-            href="https://www.instagram.com/davionthomas"
-            target="_blank"
-            rel="noopener noreferrer"
+          <span
             className="btn-gold"
+            style={{ cursor: "default" }}
           >
             Join the Community
-          </a>
+          </span>
         </motion.div>
 
         {/* Right — photo grid */}

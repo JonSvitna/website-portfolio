@@ -260,15 +260,12 @@ export default function FinalCTA() {
           </div>
 
           {/* CTA Button */}
-          <a
-            href="https://www.instagram.com/davionthomas"
-            target="_blank"
-            rel="noopener noreferrer"
+          <span
             className="btn-gold"
-            style={{ fontSize: 16, padding: "20px 44px" }}
+            style={{ fontSize: 16, padding: "20px 44px", cursor: "default" }}
           >
             Apply for Coaching Today <span style={{ marginLeft: 4 }}>→</span>
-          </a>
+          </span>
 
           {/* Sub-note */}
           <p

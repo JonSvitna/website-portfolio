@@ -134,10 +134,7 @@ export default function Footer() {
 
           <div style={{ display: "flex", gap: 10, justifyContent: "flex-end", marginTop: 12 }}>
             {/* Instagram */}
-            <a
-              href="https://www.instagram.com/davionthomas"
-              target="_blank"
-              rel="noopener noreferrer"
+            <span
               style={{
                 width: 38,
                 height: 38,
@@ -151,12 +148,12 @@ export default function Footer() {
                 background: "#FFFFFF",
               }}
               onMouseEnter={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.borderColor = "#C89B4F";
-                (e.currentTarget as HTMLAnchorElement).style.color = "#C89B4F";
+                (e.currentTarget as HTMLSpanElement).style.borderColor = "#C89B4F";
+                (e.currentTarget as HTMLSpanElement).style.color = "#C89B4F";
               }}
               onMouseLeave={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.borderColor = "#D9D3CB";
-                (e.currentTarget as HTMLAnchorElement).style.color = "#6B5F52";
+                (e.currentTarget as HTMLSpanElement).style.borderColor = "#D9D3CB";
+                (e.currentTarget as HTMLSpanElement).style.color = "#6B5F52";
               }}
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -164,7 +161,7 @@ export default function Footer() {
                 <circle cx="12" cy="12" r="5" />
                 <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
               </svg>
-            </a>
+            </span>
 
             {/* YouTube placeholder */}
             <a

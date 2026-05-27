@@ -102,10 +102,7 @@ export default function FeedSection() {
             </h2>
           </motion.div>
 
-          <a
-            href="https://www.instagram.com/davionthomas"
-            target="_blank"
-            rel="noopener noreferrer"
+          <span
             style={{
               fontFamily: "var(--font-body)",
               fontSize: 12,
@@ -120,7 +117,7 @@ export default function FeedSection() {
             }}
           >
             Follow for More <span style={{ fontSize: 16 }}>→</span>
-          </a>
+          </span>
         </div>
 
         {/* Grid */}
