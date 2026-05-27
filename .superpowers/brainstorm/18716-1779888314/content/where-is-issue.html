@@ -1,0 +1,56 @@
+<h2>Where exactly is the sloppy blend?</h2>
+<p class="subtitle">Click the section that matches what you showed me in the screenshot</p>
+
+<div class="options" style="flex-direction: column; gap: 10px; margin-top: 24px;">
+
+  <div class="option" data-choice="hero-bottom" onclick="toggleSelect(this)" style="align-items: flex-start;">
+    <div class="letter">A</div>
+    <div class="content" style="display: flex; align-items: center; gap: 24px;">
+      <div style="width: 220px; height: 64px; background: linear-gradient(to bottom, #e8e4dc 0%, #f4f0e8 50%, #ffffff 100%); border: 1px solid #ddd; border-radius: 4px; flex-shrink: 0;"></div>
+      <div>
+        <h3>Bottom of hero — fades into Services</h3>
+        <p>The wash gradient at the very base of the hero animation, where the scene dissolves into the first content section below</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="hero-top" onclick="toggleSelect(this)" style="align-items: flex-start;">
+    <div class="letter">B</div>
+    <div class="content" style="display: flex; align-items: center; gap: 24px;">
+      <div style="width: 220px; height: 64px; background: linear-gradient(to top, #e8e4dc 0%, #f4f0e8 50%, #ffffff 100%); border: 1px solid #ddd; border-radius: 4px; flex-shrink: 0;"></div>
+      <div>
+        <h3>Top of hero — under the nav</h3>
+        <p>The gradient at the very top of the hero scene, behind the navigation bar</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="between-sections" onclick="toggleSelect(this)" style="align-items: flex-start;">
+    <div class="letter">C</div>
+    <div class="content" style="display: flex; align-items: center; gap: 24px;">
+      <div style="width: 220px; height: 64px; flex-shrink: 0; display: flex; flex-direction: column;">
+        <div style="flex: 1; background: #ece7db; border: 1px solid #ddd; border-bottom: none; border-radius: 4px 4px 0 0;"></div>
+        <div style="height: 8px; background: linear-gradient(to bottom, #e0dbd0, #f8f5ef); border-left: 1px solid #ddd; border-right: 1px solid #ddd;"></div>
+        <div style="flex: 1; background: #f4f0e8; border: 1px solid #ddd; border-top: none; border-radius: 0 0 4px 4px;"></div>
+      </div>
+      <div>
+        <h3>Between two mid-page sections</h3>
+        <p>A seam or edge between two content sections further down the page (e.g. Services → Daytime, Fleet → Trust)</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="scene-internal" onclick="toggleSelect(this)" style="align-items: flex-start;">
+    <div class="letter">D</div>
+    <div class="content" style="display: flex; align-items: center; gap: 24px;">
+      <div style="width: 220px; height: 64px; background: linear-gradient(180deg, #f6efde 0%, #ebe1c8 55%, #d9c9a4 100%); border: 1px solid #ddd; border-radius: 4px; flex-shrink: 0; position: relative; overflow: hidden;">
+        <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 30px; background: linear-gradient(to top, rgba(244,240,232,0.85), transparent);"></div>
+      </div>
+      <div>
+        <h3>Inside a scene illustration</h3>
+        <p>Within one of the warm parchment scene placeholders — the gradient or tone within the scene card itself looks off</p>
+      </div>
+    </div>
+  </div>
+
+</div>
