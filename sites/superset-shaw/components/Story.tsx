@@ -76,7 +76,7 @@ export default function Story() {
             }}
           />
 
-          {/* Large S watermark */}
+          {/* Large initial watermark */}
           <div
             style={{
               position: "absolute",
@@ -90,7 +90,7 @@ export default function Story() {
               pointerEvents: "none",
             }}
           >
-            S
+            D
           </div>
 
           {/* Caption bar */}
@@ -126,7 +126,7 @@ export default function Story() {
                 color: "rgba(255,248,220,0.6)",
               }}
             >
-              Superset Shaw — Personal Archive
+              Davion Thomas — Personal Archive
             </span>
           </div>
         </motion.div>
@@ -228,7 +228,7 @@ export default function Story() {
                 color: "#C89B4F",
               }}
             >
-              — Superset Shaw
+              — Davion Thomas
             </p>
           </div>
 
@@ -244,7 +244,7 @@ export default function Story() {
                 marginBottom: 6,
               }}
             >
-              Superset Shaw
+              Davion Thomas
             </div>
             <div
               style={{

@@ -104,7 +104,7 @@ export default function Community() {
           </p>
 
           <a
-            href="https://www.instagram.com/supersetshaw"
+            href="https://www.instagram.com/davionthomas"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-gold"

@@ -16,11 +16,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Superset Shaw | Discipline Builds Legacy",
+  title: "Davion Thomas | Discipline Builds Legacy",
   description:
     "Former college athlete turned transformational fitness coach. Faith. Family. Fitness. Start your transformation today.",
   openGraph: {
-    title: "Superset Shaw | Discipline Builds Legacy",
+    title: "Davion Thomas | Discipline Builds Legacy",
     description:
       "Faith-driven coaching that transforms your body, mindset, and life.",
     type: "website",
