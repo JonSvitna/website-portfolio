@@ -65,33 +65,15 @@ export default function Nav() {
           justifyContent: "space-between",
         }}
       >
-        {/* Logo */}
+        {/* Name */}
         <a
           href="#hero"
           style={{
             display: "flex",
             alignItems: "center",
-            gap: 12,
             textDecoration: "none",
           }}
         >
-          <div
-            style={{
-              width: 36,
-              height: 36,
-              background: "#C89B4F",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontFamily: "var(--font-display)",
-              fontSize: 16,
-              color: "#FFFFFF",
-              letterSpacing: "0.05em",
-              flexShrink: 0,
-            }}
-          >
-            SS
-          </div>
           <span
             className="nav-logo-text"
             style={{
@@ -101,7 +83,7 @@ export default function Nav() {
               color: "#1D1D1D",
             }}
           >
-            SUPERSET SHAW
+            DAVION THOMAS
           </span>
         </a>
 

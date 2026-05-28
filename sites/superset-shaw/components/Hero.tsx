@@ -172,7 +172,7 @@ export default function Hero() {
             userSelect: "none",
           }}
         >
-          Superset Shaw — Transformational Fitness
+          Davion Thomas — Transformational Fitness
         </div>
       </div>
 
@@ -229,7 +229,7 @@ export default function Hero() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/images/Homepage_intro.png"
-          alt="Superset Shaw"
+          alt="Davion Thomas"
           style={{
             position: "absolute",
             inset: 0,
@@ -317,7 +317,7 @@ export default function Hero() {
               textShadow: "0 2px 12px rgba(0,0,0,0.2)",
             }}
           >
-            Superset Shaw
+            Davion Thomas
           </div>
           <div
             style={{
@@ -332,7 +332,7 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Large watermark SS */}
+        {/* Large watermark initials */}
         <div
           style={{
             position: "absolute",
@@ -348,7 +348,7 @@ export default function Hero() {
             zIndex: 1,
           }}
         >
-          SS
+          DT
         </div>
       </motion.div>
     </section>

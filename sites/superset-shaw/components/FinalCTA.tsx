@@ -85,7 +85,7 @@ export default function FinalCTA() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/images/homepage_outro.png"
-            alt="Superset Shaw coaching"
+            alt="Davion Thomas coaching"
             style={{
               position: "absolute",
               inset: 0,
@@ -130,7 +130,7 @@ export default function FinalCTA() {
             }}
           />
 
-          {/* Large S watermark */}
+          {/* Large initial watermark */}
           <div
             style={{
               position: "absolute",
@@ -143,7 +143,7 @@ export default function FinalCTA() {
               userSelect: "none",
             }}
           >
-            S
+            D
           </div>
 
           {/* Caption bar */}
@@ -179,7 +179,7 @@ export default function FinalCTA() {
                 color: "rgba(255,248,220,0.65)",
               }}
             >
-              Superset Shaw — Coaching
+              Davion Thomas — Coaching
             </span>
           </div>
         </motion.div>
@@ -262,15 +262,12 @@ export default function FinalCTA() {
           </div>
 
           {/* CTA Button */}
-          <a
-            href="https://www.instagram.com/supersetshaw"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-gold btn-inline-mobile"
-            style={{ fontSize: 16, padding: "20px 44px" }}
+          <span
+            className="btn-gold"
+            style={{ fontSize: 16, padding: "20px 44px", cursor: "default" }}
           >
             Apply for Coaching Today <span style={{ marginLeft: 4 }}>→</span>
-          </a>
+          </span>
 
           {/* Sub-note */}
           <p
