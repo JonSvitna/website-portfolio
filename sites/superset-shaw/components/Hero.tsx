@@ -104,7 +104,7 @@ export default function Hero() {
           {/* CTAs */}
           <motion.div
             variants={fadeUp}
-            style={{ display: "flex", gap: 14, flexWrap: "wrap", marginBottom: 56 }}
+            style={{ display: "flex", gap: 14, flexWrap: "wrap", marginBottom: isMobile ? 32 : 56 }}
           >
             <a href="#final-cta" className="btn-gold">
               Start Your Transformation
@@ -157,6 +157,7 @@ export default function Hero() {
 
         {/* Decorative vertical text */}
         <div
+          className="hero-decor-text"
           style={{
             position: "absolute",
             right: 20,
@@ -175,7 +176,44 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* ── RIGHT PANEL — hidden on mobile ── */}
+      {isMobile && (
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.0, ease: [0.25, 0.1, 0.1, 1] as [number, number, number, number], delay: 0.35 }}
+          style={{
+            position: "relative",
+            width: "100%",
+            aspectRatio: "4 / 5",
+            maxHeight: 420,
+            overflow: "hidden",
+          }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/Homepage_intro.png"
+            alt="Superset Shaw"
+            style={{
+              position: "absolute",
+              inset: 0,
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              objectPosition: "center top",
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              boxShadow: "inset 0 0 80px rgba(30, 15, 0, 0.18)",
+              pointerEvents: "none",
+            }}
+          />
+        </motion.div>
+      )}
+
+      {/* ── RIGHT PANEL — desktop only ── */}
       <motion.div
         initial={{ opacity: 0, scale: 1.04 }}
         animate={{ opacity: 1, scale: 1 }}

@@ -1,0 +1,139 @@
+{
+  "files": [
+    {
+      "file": "1bffadaabf893a1e-s.16ipb6fqu393i.woff2",
+      "family": "Inter",
+      "rawFamily": "Inter",
+      "subfamily": "Regular",
+      "postscript": "Inter-Regular",
+      "weight": 400,
+      "style": "normal",
+      "variationAxes": [
+        "wght"
+      ],
+      "identified": true
+    },
+    {
+      "file": "2039e8342bda6056-s.0h2amv7e1wlhq.woff2",
+      "family": "Bebas Neue",
+      "rawFamily": "Bebas Neue",
+      "subfamily": "Regular",
+      "postscript": "BebasNeue-Regular",
+      "weight": 400,
+      "style": "normal",
+      "variationAxes": [],
+      "identified": true
+    },
+    {
+      "file": "2c55a0e60120577a-s.0bjc5tiuqdqro.woff2",
+      "family": "Inter",
+      "rawFamily": "Inter",
+      "subfamily": "Regular",
+      "postscript": "Inter-Regular",
+      "weight": 400,
+      "style": "normal",
+      "variationAxes": [
+        "wght"
+      ],
+      "identified": true
+    },
+    {
+      "file": "5476f68d60460930-s.0wxq9webf.ew4.woff2",
+      "family": "Inter",
+      "rawFamily": "Inter",
+      "subfamily": "Regular",
+      "postscript": "Inter-Regular",
+      "weight": 400,
+      "style": "normal",
+      "variationAxes": [
+        "wght"
+      ],
+      "identified": true
+    },
+    {
+      "file": "83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2",
+      "family": "Inter",
+      "rawFamily": "Inter",
+      "subfamily": "Regular",
+      "postscript": "Inter-Regular",
+      "weight": 400,
+      "style": "normal",
+      "variationAxes": [
+        "wght"
+      ],
+      "identified": true
+    },
+    {
+      "file": "9c72aa0f40e4eef8-s.0m6w47a4e5dy9.woff2",
+      "family": "Inter",
+      "rawFamily": "Inter",
+      "subfamily": "Regular",
+      "postscript": "Inter-Regular",
+      "weight": 400,
+      "style": "normal",
+      "variationAxes": [
+        "wght"
+      ],
+      "identified": true
+    },
+    {
+      "file": "ad66f9afd8947f86-s.11u06r12fd6v_.woff2",
+      "family": "Inter",
+      "rawFamily": "Inter",
+      "subfamily": "Regular",
+      "postscript": "Inter-Regular",
+      "weight": 400,
+      "style": "normal",
+      "variationAxes": [
+        "wght"
+      ],
+      "identified": true
+    },
+    {
+      "file": "fabcf92ba1ccea36-s.p.0lwj123ije5i..woff2",
+      "family": "Bebas Neue",
+      "rawFamily": "Bebas Neue",
+      "subfamily": "Regular",
+      "postscript": "BebasNeue-Regular",
+      "weight": 400,
+      "style": "normal",
+      "variationAxes": [],
+      "identified": true
+    }
+  ],
+  "families": [
+    {
+      "family": "Bebas Neue",
+      "weights": [
+        400
+      ],
+      "variable": false,
+      "fileCount": 2,
+      "files": [
+        "2039e8342bda6056-s.0h2amv7e1wlhq.woff2",
+        "fabcf92ba1ccea36-s.p.0lwj123ije5i..woff2"
+      ]
+    },
+    {
+      "family": "Inter",
+      "weights": [
+        400
+      ],
+      "variable": true,
+      "fileCount": 6,
+      "files": [
+        "1bffadaabf893a1e-s.16ipb6fqu393i.woff2",
+        "2c55a0e60120577a-s.0bjc5tiuqdqro.woff2",
+        "5476f68d60460930-s.0wxq9webf.ew4.woff2",
+        "83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2",
+        "9c72aa0f40e4eef8-s.0m6w47a4e5dy9.woff2",
+        "ad66f9afd8947f86-s.11u06r12fd6v_.woff2"
+      ]
+    }
+  ],
+  "unidentified": [],
+  "meta": {
+    "generatedAt": "2026-05-27T19:38:04.538Z",
+    "tool": "fontkit"
+  }
+}

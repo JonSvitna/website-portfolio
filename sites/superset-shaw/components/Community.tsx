@@ -107,7 +107,7 @@ export default function Community() {
             href="https://www.instagram.com/supersetshaw"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-gold"
+            className="btn-gold btn-inline-mobile"
           >
             Join the Community
           </a>
@@ -168,6 +168,7 @@ export default function Community() {
 
       {/* Stats strip */}
       <div
+        className="community-stats"
         style={{
           borderTop: "1px solid #D9D3CB",
           padding: "36px clamp(20px, 5vw, 80px)",

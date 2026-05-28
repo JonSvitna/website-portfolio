@@ -100,7 +100,7 @@ export default function Services() {
             </h2>
             <a
               href="#final-cta"
-              className="btn-gold"
+              className="btn-gold btn-inline-mobile"
               style={{ fontSize: 13, padding: "13px 28px" }}
             >
               Apply Now
@@ -134,7 +134,8 @@ export default function Services() {
                   : "0 2px 16px rgba(0,0,0,0.04)",
                 padding: "clamp(28px, 3.5vw, 44px)",
                 display: "flex",
-                gap: 24,
+                flexDirection: isMobile ? "column" : "row",
+                gap: isMobile ? 18 : 24,
                 transition: "border-color 0.35s ease, box-shadow 0.35s ease",
                 cursor: "pointer",
                 position: "relative",

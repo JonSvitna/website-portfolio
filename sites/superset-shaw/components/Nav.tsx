@@ -13,6 +13,13 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
   const links = [
     { label: "Home", href: "#hero" },
     { label: "About", href: "#story" },
@@ -33,7 +40,10 @@ export default function Nav() {
         left: 0,
         right: 0,
         zIndex: 1000,
-        padding: scrolled ? "14px 40px" : "22px 40px",
+        padding: scrolled ? "12px 40px" : "18px 40px",
+        paddingTop: scrolled
+          ? "max(12px, env(safe-area-inset-top))"
+          : "max(18px, env(safe-area-inset-top))",
         background: scrolled
           ? "rgba(245, 241, 235, 0.96)"
           : "rgba(245, 241, 235, 0.85)",
@@ -46,6 +56,7 @@ export default function Nav() {
       }}
     >
       <div
+        className="nav-shell"
         style={{
           maxWidth: 1400,
           margin: "0 auto",
@@ -82,6 +93,7 @@ export default function Nav() {
             SS
           </div>
           <span
+            className="nav-logo-text"
             style={{
               fontFamily: "var(--font-display)",
               fontSize: 19,
@@ -182,9 +194,19 @@ export default function Nav() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            paddingTop: "max(88px, calc(env(safe-area-inset-top) + 72px))",
+            paddingLeft: "max(20px, env(safe-area-inset-left))",
+            paddingRight: "max(20px, env(safe-area-inset-right))",
+            paddingBottom: "max(32px, env(safe-area-inset-bottom))",
             background: "rgba(245, 241, 235, 0.98)",
             borderTop: "1px solid #D9D3CB",
-            padding: "28px 40px 32px",
+            overflowY: "auto",
+            zIndex: -1,
           }}
         >
           <ul

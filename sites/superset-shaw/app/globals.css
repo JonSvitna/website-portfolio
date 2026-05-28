@@ -203,3 +203,72 @@ body::before {
   position: relative;
   overflow: hidden;
 }
+
+@media (max-width: 767px) {
+  .container-wide {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .section-pad {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .btn-gold,
+  .btn-outline {
+    width: 100%;
+    justify-content: center;
+    white-space: normal;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .btn-inline-mobile {
+    width: auto;
+  }
+
+  .nav-shell {
+    padding-left: max(16px, env(safe-area-inset-left)) !important;
+    padding-right: max(16px, env(safe-area-inset-right)) !important;
+  }
+
+  .nav-logo-text {
+    display: none;
+  }
+
+  .footer-main {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+    gap: 36px !important;
+  }
+
+  .footer-nav-grid {
+    margin: 0 auto !important;
+  }
+
+  .footer-cta-col {
+    text-align: center !important;
+  }
+
+  .footer-cta-col > div {
+    justify-content: center !important;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-decor-text {
+    display: none;
+  }
+
+  .community-stats {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 20px !important;
+    justify-items: center;
+  }
+}
