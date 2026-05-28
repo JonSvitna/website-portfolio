@@ -1,0 +1,35 @@
+[
+  {
+    "index": 0,
+    "url": "https://devinthomas-fit.vercel.app/images/Speaking%20to%20camera%201.mp4",
+    "filename": "Speaking%20to%20camera%201.mp4",
+    "width": 823,
+    "height": 442,
+    "heading": "Fitness Tips & Insights",
+    "caption": "3 Mistakes Keeping You Overweight",
+    "ariaLabel": "",
+    "preview": "assets/videos/previews/video-0-preview.png"
+  },
+  {
+    "index": 1,
+    "url": "https://devinthomas-fit.vercel.app/images/eating_food_vid.mp4",
+    "filename": "eating_food_vid.mp4",
+    "width": 409,
+    "height": 218,
+    "heading": "Fitness Tips & Insights",
+    "caption": "Why Motivation Fails",
+    "ariaLabel": "",
+    "preview": "assets/videos/previews/video-1-preview.png"
+  },
+  {
+    "index": 2,
+    "url": "https://devinthomas-fit.vercel.app/images/talking_to_camera.mp4",
+    "filename": "talking_to_camera.mp4",
+    "width": 409,
+    "height": 218,
+    "heading": "Fitness Tips & Insights",
+    "caption": "What College Sports Taught Me",
+    "ariaLabel": "",
+    "preview": "assets/videos/previews/video-2-preview.png"
+  }
+]

@@ -166,6 +166,7 @@ export default function Community() {
 
       {/* Stats strip */}
       <div
+        className="community-stats"
         style={{
           borderTop: "1px solid #D9D3CB",
           padding: "36px clamp(20px, 5vw, 80px)",

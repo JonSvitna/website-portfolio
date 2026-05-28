@@ -142,7 +142,7 @@ export default function Pillars() {
             onMouseLeave={() => setHovered(null)}
             style={{
               position: "relative",
-              height: "clamp(440px, 58vw, 620px)",
+              height: isMobile ? "clamp(360px, 92vw, 440px)" : "clamp(440px, 58vw, 620px)",
               overflow: "hidden",
               cursor: "pointer",
             }}

@@ -12,7 +12,7 @@ export default function Footer() {
     >
       {/* Main */}
       <div
-        className="container-wide"
+        className="container-wide footer-main"
         style={{
           paddingTop: 64,
           paddingBottom: 48,
@@ -80,6 +80,7 @@ export default function Footer() {
         {/* Nav */}
         <nav style={{ paddingTop: 4 }}>
           <div
+            className="footer-nav-grid"
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(2, 1fr)",
@@ -123,7 +124,7 @@ export default function Footer() {
         </nav>
 
         {/* CTA + socials */}
-        <div style={{ textAlign: "right" }}>
+        <div className="footer-cta-col" style={{ textAlign: "right" }}>
           <a
             href="#final-cta"
             className="btn-gold"
@@ -197,7 +198,7 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div
-        className="container-wide"
+        className="container-wide footer-bottom"
         style={{
           paddingTop: 20,
           paddingBottom: 24,

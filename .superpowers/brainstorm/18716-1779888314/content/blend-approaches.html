@@ -1,0 +1,168 @@
+<h2>Three fixes for the hero bottom blend</h2>
+<p class="subtitle">Each strip shows the bottom ~300px of the hero scene fading into the services section background. The scene beneath is the warm amber of <code>scene-sky</code>. Click your preference.</p>
+
+<style>
+  .demo-wrap {
+    display: flex;
+    gap: 24px;
+    margin-top: 28px;
+    align-items: flex-end;
+  }
+  .demo-col {
+    flex: 1;
+    cursor: pointer;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 2px solid transparent;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .demo-col:hover {
+    border-color: rgba(176,136,70,0.5);
+  }
+  .demo-col.selected {
+    border-color: #b08846;
+    box-shadow: 0 0 0 3px rgba(176,136,70,0.18);
+  }
+  .scene-strip {
+    width: 100%;
+    height: 180px;
+    position: relative;
+    /* scene-sky base */
+    background: linear-gradient(180deg, #e6dab8 0%, #d3c194 100%);
+  }
+  .wash-layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  .page-bg {
+    width: 100%;
+    height: 60px;
+    background: #f4f0e8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #7a8090;
+    border-top: 1px solid rgba(176,136,70,0.18);
+  }
+  .demo-label {
+    padding: 14px 16px 0;
+    background: #faf7f0;
+    border-top: 1px solid rgba(176,136,70,0.15);
+  }
+  .demo-label h3 {
+    font-size: 13px;
+    font-weight: 600;
+    color: #15171d;
+    margin: 0 0 4px;
+  }
+  .demo-label p {
+    font-size: 12px;
+    color: #4b515e;
+    line-height: 1.5;
+    margin: 0 0 14px;
+  }
+  .tag-current {
+    display: inline-block;
+    background: #e8e4dc;
+    color: #7a8090;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-bottom: 8px;
+  }
+  .tag-fix {
+    display: inline-block;
+    background: rgba(176,136,70,0.12);
+    color: #8f6c32;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-bottom: 8px;
+  }
+</style>
+
+<div class="demo-wrap">
+
+  <!-- CURRENT -->
+  <div class="demo-col" data-choice="current" onclick="toggleSelect(this)">
+    <div class="scene-strip">
+      <div class="wash-layer" style="
+        background: linear-gradient(to top, rgba(244,240,232,0.85), transparent);
+      "></div>
+    </div>
+    <div class="page-bg">Services Section ↓</div>
+    <div class="demo-label">
+      <span class="tag-current">Current</span>
+      <h3>85% parchment wash</h3>
+      <p>240px, fades to transparent. Bottom never reaches full opacity — some of the amber scene bleeds through, creating a gray mid-band.</p>
+    </div>
+  </div>
+
+  <!-- APPROACH A: Full opaque anchor -->
+  <div class="demo-col" data-choice="approach-a" onclick="toggleSelect(this)">
+    <div class="scene-strip">
+      <div class="wash-layer" style="
+        background: linear-gradient(to top, #f4f0e8 0%, rgba(244,240,232,0.9) 25%, rgba(244,240,232,0.55) 55%, transparent 100%);
+      "></div>
+    </div>
+    <div class="page-bg">Services Section ↓</div>
+    <div class="demo-label">
+      <span class="tag-fix">Option A</span>
+      <h3>Full opaque anchor</h3>
+      <p>Bottom locks to exact body background color. Scene dissolves completely before the section edge. Hardest seam, cleanest transition.</p>
+    </div>
+  </div>
+
+  <!-- APPROACH B: Warm amber bridge -->
+  <div class="demo-col" data-choice="approach-b" onclick="toggleSelect(this)">
+    <div class="scene-strip">
+      <div class="wash-layer" style="
+        background: linear-gradient(to top,
+          #f4f0e8 0%,
+          rgba(244,235,210,0.88) 18%,
+          rgba(240,220,172,0.65) 42%,
+          rgba(236,210,140,0.3) 65%,
+          transparent 100%
+        );
+      "></div>
+    </div>
+    <div class="page-bg">Services Section ↓</div>
+    <div class="demo-label">
+      <span class="tag-fix">Option B</span>
+      <h3>Warm amber bridge</h3>
+      <p>Multi-stop gradient: full parchment → amber mid-tone → transparent. Bridges the scene's golden color temperature into the page background, nothing fights.</p>
+    </div>
+  </div>
+
+  <!-- APPROACH C: Extended + warm -->
+  <div class="demo-col" data-choice="approach-c" onclick="toggleSelect(this)">
+    <div class="scene-strip" style="height: 220px;">
+      <div class="wash-layer" style="
+        background: linear-gradient(to top,
+          #f4f0e8 0%,
+          rgba(244,238,218,0.92) 20%,
+          rgba(244,235,208,0.72) 38%,
+          rgba(244,232,198,0.45) 58%,
+          rgba(244,230,190,0.15) 75%,
+          transparent 100%
+        );
+      "></div>
+    </div>
+    <div class="page-bg">Services Section ↓</div>
+    <div class="demo-label">
+      <span class="tag-fix">Option C</span>
+      <h3>Extended taper</h3>
+      <p>Taller gradient (360px), more stops, very gradual warmth curve. Most invisible — the scene just breathes into the page, no visible edge.</p>
+    </div>
+  </div>
+
+</div>

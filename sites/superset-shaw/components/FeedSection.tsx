@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useIsMobile } from "../hooks/useIsMobile";
+import LazyVideo from "./LazyVideo";
 
 const tiles = [
   {
@@ -27,26 +28,6 @@ const tiles = [
     featured: false,
   },
   {
-    id: "t3",
-    type: "TIP",
-    title: "How to Build Real Discipline",
-    bg: `
-      radial-gradient(ellipse 70% 45% at 50% 0%, rgba(255,240,195,0.55) 0%, transparent 50%),
-      linear-gradient(165deg, #D8C090 0%, #B89060 38%, #886030 68%, #583A10 100%)
-    `,
-    featured: false,
-  },
-  {
-    id: "t4",
-    type: "VIDEO",
-    title: "The Truth About Calorie Deficits",
-    bg: `
-      radial-gradient(ellipse 70% 45% at 50% 0%, rgba(195,220,245,0.5) 0%, transparent 50%),
-      linear-gradient(165deg, #B0C8E0 0%, #8098B8 38%, #506890 68%, #304058 100%)
-    `,
-    featured: false,
-  },
-  {
     id: "t5",
     type: "REEL",
     title: "Best Pre-Workout Meal Ideas",
@@ -66,15 +47,15 @@ export default function FeedSection() {
     <section id="feed" style={{ background: "#F5F1EB" }}>
       <div
         className="container-wide"
-        style={{ paddingTop: "clamp(80px, 10vw, 120px)", paddingBottom: "clamp(80px, 10vw, 120px)" }}
+        style={{ paddingTop: "clamp(64px, 10vw, 120px)", paddingBottom: "clamp(64px, 10vw, 120px)" }}
       >
         {/* Header */}
         <div
           style={{
             display: "flex",
             justifyContent: "space-between",
-            alignItems: "flex-end",
-            marginBottom: 40,
+            alignItems: isMobile ? "flex-start" : "flex-end",
+            marginBottom: isMobile ? 28 : 40,
             flexWrap: "wrap",
             gap: 16,
           }}
@@ -130,18 +111,19 @@ export default function FeedSection() {
             display: "grid",
             gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
             gridTemplateRows: isMobile ? undefined : "repeat(2, 220px)",
-            gap: 4,
+            gap: isMobile ? 12 : 4,
           }}
         >
-          {(isMobile ? tiles.slice(0, 5) : tiles).map((tile) => (
+          {(isMobile ? tiles.filter((tile) => "video" in tile) : tiles).map((tile) => (
             <div
               key={tile.id}
-              onMouseEnter={() => setHovered(tile.id)}
-              onMouseLeave={() => setHovered(null)}
+              onMouseEnter={() => !isMobile && setHovered(tile.id)}
+              onMouseLeave={() => !isMobile && setHovered(null)}
               style={{
                 gridColumn: (!isMobile && tile.featured) ? "span 2" : "span 1",
                 gridRow: (!isMobile && tile.featured) ? "span 2" : "span 1",
-                minHeight: isMobile ? 220 : undefined,
+                minHeight: isMobile ? (tile.featured ? 280 : 240) : undefined,
+                aspectRatio: isMobile ? "16 / 10" : undefined,
                 background: (tile as { bg?: string }).bg ?? "#0F0C08",
                 position: "relative",
                 overflow: "hidden",
@@ -153,12 +135,8 @@ export default function FeedSection() {
             >
               {/* Background video */}
               {"video" in tile && (
-                <video
+                <LazyVideo
                   src={(tile as { video: string }).video}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
                   style={{
                     position: "absolute",
                     inset: 0,
@@ -199,7 +177,8 @@ export default function FeedSection() {
                 }}
               />
 
-              {/* Hover overlay */}
+              {/* Hover overlay — desktop only */}
+              {!isMobile && (
               <div
                 style={{
                   position: "absolute",
@@ -235,6 +214,7 @@ export default function FeedSection() {
                   </svg>
                 </div>
               </div>
+              )}
 
               {/* Type badge */}
               <div

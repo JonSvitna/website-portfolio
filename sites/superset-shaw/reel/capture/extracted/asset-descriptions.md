@@ -1,0 +1,42 @@
+# Asset Descriptions
+
+One line per file. Read this instead of opening every image individually.
+
+- athlete-to-purpose.png — 1740KB, athlete to purpose
+- athletic-conditioning.png — 1926KB, athletic conditioning
+- coaching.png — 1898KB, coaching
+- darius-m-transformation.jpeg — 46KB, darius m transformation
+- davion-thomas-coaching.png — 2015KB, davion thomas coaching
+- davion-thomas.png — 1931KB, davion thomas
+- family.png — 2344KB, "Family", section: "Family", above fold
+- fat-loss-coaching.jpeg — 68KB, fat loss coaching
+- favicon.ico — 25KB, favicon
+- fitness.png — 1884KB, "Fitness", section: "Fitness", above fold
+- grain.svg — 0KB, grain
+- group-bonding.jpeg — 350KB, group bonding
+- group-prayer.jpeg — 219KB, group prayer
+- group-training.jpeg — 389KB, group training
+- hero-2.png — 1803KB, hero 2
+- jordan-r-transformation.jpeg — 45KB, jordan r transformation
+- lifestyle-transformation.png — 1954KB, lifestyle transformation
+- mindset-accountability.jpeg — 264KB, mindset accountability
+- trey-t-transformation.jpeg — 46KB, trey t transformation
+- svgs/icon-0.svg — icon: icon 0
+- svgs/icon-1.svg — icon: icon 1
+- svgs/icon-10.svg — icon: icon 10
+- svgs/icon-2.svg — icon: icon 2
+- svgs/icon-3.svg — icon: icon 3
+- svgs/icon-4.svg — icon: icon 4
+- svgs/icon-5.svg — icon: icon 5
+- svgs/icon-6.svg — icon: icon 6
+- svgs/icon-7.svg — icon: icon 7
+- svgs/icon-8.svg — icon: icon 8
+- svgs/icon-9.svg — icon: icon 9
+- fonts/1bffadaabf893a1e-s.16ipb6fqu393i.woff2 — font file
+- fonts/2039e8342bda6056-s.0h2amv7e1wlhq.woff2 — font file
+- fonts/2c55a0e60120577a-s.0bjc5tiuqdqro.woff2 — font file
+- fonts/5476f68d60460930-s.0wxq9webf.ew4.woff2 — font file
+- fonts/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2 — font file
+- fonts/9c72aa0f40e4eef8-s.0m6w47a4e5dy9.woff2 — font file
+- fonts/ad66f9afd8947f86-s.11u06r12fd6v_.woff2 — font file
+- fonts/fabcf92ba1ccea36-s.p.0lwj123ije5i..woff2 — font file

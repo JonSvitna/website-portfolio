@@ -155,13 +155,14 @@ img { display: block; max-width: 100%; }
   overflow: hidden;
 }
 
-/* Full-bleed photo background */
-.hero-photo {
+/* Full-bleed video background — scrubbed by the draggable divider */
+.hero-video-bg {
   position: absolute; inset: 0;
-  background-image: url('/uploads/choose_experience_hero_2.png');
-  background-size: cover;
-  background-position: center center;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center center;
   z-index: 0;
+  display: block;
 }
 
 /* Global soft overlay — top and bottom gradients for text readability,
@@ -204,8 +205,8 @@ img { display: block; max-width: 100%; }
   z-index: 2;
   pointer-events: auto;
 }
-.hero-half.day  { left: 0; width: 50%; }
-.hero-half.night { right: 0; width: 50%; }
+.hero-half.day  { left: 0; }
+.hero-half.night { right: 0; }
 
 /* Tint overlay inside each half — transitions on hover */
 .half-tint {
@@ -229,12 +230,19 @@ img { display: block; max-width: 100%; }
 }
 
 
-/* Center divider */
+/* Center divider — position controlled by JS via inline left% */
 .divider {
   position: absolute;
-  left: 50%; top: 0; bottom: 0;
-  width: 1px;
+  top: 0; bottom: 0;
+  width: 24px;                    /* wider hit target for dragging */
   transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 4;
+  display: flex; align-items: stretch; justify-content: center;
+}
+.divider::after {
+  content: "";
+  width: 1px;
   background: linear-gradient(180deg,
     transparent 0%,
     rgba(255, 255, 255, 0.0) 8%,
@@ -243,10 +251,8 @@ img { display: block; max-width: 100%; }
     rgba(255, 255, 255, 0.85) 72%,
     rgba(255, 255, 255, 0.0) 92%,
     transparent 100%);
-  pointer-events: none;
-  z-index: 4;
   box-shadow: 0 0 16px rgba(255, 255, 255, 0.35);
-  transition: transform 1s var(--ease-luxe);
+  flex: none;
 }
 /* Hairline — no glow */
 [data-divider="hairline"] .divider { box-shadow: none; background: linear-gradient(180deg, transparent, rgba(255,255,255,0.55) 30%, rgba(255,255,255,0.7) 70%, transparent); }
@@ -256,8 +262,7 @@ img { display: block; max-width: 100%; }
   background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.9) 30%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0.9) 70%, transparent);
   box-shadow: 0 0 40px rgba(255, 255, 255, 0.5), 0 0 80px rgba(255, 255, 255, 0.25);
 }
-.hero[data-hover="day"] .divider { transform: translateX(calc(12vw - 0.5px)); }
-.hero[data-hover="night"] .divider { transform: translateX(calc(-12vw - 0.5px)); }
+/* divider position is set via JS inline style — no CSS overrides */
 
 .divider-mid {
   position: absolute;
@@ -281,8 +286,8 @@ img { display: block; max-width: 100%; }
   color: #ffffff;
   font-weight: 500;
 }
-.hero[data-hover="day"] .divider-mid { transform: translate(calc(-50% + 12vw), -50%) rotate(45deg); }
-.hero[data-hover="night"] .divider-mid { transform: translate(calc(-50% - 12vw), -50%) rotate(45deg); }
+.hero[data-hover="day"] .divider-mid,
+.hero[data-hover="night"] .divider-mid { transform: translate(-50%, -50%) rotate(45deg); }
 
 /* ============ Hero Text (unused — text is baked into the hero image) ============ */
 .hero-eyebrow {

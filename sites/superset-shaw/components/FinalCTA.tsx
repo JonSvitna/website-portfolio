@@ -68,16 +68,18 @@ export default function FinalCTA() {
         }}
       >
         {/* Left — Photo */}
-        {!isMobile && <motion.div
+        <motion.div
           initial={{ opacity: 0, scale: 0.96 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1.0, ease: [0.25, 0.1, 0.1, 1] as [number, number, number, number] }}
           style={{
             position: "relative",
-            aspectRatio: "4/5",
+            aspectRatio: isMobile ? "16 / 10" : "4/5",
+            maxHeight: isMobile ? 280 : undefined,
             overflow: "hidden",
             border: "1px solid #D9D3CB",
+            order: isMobile ? -1 : 0,
           }}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -180,7 +182,7 @@ export default function FinalCTA() {
               Davion Thomas — Coaching
             </span>
           </div>
-        </motion.div>}
+        </motion.div>
 
         {/* Right — CTA content */}
         <motion.div

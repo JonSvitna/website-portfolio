@@ -4,67 +4,57 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-/* ========================================================
-   Hero — photo-only with interactive sliding divider
-   All text/nav/buttons are baked into the background image.
-   Only the divider, hover tints, and click zones are HTML.
-======================================================== */
-
-function Hero({ onEnter }) {
-  const [hover, setHover] = React.useState(null); // 'day' | 'night' | null
+function Hero({ onEnter, eyebrow }) {
   const heroRef = React.useRef(null);
 
-  const onMove = (e) => {
+  const onClick = (e) => {
     const r = heroRef.current?.getBoundingClientRect();
     if (!r) return;
-    const x = ((e.clientX - r.left) / r.width) * 100;
-    if (x < 47) setHover('day');
-    else if (x > 53) setHover('night');
-    else setHover(null);
+    onEnter?.(((e.clientX - r.left) / r.width) < 0.5 ? 'night' : 'day');
   };
 
   return (
     <motion.section
       ref={heroRef}
       className="hero"
-      data-hover={hover || ''}
-      onMouseMove={onMove}
-      onMouseLeave={() => setHover(null)}
+      onClick={onClick}
+      style={{ cursor: 'pointer' }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1.2, delay: 1.6, ease: [0.22, 1, 0.36, 1] }}
     >
-      {/* Full-bleed photo — contains all visible text */}
-      <div className="hero-photo" />
+      <img
+        className="hero-video-bg"
+        src="/uploads/blank_homepage.png"
+        alt=""
+      />
 
-      {/* Subtle global overlay for depth */}
       <div className="hero-overlay" />
 
-      {/* Day click + hover zone */}
-      <div
-        className="hero-half day"
-        onClick={() => onEnter && onEnter('day')}
-        role="button"
-        aria-label="Enter the day experience"
-        style={{ cursor: 'pointer' }}
-      >
-        <div className="half-tint" />
+      <div className="hero-eyebrow">{eyebrow || 'Choose Your Experience'}</div>
+
+      <div className="hero-side-text day">
+        <div className="label-big">Day</div>
+        <div className="label-small">Experience</div>
+        <p className="copy">Executive travel. Airport packages. Weddings. Corporate luxury.</p>
+        <button className="hero-cta" onClick={(e) => { e.stopPropagation(); onEnter?.('day'); }}>
+          Enter Day <span className="arrow" />
+        </button>
       </div>
 
-      {/* Night click + hover zone */}
-      <div
-        className="hero-half night"
-        onClick={() => onEnter && onEnter('night')}
-        role="button"
-        aria-label="Enter the night experience"
-        style={{ cursor: 'pointer' }}
-      >
-        <div className="half-tint" />
+      <div className="hero-side-text night">
+        <div className="label-big">Night</div>
+        <div className="label-small">Experience</div>
+        <p className="copy">Nightlife. Special events. Date nights. VIP treatment.</p>
+        <button className="hero-cta" onClick={(e) => { e.stopPropagation(); onEnter?.('night'); }}>
+          Enter Night <span className="arrow" />
+        </button>
       </div>
 
-      {/* Sliding divider — the only interactive HTML element */}
-      <div className="divider" />
-      <div className="divider-mid"><span>OR</span></div>
+      <div className="divider" style={{ left: '50%' }} />
+      <div className="divider-mid" style={{ left: '50%' }}>
+        <span>OR</span>
+      </div>
     </motion.section>
   );
 }

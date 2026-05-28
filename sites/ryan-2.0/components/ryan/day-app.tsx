@@ -190,33 +190,48 @@ const HERO_HOTSPOTS = [
   { className: 'hero-hotspot-scroll', href: '#services', label: 'Scroll to explore services' },
 ];
 
+
 function Hero() {
   return (
-    <section className="hero hero-composited hero-video" data-screen-label="Hero — Daytime Video">
-      <h1 className="sr-only">Arrive in Excellence</h1>
+    <section className="hero" data-screen-label="Hero — Daytime Video">
       <div className="hero-canvas">
         <div className="hero-bg">
           <video
             className="hero-bg-video"
-            src="/uploads/day_hero_animated.mp4"
-            autoPlay
+            src="/uploads/ryan_pier_walk.mp4"
             muted
             playsInline
+            autoPlay
             loop
             preload="auto"
           />
         </div>
 
-        <div className="hero-hotspots">
-          {HERO_HOTSPOTS.map((spot) => (
-            <a
-              key={spot.className}
-              className={'hero-hotspot ' + spot.className}
-              href={spot.href}
-              aria-label={spot.label}
-            />
-          ))}
+        <div className="hero-wash" />
+
+        <div className="hero-body">
+          <div className="hero-content">
+            <div className="hero-eyebrow">Executive Chauffeur · Baltimore</div>
+            <h1 className="hero-hl">
+              <span className="line">Arrive in</span>
+              <span className="line">Excellence.</span>
+            </h1>
+            <p className="hero-sub">
+              Premium chauffeured transportation for those who demand the very best — on time, every time.
+            </p>
+            <div className="hero-cta-row">
+              <a className="btn-fill" href="#contact">
+                Book Now
+                <span className="arrow">{I.arrow}</span>
+              </a>
+              <a className="btn-outline" href="tel:+14439733356">
+                <span className="phone">{I.phone}</span>
+                Call (443) 973-3356
+              </a>
+            </div>
+          </div>
         </div>
+
       </div>
     </section>
   );
@@ -584,8 +599,8 @@ function DayExperience() {
   return (
     <>
       <Nav />
+      <Hero />
       <main className="day-landing">
-        <Hero />
         <Services />
         <Daytime />
         <Moments />

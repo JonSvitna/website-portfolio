@@ -61,7 +61,10 @@ ul  { list-style: none; }
   max-width: 1440px;
   margin: 0 auto;
   background: var(--bg-paper);
-  box-shadow: 0 0 0 1px var(--line-w);
+  box-shadow:
+    -1px 0 0 var(--line-w),
+     1px 0 0 var(--line-w),
+     0 1px 0 var(--line-w);
 }
 
 /* ================================================================
@@ -240,9 +243,18 @@ ul  { list-style: none; }
    ================================================================ */
 .hero {
   position: relative;
-  background: var(--bg-paper);
+  background: var(--bg-3);
   overflow: hidden;
   padding-top: 0;
+  max-width: 1440px;
+  margin: 0 auto;
+  box-shadow: -1px 0 0 var(--line-w), 1px 0 0 var(--line-w);
+}
+.hero-composited.hero-video {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  background: var(--bg-paper);
 }
 .sr-only {
   position: absolute;
@@ -267,87 +279,17 @@ ul  { list-style: none; }
   z-index: 1;
   overflow: hidden;
 }
-.hero-bg img.hero-bg-photo {
+.hero-bg img.hero-bg-photo,
+.hero-bg .hero-bg-video {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 25%;
+  object-position: center center;
+}
+
+.hero-bg img.hero-bg-photo {
   animation: heroKenBurns 24s var(--ease-slow) infinite alternate;
-}
-.hero-composited.hero-video .hero-canvas {
-  height: auto;
-  min-height: 0;
-}
-
-.hero-composited.hero-video .hero-bg {
-  position: relative;
-  inset: auto;
-  z-index: 1;
-}
-
-.hero-composited.hero-video .hero-bg-video {
-  width: 100%;
-  height: auto;
-  display: block;
-  vertical-align: top;
-}
-
-/* hero-sub-mask removed — BMW composition has crisp rendered text, no blur needed */
-
-/* Smooth fade from video bottom into the white page canvas */
-.hero-composited.hero-video .hero-canvas::after {
-  content: '';
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  height: 220px;
-  background: linear-gradient(to bottom, transparent 0%, rgba(250,248,244,0.55) 45%, #faf8f4 100%);
-  z-index: 6;
-  pointer-events: none;
-}
-
-.hero-hotspots {
-  position: absolute;
-  inset: 0;
-  z-index: 5;
-}
-
-.hero-hotspot {
-  position: absolute;
-  display: block;
-  background: transparent;
-  border: 0;
-  cursor: pointer;
-  text-indent: -9999px;
-  overflow: hidden;
-}
-
-.hero-hotspot:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-}
-
-/* Hotspot positions for BMW composition (1920×1080, no service strip, nav at top 96px).
-   Service tile hotspots removed — those links are handled by the HTML Services section below. */
-.hero-hotspot-services-nav  { left: 37.1%; top: 2%;    width: 4.2%;  height: 7%; }
-.hero-hotspot-fleet-nav     { left: 43.6%; top: 2%;    width: 2.7%;  height: 7%; }
-.hero-hotspot-experience-nav{ left: 48.6%; top: 2%;    width: 5.1%;  height: 7%; }
-.hero-hotspot-about-nav     { left: 56%;   top: 2%;    width: 2.9%;  height: 7%; }
-.hero-hotspot-contact-nav   { left: 61.1%; top: 2%;    width: 3.6%;  height: 7%; }
-.hero-hotspot-book          { left: 85.5%; top: 2.5%;  width: 10.5%; height: 5.5%; }
-.hero-hotspot-services-cta  { left: 4.2%;  top: 68%;   width: 12%;   height: 5.5%; }
-.hero-hotspot-airport       { display: none; }
-.hero-hotspot-corporate     { display: none; }
-.hero-hotspot-weddings      { display: none; }
-.hero-hotspot-hourly        { display: none; }
-.hero-hotspot-scroll        { left: 4%;    top: 93%;   width: 14%;   height: 5%; }
-
-.hero-composited .hero-wash,
-.hero-composited .hero-body,
-.hero-composited .hero-scroll-cue,
-.hero-composited .hero-pagination,
-.hero-composited .hero-strip,
-.hero-composited .hero-booking-card {
-  display: none;
 }
 
 .booking-card-kicker {
@@ -429,16 +371,15 @@ ul  { list-style: none; }
   to   { transform: scale(1.04); }
 }
 
-/* Left-side wash: keeps headline + body readable over the photo */
+/* Left-side wash: keeps headline readable, fades before people */
 .hero-wash {
   position: absolute; inset: 0; z-index: 2; pointer-events: none;
   background: linear-gradient(
     90deg,
-    rgba(255, 252, 246, 0.88) 0%,
-    rgba(255, 252, 246, 0.72) 20%,
-    rgba(255, 252, 246, 0.38) 36%,
-    rgba(255, 252, 246, 0.08) 52%,
-    transparent 65%
+    rgba(255, 252, 246, 0.82) 0%,
+    rgba(255, 252, 246, 0.55) 18%,
+    rgba(255, 252, 246, 0.18) 32%,
+    transparent 48%
   );
 }
 
@@ -448,10 +389,10 @@ ul  { list-style: none; }
   z-index: 3;
   max-width: var(--maxw);
   margin: 0 auto;
-  padding: 120px var(--px) 80px;
+  padding: 100px var(--px) 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 }
 .hero-content {
   max-width: 520px;
@@ -561,34 +502,6 @@ ul  { list-style: none; }
   to   { opacity: 1; transform: none; }
 }
 
-/* ── Hero scroll cue ── */
-.hero-scroll-cue {
-  position: absolute;
-  left: var(--px);
-  bottom: 130px;
-  z-index: 5;
-  display: flex; align-items: center; gap: 14px;
-  font-family: var(--f-mono);
-  font-size: 10px;
-  letter-spacing: 0.42em;
-  text-transform: uppercase;
-  color: var(--fg-2);
-}
-.hero-scroll-cue .dot {
-  width: 26px; height: 26px;
-  border: 1px solid var(--line-2);
-  border-radius: 50%;
-  display: grid; place-items: center;
-  position: relative;
-}
-.hero-scroll-cue .dot::after {
-  content: "";
-  width: 6px; height: 6px;
-  border-right: 1px solid var(--fg-1);
-  border-bottom: 1px solid var(--fg-1);
-  transform: rotate(45deg);
-  margin-left: -2px;
-}
 
 /* ── Hero pagination (right side) ── */
 .hero-pagination {
@@ -665,7 +578,7 @@ ul  { list-style: none; }
    SECTION SHELL
    ================================================================ */
 .section {
-  padding: 140px var(--px);
+  padding: 100px var(--px);
   position: relative;
 }
 .section-inner {
@@ -785,7 +698,7 @@ ul  { list-style: none; }
   padding: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 580px;
+  min-height: 480px;
   align-items: stretch;
   border-top: 1px solid var(--line-w);
   border-bottom: 1px solid var(--line-w);
@@ -794,12 +707,12 @@ ul  { list-style: none; }
   position: relative;
   overflow: hidden;
   background: var(--bg-3);
-  min-height: 580px;
+  min-height: 480px;
 }
 .daytime-image img {
   width: 100%; height: 100%;
-  object-fit: contain;
-  object-position: center;
+  object-fit: cover;
+  object-position: 96% center;
   transition: transform 12s var(--ease-slow);
 }
 .daytime:hover .daytime-image .scene-art svg { transform: scale(1.03); }
@@ -809,7 +722,7 @@ ul  { list-style: none; }
 }
 
 .daytime-text {
-  padding: 100px 72px;
+  padding: 64px 72px;
   display: flex; flex-direction: column;
   justify-content: center;
 }
@@ -978,7 +891,7 @@ ul  { list-style: none; }
   border-bottom: 1px solid var(--line-w);
 }
 .fleet-text {
-  padding: 100px 64px;
+  padding: 64px 64px;
   display: flex; flex-direction: column;
   justify-content: center;
   max-width: 560px;
@@ -1009,9 +922,9 @@ ul  { list-style: none; }
   font-weight: 300;
   line-height: 1.75;
   color: var(--fg-2);
-  margin-bottom: 36px;
+  margin-bottom: 20px;
 }
-.fleet-features { display: grid; gap: 14px; margin-bottom: 40px; }
+.fleet-features { display: grid; gap: 10px; margin-bottom: 40px; }
 .fleet-feature {
   display: flex; align-items: center; gap: 14px;
   font-family: var(--f-body);
@@ -1114,7 +1027,9 @@ ul  { list-style: none; }
   display: inline-flex;
   align-items: center;
   gap: 14px;
-  margin-top: 10px;
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 2px solid var(--accent);
   font-family: var(--f-body);
   font-size: 13px;
   color: var(--fg-2);
