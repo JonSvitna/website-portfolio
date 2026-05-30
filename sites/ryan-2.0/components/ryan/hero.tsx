@@ -10,7 +10,13 @@ function Hero({ onEnter, eyebrow }) {
   const onClick = (e) => {
     const r = heroRef.current?.getBoundingClientRect();
     if (!r) return;
-    onEnter?.(((e.clientX - r.left) / r.width) < 0.5 ? 'night' : 'day');
+    const relX = (e.clientX - r.left) / r.width;
+    const relY = (e.clientY - r.top) / r.height;
+    const stacked = window.matchMedia('(max-width: 720px)').matches;
+    const side = stacked
+      ? (relY < 0.5 ? 'day' : 'night')
+      : (relX < 0.5 ? 'day' : 'night');
+    onEnter?.(side);
   };
 
   return (

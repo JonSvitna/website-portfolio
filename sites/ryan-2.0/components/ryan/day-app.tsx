@@ -1,6 +1,8 @@
 'use client';
 
 import React from 'react';
+import { SITE } from './site';
+import BrandLockup from './BrandLockup';
 
 
 /* ================================================================
@@ -99,30 +101,6 @@ const I = {
 };
 
 /* ================================================================
-   LOGO — R wordmark glyph (parallel stripes through an R)
-   ================================================================ */
-function Logo({ size = 46 }) {
-  return (
-    <span className="nav-logo" style={{ width: size, height: size }}>
-      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeLinecap="square">
-        {/* Three horizontal stripes (champagne) */}
-        <g stroke="var(--accent)" strokeWidth="1.3">
-          <line x1="2" y1="14" x2="46" y2="14" />
-          <line x1="2" y1="24" x2="46" y2="24" />
-          <line x1="2" y1="34" x2="46" y2="34" />
-        </g>
-        {/* The R — graphite */}
-        <g stroke="var(--fg-1)" strokeWidth="2.2" fill="none" strokeLinejoin="miter">
-          <path d="M11 8 L11 40" />
-          <path d="M11 8 L26 8 Q34 8 34 16 Q34 24 26 24 L11 24" />
-          <path d="M22 24 L34 40" />
-        </g>
-      </svg>
-    </span>
-  );
-}
-
-/* ================================================================
    NAV
    ================================================================ */
 function Nav() {
@@ -146,13 +124,7 @@ function Nav() {
 
   return (
     <nav className={'nav day-nav' + (scrolled ? ' scrolled' : '') + (pastHero ? ' past-hero' : '')}>
-      <a className="nav-brand" href="#">
-        <Logo />
-        <span className="nav-brand-text">
-          <span className="nav-brand-name">Ryan Motivates</span>
-          <span className="nav-brand-role">Executive Chauffeur</span>
-        </span>
-      </a>
+      <BrandLockup href="#" variant="light" className="nav-brand" />
 
       <div className="nav-links">
         <a className="nav-link active" href="#services">Services</a>
@@ -211,7 +183,7 @@ function Hero() {
 
         <div className="hero-body">
           <div className="hero-content">
-            <div className="hero-eyebrow">Executive Chauffeur · Baltimore</div>
+            <div className="hero-eyebrow">{SITE.brand} · {SITE.driverTitle} · Baltimore</div>
             <h1 className="hero-hl">
               <span className="line">Arrive in</span>
               <span className="line">Excellence.</span>
@@ -318,14 +290,14 @@ function Daytime() {
         />
       </div>
       <div className="daytime-text">
-        <div className="daytime-eyebrow" data-reveal>The Ryan Motivates Experience</div>
+        <div className="daytime-eyebrow" data-reveal>The {SITE.brand} Experience</div>
         <h2 className="daytime-hl" data-reveal data-delay="1">
           Daytime Luxury,
           <em>Without the Stress.</em>
         </h2>
         <p className="daytime-copy" data-reveal data-delay="2">
-          We combine elegance, punctuality, and professionalism to deliver a
-          first-class experience every time you ride.
+          We combine elegance, punctuality, and professionalism — personally driven by {SITE.driver} —
+          to deliver a first-class experience every time you ride.
         </p>
         <div className="daytime-divider" data-reveal data-delay="2"></div>
         <div className="daytime-features">
@@ -508,7 +480,7 @@ function FinalCTA() {
         </h2>
         <p className="final-cta-copy" data-reveal data-delay="1">
           Whether it&rsquo;s business, travel, brunch, or a special event,
-          Ryan Motivates brings executive-level service to every ride.
+          {SITE.brand} brings executive-level service to every ride.
         </p>
         <div className="final-cta-actions" data-reveal data-delay="2">
           <a className="btn-fill" href="#contact">
@@ -541,13 +513,7 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer-inner">
-        <a className="footer-brand" href="#">
-          <Logo size={36} />
-          <span className="nav-brand-text">
-            <span className="nav-brand-name">Ryan Motivates</span>
-            <span className="nav-brand-role">Executive Chauffeur</span>
-          </span>
-        </a>
+        <BrandLockup href="#" size={36} variant="light" className="footer-brand" />
 
         <div className="footer-links">
           <a href="#services">Services</a>
@@ -564,7 +530,7 @@ function Footer() {
         </div>
       </div>
       <div className="footer-bottom">
-        &copy; 2024 Ryan Motivates Executive Chauffeur. All rights reserved.
+        &copy; {new Date().getFullYear()} {SITE.brand} · {SITE.driverTitle}. All rights reserved.
       </div>
     </footer>
   );

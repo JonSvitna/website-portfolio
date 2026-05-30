@@ -1,4 +1,4 @@
-// Night Series — App assembly
+// Ryan J. — App assembly
 const { useState, useEffect } = React;
 
 const Nav = () => {
@@ -18,13 +18,7 @@ const Nav = () => {
 
   return (
     <nav className={'nav ' + (scrolled ? 'scrolled' : '')}>
-      <a className="nav-mark" href="#hero" onClick={go('hero')}>
-        <span className="nav-mono">RJ</span>
-        <span className="nav-name">
-          Night Series
-          <em>Private Chauffeur</em>
-        </span>
-      </a>
+      <BrandLockup href="#hero" onClick={go('hero')} />
 
       <div className="nav-links">
         <button className="nav-link" onClick={go('moments')}>Occasions</button>
@@ -80,6 +74,7 @@ const App = () => {
       <ExperienceStatement />
       <Moments />
       <InteriorExperience />
+      <Driver />
       <BaltimoreNight />
       <BookingCTA />
       <SiteFooter />

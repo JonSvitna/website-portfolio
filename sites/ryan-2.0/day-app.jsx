@@ -130,7 +130,7 @@ function Nav() {
       <a className="nav-brand" href="#">
         <Logo />
         <span className="nav-brand-text">
-          <span className="nav-brand-name">Ryan Motivates</span>
+          <span className="nav-brand-name">Ryan J.</span>
           <span className="nav-brand-role">Executive Chauffeur</span>
         </span>
       </a>
@@ -306,7 +306,7 @@ function Daytime() {
         />
       </div>
       <div className="daytime-text">
-        <div className="daytime-eyebrow" data-reveal>The Ryan Motivates Experience</div>
+        <div className="daytime-eyebrow" data-reveal>The Ryan J. Experience</div>
         <h2 className="daytime-hl" data-reveal data-delay="1">
           Daytime Luxury,
           <em>Without the Stress.</em>
@@ -456,7 +456,7 @@ function FinalCTA() {
         </h2>
         <p className="final-cta-copy" data-reveal data-delay="1">
           Whether it&rsquo;s business, travel, brunch, or a special event,
-          Ryan Motivates brings executive-level service to every ride.
+          Ryan J. brings executive-level service to every ride.
         </p>
         <div className="final-cta-actions" data-reveal data-delay="2">
           <a className="btn-fill" href="#">
@@ -490,7 +490,7 @@ function Footer() {
         <a className="footer-brand" href="#">
           <Logo size={36} />
           <span className="nav-brand-text">
-            <span className="nav-brand-name">Ryan Motivates</span>
+            <span className="nav-brand-name">Ryan J.</span>
             <span className="nav-brand-role">Executive Chauffeur</span>
           </span>
         </a>
@@ -510,7 +510,7 @@ function Footer() {
         </div>
       </div>
       <div className="footer-bottom">
-        &copy; MMXXVI &mdash; Ryan Motivates Executive Chauffeur. All rights reserved.
+        &copy; MMXXVI &mdash; Ryan J. Executive Chauffeur. All rights reserved.
       </div>
     </footer>
   );

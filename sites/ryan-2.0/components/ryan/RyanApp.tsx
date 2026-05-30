@@ -3,10 +3,11 @@
 
 import React, { useEffect, useState, useRef, useMemo, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
+import { SITE } from './site';
 import { Hero } from './hero';
+import BrandLockup from './BrandLockup';
 import {
-  TransitionBand, Fleet, SignatureExperiences,
-  Showcase, Process, Reserve, Footer,
+  MeetRyan, RyanLifestyle, Reserve, Footer,
 } from './sections';
 import {
   useTweaks, TweaksPanel, TweakSection, TweakRow,
@@ -45,23 +46,75 @@ function TopNav() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  const scrollToReserve = (e) => {
+    e?.preventDefault();
+    document.getElementById('reserve')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <header className={'topnav' + (visible ? ' nav-visible' : '')}>
-      <a href="#" className="brand">
-        <div className="brand-mark">R</div>
-        <div className="brand-text">
-          <div className="name">Ryan Motivates</div>
-          <div className="role">Executive Chauffeur</div>
-        </div>
-      </a>
+      <BrandLockup
+        href="#"
+        variant={visible ? 'light' : 'dark'}
+        className="topnav-brand"
+      />
       <nav className="nav-links">
-        <a href="#services">Services</a>
-        <a href="#fleet">Fleet</a>
-        <a href="#experience">Experience</a>
         <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <a href="#reserve">Reserve</a>
+        <a href="/day">Day</a>
+        <a href="/night">Night</a>
       </nav>
+      <a href="#reserve" className="topnav-reserve" onClick={scrollToReserve}>
+        Reserve
+      </a>
     </header>
+  );
+}
+
+/* ========================================================
+   Mobile sticky book bar — homepage landing only
+======================================================== */
+function MobileBookBar() {
+  const [visible, setVisible] = React.useState(false);
+  const [atReserve, setAtReserve] = React.useState(false);
+
+  React.useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY > window.innerHeight * 0.85);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    const reserve = document.getElementById('reserve');
+    let io;
+    if (reserve) {
+      io = new IntersectionObserver(
+        ([entry]) => setAtReserve(entry.isIntersecting),
+        { threshold: 0.25 }
+      );
+      io.observe(reserve);
+    }
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      io?.disconnect();
+    };
+  }, []);
+
+  const scrollToReserve = (e) => {
+    e?.preventDefault();
+    document.getElementById('reserve')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const show = visible && !atReserve;
+
+  return (
+    <div className={'mobile-book-bar' + (show ? ' visible' : '')} aria-hidden={!show}>
+      <button type="button" className="mobile-book-bar-primary" onClick={scrollToReserve}>
+        Book {SITE.brand}
+      </button>
+      <a className="mobile-book-bar-call" href="tel:+14105550188">
+        Call
+      </a>
+    </div>
   );
 }
 
@@ -99,7 +152,7 @@ function CustomCursor({ enabled }) {
     const onOver = (e) => {
       const t = e.target;
       if (!t || !t.closest) return;
-      setHover(!!t.closest('button, a, .fleet-card, .exp-cell, image-slot'));
+      setHover(!!t.closest('button, a, .landing-btn-primary, .meet-ryan-photo img'));
     };
     document.addEventListener('mouseover', onOver);
 
@@ -188,6 +241,11 @@ export default function RyanApp() {
   const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
   const [loaded, setLoaded] = React.useState(false);
   const [enterTheme, setEnterTheme] = React.useState(null);
+  const [finePointer, setFinePointer] = React.useState(false);
+
+  React.useEffect(() => {
+    setFinePointer(window.matchMedia('(pointer: fine)').matches);
+  }, []);
 
   // Apply tweak vars to :root
   React.useEffect(() => {
@@ -224,12 +282,13 @@ export default function RyanApp() {
   return (
     <>
       <div className={'preload' + (loaded ? ' gone' : '')}>
-        <div className="preload-mark">Ryan</div>
+        <div className="preload-mark">{SITE.driver}</div>
       </div>
 
-      <CustomCursor enabled={!!t.showCursor} />
+      <CustomCursor enabled={!!t.showCursor && finePointer} />
 
       <TopNav />
+      <MobileBookBar />
 
       <main>
         <Hero
@@ -239,13 +298,12 @@ export default function RyanApp() {
           fonts={{ serif: t.serifFamily, display: t.displayFamily, sans: t.sansFamily }}
         />
 
-        <TransitionBand />
-        <Fleet />
-        <SignatureExperiences />
-        <Showcase />
-        <Process />
-        <Reserve />
-        <Footer />
+        <div className="landing-light">
+          <MeetRyan />
+          <RyanLifestyle />
+          <Reserve />
+          <Footer />
+        </div>
       </main>
 
       <Tweaks t={t} setTweak={setTweak} />

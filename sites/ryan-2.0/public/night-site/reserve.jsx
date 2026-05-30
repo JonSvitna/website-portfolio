@@ -32,7 +32,7 @@ const Reserve = () => {
             Your comfort, your time — <em>same thread to the curb.</em>
           </h2>
           <p className="lede">
-            Call or text for the fastest reply. Or send pickup, date, and occasion — Ryan confirms personally, usually within an hour.
+            Call or text for the fastest reply. Or send pickup, date, and occasion — Ryan J. confirms personally, usually within an hour.
           </p>
           <div className="reserve-marks">
             <div className="reserve-mark">
@@ -41,7 +41,7 @@ const Reserve = () => {
             </div>
             <div className="reserve-mark">
               <span className="ix">02.</span>
-              <span className="txt">Ryan calls or texts within the hour to confirm details.</span>
+              <span className="txt">Ryan J. calls or texts within the hour to confirm details.</span>
             </div>
             <div className="reserve-mark">
               <span className="ix">03.</span>
@@ -140,7 +140,7 @@ const Reserve = () => {
                 </svg>
               </div>
               <h3>The Evening is Reserved.</h3>
-              <p>Ryan will reach out within the hour, <em style={{color:'var(--rose)'}}>{form.name || 'thank you'}</em>.</p>
+              <p>Ryan J. will reach out within the hour, <em style={{color:'var(--rose)'}}>{form.name || 'thank you'}</em>.</p>
               <div className="book-summary">
                 <div><div className="l">Pickup</div><div className="v">{form.pickup || '—'}</div></div>
                 <div><div className="l">Drop-off</div><div className="v">{form.dropoff || '—'}</div></div>

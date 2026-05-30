@@ -1,9 +1,12 @@
+import { SITE as SHARED } from "../site";
+
 export const SITE = {
-  brand: "Night Series",
+  brand: SHARED.brand,
   tagline: "Private BMW 750 chauffeur — Baltimore, BWI, DCA, IAD, and Washington.",
   phoneDisplay: "667 · 207 · 1472",
   phoneTel: "+16672071472",
-  driver: "Ryan J.",
+  driver: SHARED.driver,
+  driverTitle: SHARED.driverTitle,
   vehicle: "BMW 750",
   exterior: "Pearl white",
   interior: "Red leather",

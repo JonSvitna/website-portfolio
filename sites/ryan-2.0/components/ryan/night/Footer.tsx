@@ -27,7 +27,7 @@ export function Footer() {
               <ul className="mt-3 space-y-2 text-sm">
                 <li><a className="text-mist hover:text-paper" href="#occasions">Occasions</a></li>
                 <li><a className="text-mist hover:text-paper" href="#luxury">Cabin</a></li>
-                <li><a className="text-mist hover:text-paper" href="#driver">Ryan</a></li>
+                <li><a className="text-mist hover:text-paper" href="#driver">{SITE.driver}</a></li>
                 <li><a className="text-mist hover:text-paper" href="#reserve">Reserve</a></li>
               </ul>
             </div>

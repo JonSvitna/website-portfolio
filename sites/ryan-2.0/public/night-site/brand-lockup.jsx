@@ -1,0 +1,31 @@
+// Shared brand lockup — stripe-R mark + Ryan J. / Executive Chauffeur
+const BrandMark = ({ size = 46 }) => (
+  <span className="brand-lockup-mark" style={{ width: size, height: size }} aria-hidden="true">
+    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeLinecap="square">
+      <g className="brand-lockup-stripes" strokeWidth="1.3">
+        <line x1="2" y1="14" x2="46" y2="14" />
+        <line x1="2" y1="24" x2="46" y2="24" />
+        <line x1="2" y1="34" x2="46" y2="34" />
+      </g>
+      <g className="brand-lockup-r" strokeWidth="2.2" fill="none" strokeLinejoin="miter">
+        <path d="M11 8 L11 40" />
+        <path d="M11 8 L26 8 Q34 8 34 16 Q34 24 26 24 L11 24" />
+        <path d="M22 24 L34 40" />
+      </g>
+    </svg>
+  </span>
+);
+
+const BrandLockup = ({ size = 46, href = '#hero', onClick, className = '' }) => (
+  <a
+    href={href}
+    className={'brand-lockup brand-lockup--dark nav-mark ' + className}
+    onClick={onClick}
+  >
+    <BrandMark size={size} />
+    <span className="brand-lockup-text">
+      <span className="brand-lockup-name">Ryan J.</span>
+      <span className="brand-lockup-role">Executive Chauffeur</span>
+    </span>
+  </a>
+);

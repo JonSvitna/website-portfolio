@@ -7,7 +7,7 @@ import { SITE } from "./site";
 const links = [
   { href: "#occasions", label: "Occasions" },
   { href: "#luxury", label: "Cabin" },
-  { href: "#driver", label: "Ryan" },
+  { href: "#driver", label: SITE.driver },
   { href: "#reserve", label: "Reserve" },
 ];
 
