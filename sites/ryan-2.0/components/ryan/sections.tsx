@@ -62,8 +62,8 @@ function RyanLifestyle() {
     <section className="ryan-lifestyle" data-screen-label="Lifestyle Band">
       <div className="ryan-lifestyle-media">
         <img
-          src="/uploads/hero_shot.png"
-          alt={`${SITE.driver} with BMW 750 at Baltimore Inner Harbor`}
+          src="/uploads/group_photo_bmw.png"
+          alt={`${SITE.driver} — guests with BMW 750 at Baltimore waterfront`}
         />
       </div>
       <div className="ryan-lifestyle-panel">
