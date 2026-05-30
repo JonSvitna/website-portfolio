@@ -460,7 +460,7 @@ function Fleet() {
           <img src="/uploads/fleet-bmw-exterior.png" alt="2023 BMW 750i exterior — Alpine White" />
         </div>
         <div className="pane">
-          <img src="/uploads/fleet-bmw-interior.png" alt="2023 BMW 750i cabin — Cognac Red leather" />
+          <img src="/uploads/red_interior_BMW.png" alt="2023 BMW 750i cabin — red leather interior" />
         </div>
       </div>
     </section>
