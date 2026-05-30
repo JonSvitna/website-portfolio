@@ -7,7 +7,7 @@ const Driver = () => {
           <image-slot
             id="driver-ryan-v2"
             src="/night-site/assets/ryan-portrait.png"
-            placeholder="Ryan portrait"
+            placeholder="Ryan J. portrait"
             shape="rect"
           ></image-slot>
         </div>

@@ -26,7 +26,7 @@ function TopNav() {
       <a href="#" className="brand">
         <div className="brand-mark">R</div>
         <div className="brand-text">
-          <div className="name">Ryan Motivates</div>
+          <div className="name">Ryan J.</div>
           <div className="role">Executive Chauffeur</div>
         </div>
       </a>

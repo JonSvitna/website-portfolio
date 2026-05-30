@@ -116,13 +116,39 @@ body::after {
   padding: 18px var(--px);
   border-bottom: 1px solid var(--line-w);
 }
-.nav-mark {
+.nav-mark, .brand-lockup.nav-mark {
   display: flex;
   align-items: center;
   gap: 14px;
   cursor: pointer;
   text-decoration: none;
   color: var(--text);
+}
+.brand-lockup-mark {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.brand-lockup-mark svg { width: 100%; height: 100%; display: block; }
+.brand-lockup--dark .brand-lockup-stripes { stroke: var(--accent); }
+.brand-lockup--dark .brand-lockup-r { stroke: var(--text); }
+.brand-lockup-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  gap: 3px;
+}
+.brand-lockup-name {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+.brand-lockup-role {
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  color: var(--text-2);
+  text-transform: uppercase;
 }
 .nav-mono {
   font-family: var(--f-mono);

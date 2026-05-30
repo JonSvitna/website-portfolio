@@ -22,7 +22,7 @@ const Hero = () => {
 
       {/* Editorial content — left-aligned */}
       <div className="hero-body">
-        <p className="hero-eyebrow">Baltimore Private Chauffeur</p>
+        <p className="hero-eyebrow">Ryan J. · Baltimore Private Chauffeur</p>
 
         <h1 className="hero-hl">
           <span>THE NIGHT</span>
@@ -32,7 +32,7 @@ const Hero = () => {
         </h1>
 
         <p className="hero-sub">
-          A private BMW 750 experience for nights that deserve more than a ride.
+          A private BMW 750 experience with Ryan J. for nights that deserve more than a ride.
         </p>
 
         <div className="hero-actions">

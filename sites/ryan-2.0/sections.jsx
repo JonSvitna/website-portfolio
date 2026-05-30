@@ -405,7 +405,7 @@ function Footer() {
       <div className="footer-grid">
         <div>
           <div style={{ fontFamily: 'var(--serif-display)', fontSize: 26, color: 'var(--ivory)', letterSpacing: '0.04em', textTransform: 'uppercase' }}>
-            Ryan Motivates
+            Ryan J.
           </div>
           <div style={{ fontFamily: 'var(--sans)', fontSize: 10, letterSpacing: '0.4em', color: 'var(--champagne)', marginTop: 6, textTransform: 'uppercase' }}>
             Executive Chauffeur
@@ -443,7 +443,7 @@ function Footer() {
         </div>
       </div>
       <div className="footer-bottom">
-        <div>© MMXXVI — Ryan Motivates Executive Chauffeur. All discretion reserved.</div>
+        <div>© MMXXVI — Ryan J. · Executive Chauffeur. All discretion reserved.</div>
         <div style={{ display: 'flex', gap: 28 }}>
           <a href="#">Privacy</a>
           <a href="#">Terms</a>

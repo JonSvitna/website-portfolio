@@ -55,7 +55,7 @@ const BookingCTA = () => {
     <section className="booking-cta" id="book">
       <div className="booking-cta-inner">
 
-        <p className="booking-cta-eyebrow" data-reveal>Night Series · Baltimore</p>
+        <p className="booking-cta-eyebrow" data-reveal>Ryan J. · Baltimore</p>
 
         <h2 className="booking-cta-hl" data-reveal data-delay="1">
           Ready when<br />the night is.
@@ -94,9 +94,9 @@ const SiteFooter = () => {
     <footer className="site-footer">
       <div className="site-footer-inner">
         <div>
-          <p className="site-footer-brand">Night Series</p>
+          <p className="site-footer-brand">Ryan J.</p>
           <p className="site-footer-tagline">
-            Private BMW 750 chauffeur — Baltimore, BWI, DCA, IAD, and Washington.
+            Ryan J. — Private BMW 750 chauffeur — Baltimore, BWI, DCA, IAD, and Washington.
           </p>
         </div>
         <div className="site-footer-right">

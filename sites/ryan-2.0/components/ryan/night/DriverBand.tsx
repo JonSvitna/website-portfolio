@@ -38,7 +38,10 @@ export function DriverBand() {
         >
           <p className="font-mono text-[10px] uppercase tracking-[0.36em] text-champagne">{SITE.flyer.driverLine}</p>
           <p className="mt-5 max-w-[52ch] text-2xl font-semibold leading-snug tracking-tight text-paper md:text-3xl">{SITE.flyer.driverQuote}</p>
-          <p className="mt-8 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.26em] text-mist">
+          <p className="mt-8 font-mono text-[11px] uppercase tracking-[0.28em] text-champagne">
+            {SITE.driver} · {SITE.driverTitle}
+          </p>
+          <p className="mt-4 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.26em] text-mist">
             <span className="inline-block h-px w-8 bg-champagne/50" aria-hidden />
             {SITE.hero.kicker}
           </p>
