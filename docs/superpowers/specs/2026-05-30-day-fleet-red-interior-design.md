@@ -78,3 +78,8 @@ Fleet interior pane CSS (`app/day/day.css`):
 ## License
 
 Pexels and Unsplash photos are free for commercial use; attribution not required. Record source URL in implementation notes for internal reference.
+
+## Implementation notes
+
+- **Approach:** Recolored the original beige `fleet-bmw-interior.png` (rear cabin + golden-hour waterfront) via selective HSV hue shift on warm leather pixels → cognac/burgundy red. Preserves composition, quilting, trim, and window view.
+- **Stock fallback:** Unsplash Infiniti interior was tried first; rejected — user preferred keeping the original editorial shot with recolored leather.
