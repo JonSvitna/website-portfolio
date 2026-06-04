@@ -26,9 +26,6 @@ export function Nav() {
     <header className="fixed inset-x-0 top-0 z-40 px-4 pt-4 md:px-8">
       <div className="mx-auto flex max-w-[1400px] items-center justify-between rounded-full border border-white/10 bg-ink/70 px-5 py-3 shadow-[0_28px_80px_-24px_rgb(0_0_0/0.45)] backdrop-blur-xl">
         <div className="flex items-center gap-4">
-          <a href="/" className="font-mono text-[10px] uppercase tracking-[0.22em] text-mist transition-colors hover:text-champagne">
-            ← Back
-          </a>
           <a href="#" className="group flex items-baseline gap-2">
             <span className="font-mono text-[11px] tracking-[0.28em] text-champagne">RJ</span>
             <span className="text-sm font-medium tracking-tight text-paper/90">{SITE.brand}</span>
