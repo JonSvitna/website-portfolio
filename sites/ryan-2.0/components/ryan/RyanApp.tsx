@@ -114,61 +114,6 @@ function MobileBookBar() {
 }
 
 /* ========================================================
-   Custom cursor — pointer reactive
-======================================================== */
-function CustomCursor({ enabled }) {
-  const ringRef = React.useRef(null);
-  const dotRef = React.useRef(null);
-  const [hover, setHover] = React.useState(false);
-
-  React.useEffect(() => {
-    if (!enabled) return;
-    let mx = 0, my = 0, rx = 0, ry = 0, dx = 0, dy = 0;
-    let raf;
-    const onMove = (e) => { mx = e.clientX; my = e.clientY; };
-    const tick = () => {
-      rx += (mx - rx) * 0.16;
-      ry += (my - ry) * 0.16;
-      dx += (mx - dx) * 0.45;
-      dy += (my - dy) * 0.45;
-      if (ringRef.current) {
-        ringRef.current.style.left = rx + 'px';
-        ringRef.current.style.top = ry + 'px';
-      }
-      if (dotRef.current) {
-        dotRef.current.style.left = dx + 'px';
-        dotRef.current.style.top = dy + 'px';
-      }
-      raf = requestAnimationFrame(tick);
-    };
-    window.addEventListener('mousemove', onMove);
-    raf = requestAnimationFrame(tick);
-
-    const onOver = (e) => {
-      const t = e.target;
-      if (!t || !t.closest) return;
-      setHover(!!t.closest('button, a, .landing-btn-primary, .meet-ryan-photo img'));
-    };
-    document.addEventListener('mouseover', onOver);
-
-    return () => {
-      window.removeEventListener('mousemove', onMove);
-      document.removeEventListener('mouseover', onOver);
-      cancelAnimationFrame(raf);
-    };
-  }, [enabled]);
-
-  if (!enabled) return null;
-
-  return (
-    <>
-      <div ref={ringRef} className={'cursor' + (hover ? ' expand' : '')}></div>
-      <div ref={dotRef} className="cursor-dot"></div>
-    </>
-  );
-}
-
-/* ========================================================
    Tweaks panel
 ======================================================== */
 function Tweaks({ t, setTweak }) {
@@ -218,13 +163,6 @@ function Tweaks({ t, setTweak }) {
         />
       </TweakSection>
 
-      <TweakSection label="Interface">
-        <TweakToggle
-          label="Custom Cursor"
-          value={t.showCursor}
-          onChange={(v) => setTweak('showCursor', v)}
-        />
-      </TweakSection>
     </TweaksPanel>
   );
 }
@@ -236,11 +174,6 @@ export default function RyanApp() {
   const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
   const [loaded, setLoaded] = React.useState(false);
   const [enterTheme, setEnterTheme] = React.useState(null);
-  const [finePointer, setFinePointer] = React.useState(false);
-
-  React.useEffect(() => {
-    setFinePointer(window.matchMedia('(pointer: fine)').matches);
-  }, []);
 
   // Apply tweak vars to :root
   React.useEffect(() => {
@@ -279,8 +212,6 @@ export default function RyanApp() {
       <div className={'preload' + (loaded ? ' gone' : '')}>
         <div className="preload-mark">{SITE.driver}</div>
       </div>
-
-      <CustomCursor enabled={!!t.showCursor && finePointer} />
 
       <TopNav />
       <MobileBookBar />

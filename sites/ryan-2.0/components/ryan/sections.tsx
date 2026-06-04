@@ -103,10 +103,6 @@ function Reserve() {
               <a className="v" href={PHONE_HREF}>{PHONE_DISPLAY}</a>
             </div>
             <div className="row">
-              <div className="k">Email</div>
-              <a className="v" href="mailto:ryan@ryanmotivates.co">ryan@ryanmotivates.co</a>
-            </div>
-            <div className="row">
               <div className="k">Based in</div>
               <div className="v">Federal Hill · Baltimore</div>
             </div>
@@ -165,7 +161,6 @@ function Footer() {
             <h5>Contact</h5>
             <ul>
               <li><a href={PHONE_HREF}>{PHONE_DISPLAY}</a></li>
-              <li><a href="mailto:ryan@ryanmotivates.co">ryan@ryanmotivates.co</a></li>
               <li><span>Federal Hill · Baltimore</span></li>
             </ul>
           </div>

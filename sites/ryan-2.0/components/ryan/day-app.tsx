@@ -84,11 +84,6 @@ const I = {
       <circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/>
     </svg>
   ),
-  fb: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M16 3h-2a4 4 0 0 0-4 4v3H7v4h3v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h2V3z"/>
-    </svg>
-  ),
   yelp: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
       <path d="M12 3v9"/>
@@ -527,9 +522,12 @@ function Footer() {
           <a href="#contact">Contact</a>
         </div>
 
+        <div className="footer-links">
+          <a href="/night">Night Experience</a>
+        </div>
+
         <div className="footer-social">
-          <a href="#" aria-label="Instagram">{I.ig}</a>
-          <a href="#" aria-label="Facebook">{I.fb}</a>
+          <a href="https://www.instagram.com/ryanjmotivates/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">{I.ig}</a>
           <a href="#" aria-label="Yelp">{I.yelp}</a>
         </div>
       </div>
