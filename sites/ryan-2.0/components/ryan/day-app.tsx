@@ -126,19 +126,23 @@ function Nav() {
     <nav className={'nav day-nav' + (scrolled ? ' scrolled' : '') + (pastHero ? ' past-hero' : '')}>
       <BrandLockup href="#" variant="light" className="nav-brand" />
 
-      <div className="nav-links">
-        <a className="nav-link active" href="#services">Services</a>
-        <a className="nav-link" href="#fleet">Fleet</a>
-        <a className="nav-link" href="#experience">Experience</a>
-        <a className="nav-link" href="#about">About</a>
-        <a className="nav-link" href="#contact">Contact</a>
-      </div>
+      {pastHero && (
+        <div className="nav-links">
+          <a className="nav-link active" href="#services">Services</a>
+          <a className="nav-link" href="#fleet">Fleet</a>
+          <a className="nav-link" href="#experience">Experience</a>
+          <a className="nav-link" href="#about">About</a>
+          <a className="nav-link" href="#contact">Contact</a>
+        </div>
+      )}
 
       <div className="nav-right">
-        <a className="nav-cta" href="#contact">
-          Book Now
-          <span className="arrow">{I.arrow}</span>
-        </a>
+        {pastHero && (
+          <a className="nav-cta" href="https://tr.ee/GTOHjorP2S" target="_blank" rel="noopener noreferrer">
+            Book Now
+            <span className="arrow">{I.arrow}</span>
+          </a>
+        )}
       </div>
     </nav>
   );
