@@ -20,16 +20,20 @@ const Nav = () => {
     <nav className={'nav ' + (scrolled ? 'scrolled' : '')}>
       <BrandLockup href="#hero" onClick={go('hero')} />
 
-      <div className="nav-links">
-        <button className="nav-link" onClick={go('moments')}>Occasions</button>
-        <button className="nav-link" onClick={go('interior')}>Cabin</button>
-        <button className="nav-link" onClick={go('baltimore')}>Service Area</button>
-        <button className="nav-link" onClick={go('book')}>Book</button>
-      </div>
+      {scrolled && (
+        <div className="nav-links">
+          <button className="nav-link" onClick={go('moments')}>Occasions</button>
+          <button className="nav-link" onClick={go('interior')}>Cabin</button>
+          <button className="nav-link" onClick={go('baltimore')}>Service Area</button>
+          <button className="nav-link" onClick={go('book')}>Book</button>
+        </div>
+      )}
 
-      <button className="nav-cta" onClick={go('book')}>
-        Book Your Night
-      </button>
+      {scrolled && (
+        <button className="nav-cta" onClick={go('book')}>
+          Book Your Night
+        </button>
+      )}
     </nav>
   );
 };
