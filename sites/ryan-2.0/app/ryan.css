@@ -218,7 +218,7 @@ img { display: block; max-width: 100%; }
 /* ============ HERO ============ */
 .hero {
   position: relative;
-  height: 100vh; min-height: 720px;
+  height: 100vh; height: 100dvh; min-height: 720px;
   width: 100%;
   overflow: hidden;
 }

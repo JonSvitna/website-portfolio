@@ -152,7 +152,9 @@ export function HeroCinematic() {
                 className="mt-8 text-center md:text-left"
               >
                 <a
-                  href="#reserve"
+                  href="https://tr.ee/GTOHjorP2S"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="font-mono text-[11px] uppercase tracking-[0.26em] text-champagne underline-offset-4 transition-colors hover:text-paper hover:underline"
                 >
                   Reserve a date

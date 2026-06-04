@@ -36,7 +36,7 @@ const Hero = () => {
         </p>
 
         <div className="hero-actions">
-          <a href="#book" className="btn-primary">Book Your Night</a>
+          <a href="https://tr.ee/GTOHjorP2S" target="_blank" rel="noopener noreferrer" className="btn-primary">Book Your Night</a>
           <a href="sms:+16672071472" className="btn-ghost">Text 667 · 207 · 1472</a>
         </div>
 
