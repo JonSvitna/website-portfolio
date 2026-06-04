@@ -99,6 +99,18 @@ body::after {
 }
 
 /* ── Nav ── */
+.nav-back {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  transition: color 0.25s;
+  white-space: nowrap;
+}
+.nav-back:hover { color: var(--accent); }
+
 .nav {
   position: fixed;
   top: 0; left: 0; right: 0;

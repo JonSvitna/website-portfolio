@@ -119,7 +119,7 @@ function Nav() {
 
   return (
     <nav className={'nav day-nav' + (scrolled ? ' scrolled' : '') + (pastHero ? ' past-hero' : '')}>
-      <BrandLockup href="#" variant="light" className="nav-brand" />
+      <BrandLockup href="/" variant="light" className="nav-brand" />
 
       {pastHero && (
         <div className="nav-links">
@@ -566,6 +566,7 @@ function DayExperience() {
 
   return (
     <>
+      <a className="day-home-btn" href="/">← Home</a>
       <Nav />
       <Hero />
       <main className="day-landing">

@@ -18,7 +18,8 @@ const Nav = () => {
 
   return (
     <nav className={'nav ' + (scrolled ? 'scrolled' : '')}>
-      <BrandLockup href="#hero" onClick={go('hero')} />
+      <a className="nav-back" href="/">← Home</a>
+      <BrandLockup href="/" />
 
       {scrolled && (
         <div className="nav-links">

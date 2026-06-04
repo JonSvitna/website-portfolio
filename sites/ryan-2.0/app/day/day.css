@@ -68,6 +68,24 @@ ul  { list-style: none; }
 }
 
 /* ================================================================
+   HOME BACK BUTTON
+   ================================================================ */
+.day-home-btn {
+  position: fixed;
+  top: 22px;
+  left: var(--px, 32px);
+  z-index: 60;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  transition: color 0.25s;
+}
+.day-home-btn:hover { color: var(--accent); }
+
+/* ================================================================
    NAV
    ================================================================ */
 .nav {
