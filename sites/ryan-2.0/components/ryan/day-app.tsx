@@ -196,7 +196,7 @@ function Hero() {
               Premium chauffeured transportation for those who demand the very best — on time, every time.
             </p>
             <div className="hero-cta-row">
-              <a className="btn-fill" href="#contact">
+              <a className="btn-fill" href="https://tr.ee/GTOHjorP2S" target="_blank" rel="noopener noreferrer">
                 Book Now
                 <span className="arrow">{I.arrow}</span>
               </a>
@@ -420,7 +420,7 @@ function Fleet() {
           ))}
         </ul>
         <div data-reveal data-delay="3">
-          <a className="btn-fill" href="#contact">
+          <a className="btn-fill" href="https://tr.ee/GTOHjorP2S" target="_blank" rel="noopener noreferrer">
             View Fleet
             <span className="arrow">{I.arrow}</span>
           </a>
@@ -487,7 +487,7 @@ function FinalCTA() {
           {SITE.brand} brings executive-level service to every ride.
         </p>
         <div className="final-cta-actions" data-reveal data-delay="2">
-          <a className="btn-fill" href="#contact">
+          <a className="btn-fill" href="https://tr.ee/GTOHjorP2S" target="_blank" rel="noopener noreferrer">
             Book Now
             <span className="arrow">{I.arrow}</span>
           </a>
