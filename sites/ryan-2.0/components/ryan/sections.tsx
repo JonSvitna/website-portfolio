@@ -7,11 +7,6 @@ import React from 'react';
 const PHONE_DISPLAY = '667 · 207 · 1472';
 const PHONE_HREF = 'tel:+16672071472';
 
-function scrollToReserve(e) {
-  e?.preventDefault();
-  document.getElementById('reserve')?.scrollIntoView({ behavior: 'smooth' });
-}
-
 /* ========================================================
    Meet Ryan J.
 ======================================================== */
@@ -30,9 +25,14 @@ function MeetRyan() {
             day or night. Discreet, referral-based, always person to person.
           </p>
           <div className="meet-ryan-ctas">
-            <button type="button" className="landing-btn-primary" onClick={scrollToReserve}>
+            <a
+              className="landing-btn-primary"
+              href="https://tr.ee/GTOHjorP2S"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Book {SITE.driver}
-            </button>
+            </a>
             <a className="landing-phone" href={PHONE_HREF}>
               Call · {PHONE_DISPLAY}
             </a>
@@ -86,8 +86,6 @@ function RyanLifestyle() {
    Reserve / Contact
 ======================================================== */
 function Reserve() {
-  const [submitted, setSubmitted] = React.useState(false);
-
   return (
     <section id="reserve" className="reserve-light" data-screen-label="Reserve · Contact">
       <div className="landing-inner reserve-light-inner">
@@ -115,51 +113,20 @@ function Reserve() {
           </div>
         </div>
 
-        <form
-          className="reserve-light-form"
-          onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}
-        >
-          <div className="form-title">Request a reservation</div>
-
-          <div className="form-row">
-            <div className="form-field">
-              <label htmlFor="reserve-name">Name</label>
-              <input id="reserve-name" type="text" placeholder="Full name" required />
-            </div>
-            <div className="form-field">
-              <label htmlFor="reserve-phone">Phone</label>
-              <input id="reserve-phone" type="tel" placeholder="+1" required />
-            </div>
-          </div>
-
-          <div className="form-row">
-            <div className="form-field">
-              <label htmlFor="reserve-date">Date</label>
-              <input id="reserve-date" type="date" required />
-            </div>
-            <div className="form-field">
-              <label htmlFor="reserve-occasion">Occasion</label>
-              <select id="reserve-occasion" required defaultValue="">
-                <option value="" disabled>Select occasion</option>
-                <option>Airport</option>
-                <option>Wedding</option>
-                <option>Date Night</option>
-                <option>Corporate</option>
-                <option>Other</option>
-              </select>
-            </div>
-          </div>
-
-          <div className="form-field">
-            <label htmlFor="reserve-notes">Notes</label>
-            <input id="reserve-notes" type="text" placeholder="Pickup, itinerary, preferences…" />
-          </div>
-
-          <button type="submit" className="landing-btn-primary landing-btn-full">
-            {submitted ? 'Request Received — We Will Reply Shortly' : 'Request Reservation'}
-            {!submitted && <span aria-hidden="true">→</span>}
-          </button>
-        </form>
+        <div className="reserve-light-form">
+          <div className="form-title">Ready to book?</div>
+          <p style={{ marginBottom: '1.5rem', fontSize: '0.9rem', opacity: 0.75 }}>
+            Tap the button below to open the booking form — {SITE.driver} confirms personally, usually within the hour.
+          </p>
+          <a
+            className="landing-btn-primary landing-btn-full"
+            href="https://tr.ee/GTOHjorP2S"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Book {SITE.driver} →
+          </a>
+        </div>
       </div>
     </section>
   );
