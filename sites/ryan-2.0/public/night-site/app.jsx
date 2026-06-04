@@ -18,8 +18,7 @@ const Nav = () => {
 
   return (
     <nav className={'nav ' + (scrolled ? 'scrolled' : '')}>
-      <a className="nav-back" href="/">← Home</a>
-      <BrandLockup href="/" />
+      <BrandLockup href="#hero" onClick={go('hero')} />
 
       {scrolled && (
         <div className="nav-links">
@@ -73,6 +72,7 @@ const App = () => {
 
   return (
     <>
+      <a className="night-home-btn" href="/">← Home</a>
       <div className="ribbon" />
       <Nav />
       <Hero />

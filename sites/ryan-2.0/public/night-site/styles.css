@@ -99,17 +99,21 @@ body::after {
 }
 
 /* ── Nav ── */
-.nav-back {
+.night-home-btn {
+  position: fixed;
+  top: 22px;
+  left: var(--px, 32px);
+  z-index: 70;
   font-family: var(--f-mono);
   font-size: 10px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.75);
   text-decoration: none;
   transition: color 0.25s;
   white-space: nowrap;
 }
-.nav-back:hover { color: var(--accent); }
+.night-home-btn:hover { color: var(--accent); }
 
 .nav {
   position: fixed;
