@@ -196,9 +196,9 @@ function Hero() {
                 Book Now
                 <span className="arrow">{I.arrow}</span>
               </a>
-              <a className="btn-outline" href="tel:+14439733356">
+              <a className="btn-outline" href="tel:+16672071472">
                 <span className="phone">{I.phone}</span>
-                Call (443) 973-3356
+                Call 667-207-1472
               </a>
             </div>
           </div>
@@ -487,9 +487,9 @@ function FinalCTA() {
             Book Now
             <span className="arrow">{I.arrow}</span>
           </a>
-          <a className="btn-outline" href="tel:+14439733356">
+          <a className="btn-outline" href="tel:+16672071472">
             <span className="phone">{I.phone}</span>
-            Call (443) 973-3356
+            Call 667-207-1472
           </a>
           <span className="final-journey-note">
             Request. Confirm. Arrive.

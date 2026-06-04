@@ -111,7 +111,7 @@ function MobileBookBar() {
       <button type="button" className="mobile-book-bar-primary" onClick={scrollToReserve}>
         Book {SITE.brand}
       </button>
-      <a className="mobile-book-bar-call" href="tel:+14105550188">
+      <a className="mobile-book-bar-call" href="tel:+16672071472">
         Call
       </a>
     </div>

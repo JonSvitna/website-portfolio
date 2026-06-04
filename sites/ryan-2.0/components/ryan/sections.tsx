@@ -4,8 +4,8 @@
 import { SITE } from './site';
 import React from 'react';
 
-const PHONE_DISPLAY = '+1 410 · 555 · 0188';
-const PHONE_HREF = 'tel:+14105550188';
+const PHONE_DISPLAY = '667 · 207 · 1472';
+const PHONE_HREF = 'tel:+16672071472';
 
 function scrollToReserve(e) {
   e?.preventDefault();
