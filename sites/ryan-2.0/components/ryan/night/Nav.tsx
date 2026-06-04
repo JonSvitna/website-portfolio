@@ -1,7 +1,7 @@
 'use client';
 
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { SITE } from "./site";
 
 const links = [
@@ -13,6 +13,14 @@ const links = [
 
 export function Nav() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 80);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   return (
     <header className="fixed inset-x-0 top-0 z-40 px-4 pt-4 md:px-8">
@@ -27,31 +35,39 @@ export function Nav() {
           </a>
         </div>
 
-        <nav className="hidden items-center gap-8 md:flex">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="font-mono text-[10px] uppercase tracking-[0.22em] text-mist transition-colors hover:text-champagne"
-            >
-              {l.label}
-            </a>
-          ))}
-        </nav>
+        {scrolled && (
+          <nav className="hidden items-center gap-8 md:flex">
+            {links.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                className="font-mono text-[10px] uppercase tracking-[0.22em] text-mist transition-colors hover:text-champagne"
+              >
+                {l.label}
+              </a>
+            ))}
+          </nav>
+        )}
 
         <div className="flex items-center gap-3">
-          <a
-            href={`tel:${SITE.phoneTel}`}
-            className="hidden font-mono text-[10px] uppercase tracking-[0.18em] text-mist sm:block"
-          >
-            {SITE.phoneDisplay}
-          </a>
-          <a
-            href="#reserve"
-            className="rounded-full border border-champagne/50 bg-champagne/10 px-4 py-2 text-xs font-medium text-champagne transition-transform active:scale-[0.98] hover:bg-champagne/20"
-          >
-            Reserve
-          </a>
+          {scrolled && (
+            <a
+              href={`tel:${SITE.phoneTel}`}
+              className="hidden font-mono text-[10px] uppercase tracking-[0.18em] text-mist sm:block"
+            >
+              {SITE.phoneDisplay}
+            </a>
+          )}
+          {scrolled && (
+            <a
+              href="https://tr.ee/GTOHjorP2S"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full border border-champagne/50 bg-champagne/10 px-4 py-2 text-xs font-medium text-champagne transition-transform active:scale-[0.98] hover:bg-champagne/20"
+            >
+              Reserve
+            </a>
+          )}
           <button
             type="button"
             className="rounded-full border border-white/15 px-3 py-2 text-xs text-paper md:hidden"
