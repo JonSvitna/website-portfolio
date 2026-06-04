@@ -75,7 +75,7 @@ const BookingCTA = () => {
         </a>
 
         <div className="booking-cta-actions" data-reveal data-delay="3">
-          <a href="tel:+16672071472" className="btn-primary">Book Your Night</a>
+          <a href="https://tr.ee/GTOHjorP2S" target="_blank" rel="noopener noreferrer" className="btn-primary">Book Your Night</a>
           <a href="sms:+16672071472" className="btn-ghost">Text us instead</a>
         </div>
 
