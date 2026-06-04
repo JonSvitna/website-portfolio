@@ -46,11 +46,6 @@ function TopNav() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const scrollToReserve = (e) => {
-    e?.preventDefault();
-    document.getElementById('reserve')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <header className={'topnav' + (visible ? ' nav-visible' : '')}>
       <BrandLockup
@@ -60,11 +55,11 @@ function TopNav() {
       />
       <nav className="nav-links">
         <a href="#about">About</a>
-        <a href="#reserve">Reserve</a>
+        <a href="https://tr.ee/GTOHjorP2S" target="_blank" rel="noopener noreferrer">Reserve</a>
         <a href="/day">Day</a>
         <a href="/night">Night</a>
       </nav>
-      <a href="#reserve" className="topnav-reserve" onClick={scrollToReserve}>
+      <a href="https://tr.ee/GTOHjorP2S" target="_blank" rel="noopener noreferrer" className="topnav-reserve">
         Reserve
       </a>
     </header>
@@ -99,18 +94,18 @@ function MobileBookBar() {
     };
   }, []);
 
-  const scrollToReserve = (e) => {
-    e?.preventDefault();
-    document.getElementById('reserve')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   const show = visible && !atReserve;
 
   return (
     <div className={'mobile-book-bar' + (show ? ' visible' : '')} aria-hidden={!show}>
-      <button type="button" className="mobile-book-bar-primary" onClick={scrollToReserve}>
+      <a
+        className="mobile-book-bar-primary"
+        href="https://tr.ee/GTOHjorP2S"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         Book {SITE.brand}
-      </button>
+      </a>
       <a className="mobile-book-bar-call" href="tel:+16672071472">
         Call
       </a>
